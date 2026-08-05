@@ -6,3 +6,5 @@ venv/
 *.egg-info/
 build/
 dist/
+orders_export*.csv
+*.csv
