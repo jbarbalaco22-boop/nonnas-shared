@@ -74,7 +74,7 @@
       "61140 Affiliate Commissions",
       "61150 Marketplace Advertising"
     ],
-    "note": "all currently tagged Class=DTC regardless of platform"
+    "note": "Confirmed against a live 30-day P&L pull (2026-08-05): Meta Ads, Google Ads, TikTok Ads, Amazon Ads, and Marketplace Advertising are all tagged Class='Not Specified', not 'DTC' as previously stated here — none of these accounts are currently split by channel via Class. Paid Collaborations and Affiliate Commissions had zero activity in that period so their tagging wasn't directly confirmed, but presumed to follow the same pattern. Any per-channel ad spend allocation needs a different signal than Class (e.g. per-platform account already exists here, so allocate by account instead)."
   },
   "fees": {
     "dtc": ["55100 Shopify Transaction Fees"],
