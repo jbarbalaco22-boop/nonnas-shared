@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nonnas-shared"
+version = "0.1.0"
+description = "Shared QuickBooks/Shopify connectors and channel account-mapping for Nonna's Olive Oil tooling."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["nonnas_shared*"]
+
+[tool.setuptools.package-data]
+"nonnas_shared.data" = ["*.json"]

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nonna's Olive Oil — QuickBooks Authorization</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 600px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #222; }
+  .field { margin: 20px 0; }
+  label { display: block; font-weight: bold; margin-bottom: 4px; }
+  input { width: 100%; padding: 10px; font-family: monospace; font-size: 0.95em; box-sizing: border-box; }
+  .missing { color: #a93226; }
+</style>
+</head>
+<body>
+
+<h1>QuickBooks Connected</h1>
+<p>Copy the value(s) below back into the terminal that's waiting for them, then close this tab.</p>
+
+<div id="fields"></div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const fields = { code: 'Authorization Code', realmId: 'Realm ID (Company ID)', state: 'State' };
+  const container = document.getElementById('fields');
+
+  for (const [key, label] of Object.entries(fields)) {
+    const value = params.get(key);
+    const div = document.createElement('div');
+    div.className = 'field';
+    const labelEl = document.createElement('label');
+    labelEl.textContent = label;
+    div.appendChild(labelEl);
+    if (value) {
+      const input = document.createElement('input');
+      input.readOnly = true;
+      input.value = value;
+      input.onclick = () => input.select();
+      div.appendChild(input);
+    } else {
+      const missing = document.createElement('p');
+      missing.className = 'missing';
+      missing.textContent = '(not present in URL)';
+      div.appendChild(missing);
+    }
+    container.appendChild(div);
+  }
+</script>
+
+</body>
+</html>

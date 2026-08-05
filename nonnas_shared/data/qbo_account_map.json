@@ -1,0 +1,100 @@
+{
+  "_source": "Phase 3 handoff brief, Section 3 — source of truth for QBO bucket mapping",
+  "classes": {
+    "DTC": "DTC",
+    "TikTok": "TikTok",
+    "Amazon": "Amazon",
+    "Wholesale": "Wholesale"
+  },
+  "net_sales": {
+    "dtc": {
+      "include": [
+        "41100 Product Revenue – DTC",
+        "42100 Shipping Revenue",
+        "42200 Merch Revenue"
+      ],
+      "include_tagged_class": "DTC",
+      "subtract": [
+        "43100",
+        "43200",
+        "43300"
+      ],
+      "subtract_tagged_class": "DTC"
+    },
+    "tiktok": {
+      "include": [
+        "41120 Product Revenue – TikTok Shop"
+      ],
+      "subtract": [
+        "43100",
+        "43200",
+        "43300"
+      ],
+      "subtract_tagged_class": "TikTok",
+      "subtract_note": "discounts/returns/chargebacks tagged TikTok — same shared accounts as dtc, filtered by Class"
+    },
+    "amazon": {
+      "include": [
+        "41130 Product Revenue – Amazon"
+      ],
+      "subtract": [
+        "43100",
+        "43200",
+        "43300"
+      ],
+      "subtract_tagged_class": "Amazon",
+      "subtract_note": "discounts/returns/chargebacks tagged Amazon — same shared accounts as dtc, filtered by Class"
+    },
+    "wholesale": {
+      "include": [
+        "41110 Product Revenue – Wholesale"
+      ],
+      "subtract": [
+        "41140 Wholesale Markdown / Allowances"
+      ]
+    }
+  },
+  "cogs": [
+    "51100 Bulk Olive Oil – Raw",
+    "51110 Packaging Supplies",
+    "52500 Inventory Adjustments / Shrink"
+  ],
+  "three_pl": [
+    "52100 3PL Fulfillment Fees",
+    "52110 Pick & Pack Fees",
+    "52120 Shipping Expenses"
+  ],
+  "ads": {
+    "accounts": [
+      "61100 Meta Ads",
+      "61110 Google Ads",
+      "61120 TikTok Ads",
+      "61125 Amazon Ads",
+      "61130 Paid Collaborations",
+      "61140 Affiliate Commissions",
+      "61150 Marketplace Advertising"
+    ],
+    "note": "all currently tagged Class=DTC regardless of platform"
+  },
+  "fees": {
+    "dtc": ["55100 Shopify Transaction Fees"],
+    "tiktok": ["55110 TikTok Shop Fees"],
+    "amazon": ["55120 Amazon Fees"],
+    "other_as_tagged": ["55190 Other Payment Processing Fees"]
+  },
+  "clearing": {
+    "shopify": "11185 Shopify Clearing",
+    "tiktok": "11190 Tiktok Clearing",
+    "amazon": ["11180 Amazon Clearing", "11181 Amazon Carried Balances"]
+  },
+  "bank_cash": [
+    "11100 Chase Operating Bank Account",
+    "11110 Highbeam Checking",
+    "11120 Highbeam High Yield Savings",
+    "11170 Petty Cash"
+  ],
+  "excluded_from_v1": {
+    "accounts": ["62100-62400 video/photo/creative/UGC"],
+    "note": "treated as overhead, not ad spend — confirm before go-live if this should change"
+  }
+}
