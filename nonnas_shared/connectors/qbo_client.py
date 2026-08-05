@@ -5,10 +5,13 @@ section totals), so callers can apply config/qbo_account_map.json's
 include/subtract rules to compute net sales, COGS, fees, etc. per channel —
 see channel_financials.py for that layer.
 """
+import re
 from datetime import date
 
 from nonnas_shared.connectors.http import request as http_request
 from nonnas_shared.connectors.qbo_auth import api_base_url
+
+_LEADING_ACCOUNT_NUMBER = re.compile(r"^\d+\s+")
 
 
 def _get(realm_id: str, access_token: str, environment: str, path: str, params: dict) -> dict:
@@ -70,20 +73,34 @@ def _walk_pl_rows(rows: list, class_names: list, current_group: str | None, sink
 def fetch_account_balances(
     realm_id: str, access_token: str, account_names: list[str], environment: str = "production"
 ) -> dict:
-    """Return {account_name: current_balance} for the given account names."""
+    """Return {account_name: current_balance} for accounts matching the given
+    names, keyed by the name as given in account_names (not QBO's real name).
+
+    account_names may carry a leading account-number prefix (as they appear
+    in P&L report row labels / qbo_account_map.json, e.g. "11100 Chase
+    Operating Bank Account") even though QBO's Account.Name field doesn't
+    include it, and the real Account.Name often has its own trailing suffix
+    (e.g. "Chase Operating Bank Account - 9889" for the account mask). An
+    exact WHERE Name IN (...) match against those never matches anything, so
+    this pulls the account list and matches by prefix after stripping any
+    leading account number from the target.
+    """
     if not account_names:
         return {}
 
-    quoted = ",".join(f"'{_escape_qb_string(name)}'" for name in account_names)
-    query = f"SELECT Name, CurrentBalance FROM Account WHERE Name IN ({quoted})"
+    targets = [(name, _LEADING_ACCOUNT_NUMBER.sub("", name)) for name in account_names]
+
     data = _get(realm_id, access_token, environment, "query", {
-        "query": query,
+        "query": "SELECT Name, CurrentBalance FROM Account MAXRESULTS 1000",
         "minorversion": 65,
     })
 
     balances = {}
     for account in data.get("QueryResponse", {}).get("Account", []):
-        balances[account["Name"]] = float(account.get("CurrentBalance", 0))
+        real_name = account.get("Name", "")
+        for original, stripped in targets:
+            if real_name == stripped or real_name.startswith(stripped):
+                balances[original] = float(account.get("CurrentBalance", 0))
     return balances
 
 
@@ -106,7 +123,3 @@ def fetch_open_bills(realm_id: str, access_token: str, environment: str = "produ
             "total": float(bill.get("TotalAmt", 0)),
         })
     return bills
-
-
-def _escape_qb_string(value: str) -> str:
-    return value.replace("'", "\\'")
