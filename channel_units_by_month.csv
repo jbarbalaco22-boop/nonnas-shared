@@ -3,7 +3,7 @@ Month,DTC,TikTok,Amazon,Wholesale,Total Units,Note
 2024-10,,,,,28,"JE already posted, confirmed by bookkeeper"
 2024-11,,,,,0,No sales / already posted period
 2024-12,,,,,1,"JE already posted, confirmed by bookkeeper"
-2025-04,831,95,0,623,1549,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
+2025-04,253,95,0,623,971,"CORRECTED 2026-08-06: original 831 figure double-counted ~578 units of Wholesale draft-order/Faire revenue into the DTC column (Draft Orders channel alone was $9,627.30 net that month, an outlier vs every other month). Verified against real Shopify order data via sourceName (web vs shopify_draft_order/faire) - genuine DTC (web-source) orders total ~253 units, matching QBO's already-deducted figure almost exactly. Wholesale's 623 was already correct and unaffected."
 2025-05,197,24,0,467,688,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
 2025-06,175,74,0,96,345,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
 2025-07,246,292,0,180,718,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
