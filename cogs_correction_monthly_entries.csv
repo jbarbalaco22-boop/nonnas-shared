@@ -1,207 +1,233 @@
 RowType,Month,DocNumber,Account,Class,Amount,Memo
-JE Header,2025-04,COGS-CORR-Apr2025,,,6072.08,"COGS correction for Apr 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,3257.52,DTC: 831 units x ($11.00 true - $7.08 posted) = $3257.52 understatement
+JE Header,2025-04,COGS-CORR-Apr2025,,,3806.32,"COGS correction for Apr 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,991.76,DTC: 253 units x ($11.00 true - $7.08 posted) = $991.76 understatement
 Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,372.40,TikTok: 95 units x ($11.00 true - $7.08 posted) = $372.40 understatement
-Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2442.16,Wholesale: 623 units x ($11.00 true - $7.08 posted) = $2442.16 understatement
-Line,2025-04,COGS-CORR-Apr2025,13100 Inventory (Credit),,6072.08,Relieves inventory for Apr 2025 COGS correction
-JE Header,2025-05,COGS-CORR-May2025,,,2696.96,"COGS correction for May 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2442.16,"Wholesale: 623 units x ($11.00 true - $7.08 posted) = $2,442.16 understatement"
+Line,2025-04,COGS-CORR-Apr2025,13100 Inventory (Credit),,3806.32,Relieves inventory for Apr 2025 COGS correction
+JE Header,2025-05,COGS-CORR-May2025,,,2696.96,"COGS correction for May 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.24,DTC: 197 units x ($11.00 true - $7.08 posted) = $772.24 understatement
 Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,94.08,TikTok: 24 units x ($11.00 true - $7.08 posted) = $94.08 understatement
-Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1830.64,Wholesale: 467 units x ($11.00 true - $7.08 posted) = $1830.64 understatement
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1830.64,"Wholesale: 467 units x ($11.00 true - $7.08 posted) = $1,830.64 understatement"
 Line,2025-05,COGS-CORR-May2025,13100 Inventory (Credit),,2696.96,Relieves inventory for May 2025 COGS correction
-JE Header,2025-06,COGS-CORR-Jun2025,,,1352.40,"COGS correction for Jun 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2025-06,COGS-CORR-Jun2025,,,1352.40,"COGS correction for Jun 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,686.00,DTC: 175 units x ($11.00 true - $7.08 posted) = $686.00 understatement
 Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,290.08,TikTok: 74 units x ($11.00 true - $7.08 posted) = $290.08 understatement
 Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,376.32,Wholesale: 96 units x ($11.00 true - $7.08 posted) = $376.32 understatement
 Line,2025-06,COGS-CORR-Jun2025,13100 Inventory (Credit),,1352.40,Relieves inventory for Jun 2025 COGS correction
-JE Header,2025-07,COGS-CORR-Jul2025,,,2814.56,"COGS correction for Jul 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2025-07,COGS-CORR-Jul2025,,,2814.56,"COGS correction for Jul 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,964.32,DTC: 246 units x ($11.00 true - $7.08 posted) = $964.32 understatement
-Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1144.64,TikTok: 292 units x ($11.00 true - $7.08 posted) = $1144.64 understatement
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1144.64,"TikTok: 292 units x ($11.00 true - $7.08 posted) = $1,144.64 understatement"
 Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,705.60,Wholesale: 180 units x ($11.00 true - $7.08 posted) = $705.60 understatement
 Line,2025-07,COGS-CORR-Jul2025,13100 Inventory (Credit),,2814.56,Relieves inventory for Jul 2025 COGS correction
-JE Header,2025-08,COGS-CORR-Aug2025,,,2508.80,"COGS correction for Aug 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1023.12,DTC: 261 units x ($11.00 true - $7.08 posted) = $1023.12 understatement
-Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1297.52,TikTok: 331 units x ($11.00 true - $7.08 posted) = $1297.52 understatement
+JE Header,2025-08,COGS-CORR-Aug2025,,,2508.80,"COGS correction for Aug 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1023.12,"DTC: 261 units x ($11.00 true - $7.08 posted) = $1,023.12 understatement"
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1297.52,"TikTok: 331 units x ($11.00 true - $7.08 posted) = $1,297.52 understatement"
 Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,188.16,Wholesale: 48 units x ($11.00 true - $7.08 posted) = $188.16 understatement
 Line,2025-08,COGS-CORR-Aug2025,13100 Inventory (Credit),,2508.80,Relieves inventory for Aug 2025 COGS correction
-JE Header,2025-09,COGS-CORR-Sep2025,,,7930.16,"COGS correction for Sep 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1666.00,DTC: 425 units x ($11.00 true - $7.08 posted) = $1666.00 understatement
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1042.72,TikTok: 266 units x ($11.00 true - $7.08 posted) = $1042.72 understatement
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,5221.44,Wholesale: 1332 units x ($11.00 true - $7.08 posted) = $5221.44 understatement
+JE Header,2025-09,COGS-CORR-Sep2025,,,7930.16,"COGS correction for Sep 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1666.00,"DTC: 425 units x ($11.00 true - $7.08 posted) = $1,666.00 understatement"
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1042.72,"TikTok: 266 units x ($11.00 true - $7.08 posted) = $1,042.72 understatement"
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,5221.44,"Wholesale: 1332 units x ($11.00 true - $7.08 posted) = $5,221.44 understatement"
 Line,2025-09,COGS-CORR-Sep2025,13100 Inventory (Credit),,7930.16,Relieves inventory for Sep 2025 COGS correction
-JE Header,2025-10,COGS-CORR-Oct2025,,,2959.60,"COGS correction for Oct 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1081.92,DTC: 276 units x ($11.00 true - $7.08 posted) = $1081.92 understatement
-Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1407.28,TikTok: 359 units x ($11.00 true - $7.08 posted) = $1407.28 understatement
+JE Header,2025-10,COGS-CORR-Oct2025,,,2959.60,"COGS correction for Oct 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1081.92,"DTC: 276 units x ($11.00 true - $7.08 posted) = $1,081.92 understatement"
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1407.28,"TikTok: 359 units x ($11.00 true - $7.08 posted) = $1,407.28 understatement"
 Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,470.40,Wholesale: 120 units x ($11.00 true - $7.08 posted) = $470.40 understatement
 Line,2025-10,COGS-CORR-Oct2025,13100 Inventory (Credit),,2959.60,Relieves inventory for Oct 2025 COGS correction
-JE Header,2025-11,COGS-CORR-Nov2025,,,2787.12,"COGS correction for Nov 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1042.72,DTC: 266 units x ($11.00 true - $7.08 posted) = $1042.72 understatement
-Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1509.20,TikTok: 385 units x ($11.00 true - $7.08 posted) = $1509.20 understatement
+JE Header,2025-11,COGS-CORR-Nov2025,,,2787.12,"COGS correction for Nov 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1042.72,"DTC: 266 units x ($11.00 true - $7.08 posted) = $1,042.72 understatement"
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1509.20,"TikTok: 385 units x ($11.00 true - $7.08 posted) = $1,509.20 understatement"
 Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,235.20,Wholesale: 60 units x ($11.00 true - $7.08 posted) = $235.20 understatement
 Line,2025-11,COGS-CORR-Nov2025,13100 Inventory (Credit),,2787.12,Relieves inventory for Nov 2025 COGS correction
-JE Header,2025-12,COGS-CORR-Dec2025,,,2124.64,"COGS correction for Dec 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2025-12,COGS-CORR-Dec2025,,,2124.64,"COGS correction for Dec 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,709.52,DTC: 181 units x ($11.00 true - $7.08 posted) = $709.52 understatement
-Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1415.12,TikTok: 361 units x ($11.00 true - $7.08 posted) = $1415.12 understatement
+Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1415.12,"TikTok: 361 units x ($11.00 true - $7.08 posted) = $1,415.12 understatement"
 Line,2025-12,COGS-CORR-Dec2025,13100 Inventory (Credit),,2124.64,Relieves inventory for Dec 2025 COGS correction
-JE Header,2026-01,COGS-CORR-Jan2026,,,2152.08,"COGS correction for Jan 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2026-01,COGS-CORR-Jan2026,,,2152.08,"COGS correction for Jan 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,713.44,DTC: 182 units x ($11.00 true - $7.08 posted) = $713.44 understatement
-Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1438.64,TikTok: 367 units x ($11.00 true - $7.08 posted) = $1438.64 understatement
+Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1438.64,"TikTok: 367 units x ($11.00 true - $7.08 posted) = $1,438.64 understatement"
 Line,2026-01,COGS-CORR-Jan2026,13100 Inventory (Credit),,2152.08,Relieves inventory for Jan 2026 COGS correction
-JE Header,2026-02,COGS-CORR-Feb2026,,,1818.88,"COGS correction for Feb 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2026-02,COGS-CORR-Feb2026,,,1818.88,"COGS correction for Feb 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,682.08,DTC: 174 units x ($11.00 true - $7.08 posted) = $682.08 understatement
-Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1136.80,TikTok: 290 units x ($11.00 true - $7.08 posted) = $1136.80 understatement
+Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1136.80,"TikTok: 290 units x ($11.00 true - $7.08 posted) = $1,136.80 understatement"
 Line,2026-02,COGS-CORR-Feb2026,13100 Inventory (Credit),,1818.88,Relieves inventory for Feb 2026 COGS correction
-JE Header,2026-03,COGS-CORR-Mar2026,,,1717.40,"COGS correction for Mar 2026: true FIFO inventory cost was $10.18/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2026-03,COGS-CORR-Mar2026,,,1717.40,"COGS correction for Mar 2026: true FIFO inventory cost was $10.18/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,567.30,DTC: 183 units x ($10.18 true - $7.08 posted) = $567.30 understatement
-Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1075.70,TikTok: 347 units x ($10.18 true - $7.08 posted) = $1075.70 understatement
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1075.70,"TikTok: 347 units x ($10.18 true - $7.08 posted) = $1,075.70 understatement"
 Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,74.40,Wholesale: 24 units x ($10.18 true - $7.08 posted) = $74.40 understatement
 Line,2026-03,COGS-CORR-Mar2026,13100 Inventory (Credit),,1717.40,Relieves inventory for Mar 2026 COGS correction
-JE Header,2026-04,COGS-CORR-Apr2026,,,3937.92,"COGS correction for Apr 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2026-04,COGS-CORR-Apr2026,,,3937.92,"COGS correction for Apr 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,615.30,DTC: 210 units x ($10.01 true - $7.08 posted) = $615.30 understatement
-Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,2194.57,TikTok: 749 units x ($10.01 true - $7.08 posted) = $2194.57 understatement
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,2194.57,"TikTok: 749 units x ($10.01 true - $7.08 posted) = $2,194.57 understatement"
 Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,354.53,Amazon: 121 units x ($10.01 true - $7.08 posted) = $354.53 understatement
 Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,773.52,Wholesale: 264 units x ($10.01 true - $7.08 posted) = $773.52 understatement
 Line,2026-04,COGS-CORR-Apr2026,13100 Inventory (Credit),,3937.92,Relieves inventory for Apr 2026 COGS correction
-JE Header,2026-05,COGS-CORR-May2026,,,2686.81,"COGS correction for May 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+JE Header,2026-05,COGS-CORR-May2026,,,2686.81,"COGS correction for May 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,506.89,DTC: 173 units x ($10.01 true - $7.08 posted) = $506.89 understatement
-Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18,TikTok: 426 units x ($10.01 true - $7.08 posted) = $1248.18 understatement
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18,"TikTok: 426 units x ($10.01 true - $7.08 posted) = $1,248.18 understatement"
 Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,931.74,Amazon: 318 units x ($10.01 true - $7.08 posted) = $931.74 understatement
 Line,2026-05,COGS-CORR-May2026,13100 Inventory (Credit),,2686.81,Relieves inventory for May 2026 COGS correction
-JE Header,2026-06,COGS-CORR-Jun2026,,,2107.28,"COGS correction for Jun 2026: true FIFO inventory cost was $9.92/unit (confirmed $7.08/unit rate reached the front of the FIFO queue this month), vs. $7.08 posted. Restates COGS by channel for units sold this month."
+JE Header,2026-06,COGS-CORR-Jun2026,,,2107.28,"COGS correction for Jun 2026: true FIFO inventory cost was $9.92/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,590.72,DTC: 208 units x ($9.92 true - $7.08 posted) = $590.72 understatement
 Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,661.72,TikTok: 233 units x ($9.92 true - $7.08 posted) = $661.72 understatement
 Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,854.84,Amazon: 301 units x ($9.92 true - $7.08 posted) = $854.84 understatement
 Line,2026-06,COGS-CORR-Jun2026,13100 Inventory (Credit),,2107.28,Relieves inventory for Jun 2026 COGS correction
-JE Header,2026-07,COGS-CORR-Jul2026,,,1001.52,"COGS correction for Jul 2026: true FIFO inventory cost was $8.25/unit (confirmed $7.08/unit rate reached the front of the FIFO queue this month), vs. $7.08 posted. Restates COGS by channel for units sold this month."
+JE Header,2026-07,COGS-CORR-Jul2026,,,1001.52,"COGS correction for Jul 2026: true FIFO inventory cost was $8.25/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
 Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,273.78,DTC: 234 units x ($8.25 true - $7.08 posted) = $273.78 understatement
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,257.40,"TikTok: 220 units x $8.25 true FIFO cost. NOTE: unlike other channels this month, TikTok had $0 actually posted (not $7.08) - the automated deduction mechanism had already stopped for TikTok by Jul 2026. This line captures the portion of true cost above the $7.08 baseline ($257.40); the remaining $7.08/unit that was never posted at all is captured separately in TI-UNDEDUCTED-Jul2026."
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,257.40,TikTok: 220 units x ($8.25 true - $7.08 posted) = $257.40 understatement
 Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,456.30,Amazon: 390 units x ($8.25 true - $7.08 posted) = $456.30 understatement
 Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,14.04,Wholesale: 12 units x ($8.25 true - $7.08 posted) = $14.04 understatement
 Line,2026-07,COGS-CORR-Jul2026,13100 Inventory (Credit),,1001.52,Relieves inventory for Jul 2026 COGS correction
-JE Header,2026-08,COGS-CORR-Aug2026,,,0.00,"No rate correction needed for Aug 2026: true FIFO cost ($7.08/unit) matches the $7.08/unit posted for channels where the deduction mechanism ran (DTC). TikTok and Amazon had $0 posted this month (deduction lag continuing/starting) - not a rate error, so no line belongs here; their full $7.08/unit true cost is captured separately in TI-UNDEDUCTED-Aug2026 and AM-UNDEDUCTED-Aug2026."
-JE Header,2025-04,WS-UNDEDUCTED-Apr2025,,,4410.84,Wholesale inventory catch-up for Apr 2025: 623 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Apr2025.
-Line,2025-04,WS-UNDEDUCTED-Apr2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,4410.84,Wholesale: 623 units x $7.08 never-deducted rate = $4410.84
-Line,2025-04,WS-UNDEDUCTED-Apr2025,13100 Inventory (Credit),,4410.84,Relieves inventory for Apr 2025 Wholesale catch-up
-JE Header,2025-05,WS-UNDEDUCTED-May2025,,,3306.36,Wholesale inventory catch-up for May 2025: 467 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-May2025.
-Line,2025-05,WS-UNDEDUCTED-May2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,3306.36,Wholesale: 467 units x $7.08 never-deducted rate = $3306.36
-Line,2025-05,WS-UNDEDUCTED-May2025,13100 Inventory (Credit),,3306.36,Relieves inventory for May 2025 Wholesale catch-up
-JE Header,2025-06,WS-UNDEDUCTED-Jun2025,,,679.68,Wholesale inventory catch-up for Jun 2025: 96 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Jun2025.
-Line,2025-06,WS-UNDEDUCTED-Jun2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,679.68,Wholesale: 96 units x $7.08 never-deducted rate = $679.68
-Line,2025-06,WS-UNDEDUCTED-Jun2025,13100 Inventory (Credit),,679.68,Relieves inventory for Jun 2025 Wholesale catch-up
-JE Header,2025-07,WS-UNDEDUCTED-Jul2025,,,1274.40,Wholesale inventory catch-up for Jul 2025: 180 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Jul2025.
-Line,2025-07,WS-UNDEDUCTED-Jul2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,1274.40,Wholesale: 180 units x $7.08 never-deducted rate = $1274.40
-Line,2025-07,WS-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,1274.40,Relieves inventory for Jul 2025 Wholesale catch-up
-JE Header,2025-08,WS-UNDEDUCTED-Aug2025,,,339.84,Wholesale inventory catch-up for Aug 2025: 48 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Aug2025.
-Line,2025-08,WS-UNDEDUCTED-Aug2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,339.84,Wholesale: 48 units x $7.08 never-deducted rate = $339.84
-Line,2025-08,WS-UNDEDUCTED-Aug2025,13100 Inventory (Credit),,339.84,Relieves inventory for Aug 2025 Wholesale catch-up
-JE Header,2025-09,WS-UNDEDUCTED-Sep2025,,,9430.56,Wholesale inventory catch-up for Sep 2025: 1332 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Sep2025.
-Line,2025-09,WS-UNDEDUCTED-Sep2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,9430.56,Wholesale: 1332 units x $7.08 never-deducted rate = $9430.56
-Line,2025-09,WS-UNDEDUCTED-Sep2025,13100 Inventory (Credit),,9430.56,Relieves inventory for Sep 2025 Wholesale catch-up
-JE Header,2025-10,WS-UNDEDUCTED-Oct2025,,,849.60,Wholesale inventory catch-up for Oct 2025: 120 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Oct2025.
-Line,2025-10,WS-UNDEDUCTED-Oct2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,849.60,Wholesale: 120 units x $7.08 never-deducted rate = $849.60
-Line,2025-10,WS-UNDEDUCTED-Oct2025,13100 Inventory (Credit),,849.60,Relieves inventory for Oct 2025 Wholesale catch-up
-JE Header,2025-11,WS-UNDEDUCTED-Nov2025,,,424.80,Wholesale inventory catch-up for Nov 2025: 60 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Nov2025.
-Line,2025-11,WS-UNDEDUCTED-Nov2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,424.80,Wholesale: 60 units x $7.08 never-deducted rate = $424.80
-Line,2025-11,WS-UNDEDUCTED-Nov2025,13100 Inventory (Credit),,424.80,Relieves inventory for Nov 2025 Wholesale catch-up
-JE Header,2026-03,WS-UNDEDUCTED-Mar2026,,,169.92,Wholesale inventory catch-up for Mar 2026: 24 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Mar2026.
-Line,2026-03,WS-UNDEDUCTED-Mar2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,169.92,Wholesale: 24 units x $7.08 never-deducted rate = $169.92
-Line,2026-03,WS-UNDEDUCTED-Mar2026,13100 Inventory (Credit),,169.92,Relieves inventory for Mar 2026 Wholesale catch-up
-JE Header,2026-04,WS-UNDEDUCTED-Apr2026,,,1869.12,Wholesale inventory catch-up for Apr 2026: 264 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Apr2026.
-Line,2026-04,WS-UNDEDUCTED-Apr2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,1869.12,Wholesale: 264 units x $7.08 never-deducted rate = $1869.12
-Line,2026-04,WS-UNDEDUCTED-Apr2026,13100 Inventory (Credit),,1869.12,Relieves inventory for Apr 2026 Wholesale catch-up
-JE Header,2026-07,WS-UNDEDUCTED-Jul2026,,,84.96,Wholesale inventory catch-up for Jul 2026: 12 Wholesale units sold this month were never automatically deducted from Inventory at all (Wholesale orders do not flow through the Shopify-integrated deduction mechanism DTC/TikTok/Amazon sales use). Full $7.08/unit posted rate never hit COGS for these units - this is separate from and additional to the rate-only correction in COGS-CORR-Jul2026.
-Line,2026-07,WS-UNDEDUCTED-Jul2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,84.96,Wholesale: 12 units x $7.08 never-deducted rate = $84.96
+JE Header,2026-08,COGS-CORR-Aug2026,,,0.00,"COGS correction for Aug 2026: true FIFO inventory cost was $7.08/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,0.00,DTC: 55 units x ($7.08 true - $7.08 posted) = $0.00 understatement
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,0.00,TikTok: 24 units x ($7.08 true - $7.08 posted) = $0.00 understatement
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,0.00,Amazon: 90 units x ($7.08 true - $7.08 posted) = $0.00 understatement
+Line,2026-08,COGS-CORR-Aug2026,13100 Inventory (Credit),,0.00,Relieves inventory for Aug 2026 COGS correction
+JE Header,2025-05,DT-UNDEDUCTED-May2025,,,92.04,"DTC inventory catch-up for May 2025: automated deduction mechanism only posted $1,302.72 of the $1,394.76 expected ($7.08 x 197 units) this month - $92.04 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-May2025."
+Line,2025-05,DT-UNDEDUCTED-May2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,92.04,DTC: shortfall vs $7.08 baseline = $92.04
+Line,2025-05,DT-UNDEDUCTED-May2025,13100 Inventory (Credit),,92.04,Relieves inventory for May 2025 DTC catch-up
+JE Header,2025-05,WS-UNDEDUCTED-May2025,,,3016.08,"Wholesale inventory catch-up for May 2025: automated deduction mechanism only posted $290.28 of the $3,306.36 expected ($7.08 x 467 units) this month - $3,016.08 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-May2025."
+Line,2025-05,WS-UNDEDUCTED-May2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,3016.08,"Wholesale: shortfall vs $7.08 baseline = $3,016.08"
+Line,2025-05,WS-UNDEDUCTED-May2025,13100 Inventory (Credit),,3016.08,Relieves inventory for May 2025 Wholesale catch-up
+JE Header,2025-06,DT-UNDEDUCTED-Jun2025,,,346.92,"DTC inventory catch-up for Jun 2025: automated deduction mechanism only posted $892.08 of the $1,239.00 expected ($7.08 x 175 units) this month - $346.92 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jun2025."
+Line,2025-06,DT-UNDEDUCTED-Jun2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,346.92,DTC: shortfall vs $7.08 baseline = $346.92
+Line,2025-06,DT-UNDEDUCTED-Jun2025,13100 Inventory (Credit),,346.92,Relieves inventory for Jun 2025 DTC catch-up
+JE Header,2025-06,WS-UNDEDUCTED-Jun2025,,,233.64,Wholesale inventory catch-up for Jun 2025: automated deduction mechanism only posted $446.04 of the $679.68 expected ($7.08 x 96 units) this month - $233.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jun2025.
+Line,2025-06,WS-UNDEDUCTED-Jun2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,233.64,Wholesale: shortfall vs $7.08 baseline = $233.64
+Line,2025-06,WS-UNDEDUCTED-Jun2025,13100 Inventory (Credit),,233.64,Relieves inventory for Jun 2025 Wholesale catch-up
+JE Header,2025-07,DT-UNDEDUCTED-Jul2025,,,169.92,"DTC inventory catch-up for Jul 2025: automated deduction mechanism only posted $1,571.76 of the $1,741.68 expected ($7.08 x 246 units) this month - $169.92 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
+Line,2025-07,DT-UNDEDUCTED-Jul2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,169.92,DTC: shortfall vs $7.08 baseline = $169.92
+Line,2025-07,DT-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,169.92,Relieves inventory for Jul 2025 DTC catch-up
+JE Header,2025-07,TI-UNDEDUCTED-Jul2025,,,155.76,"TikTok inventory catch-up for Jul 2025: automated deduction mechanism only posted $1,911.60 of the $2,067.36 expected ($7.08 x 292 units) this month - $155.76 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
+Line,2025-07,TI-UNDEDUCTED-Jul2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,155.76,TikTok: shortfall vs $7.08 baseline = $155.76
+Line,2025-07,TI-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,155.76,Relieves inventory for Jul 2025 TikTok catch-up
+JE Header,2025-07,WS-UNDEDUCTED-Jul2025,,,1104.48,"Wholesale inventory catch-up for Jul 2025: automated deduction mechanism only posted $169.92 of the $1,274.40 expected ($7.08 x 180 units) this month - $1,104.48 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
+Line,2025-07,WS-UNDEDUCTED-Jul2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,1104.48,"Wholesale: shortfall vs $7.08 baseline = $1,104.48"
+Line,2025-07,WS-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,1104.48,Relieves inventory for Jul 2025 Wholesale catch-up
+JE Header,2025-08,DT-UNDEDUCTED-Aug2025,,,14.16,"DTC inventory catch-up for Aug 2025: automated deduction mechanism only posted $1,833.72 of the $1,847.88 expected ($7.08 x 261 units) this month - $14.16 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2025."
+Line,2025-08,DT-UNDEDUCTED-Aug2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,14.16,DTC: shortfall vs $7.08 baseline = $14.16
+Line,2025-08,DT-UNDEDUCTED-Aug2025,13100 Inventory (Credit),,14.16,Relieves inventory for Aug 2025 DTC catch-up
+JE Header,2025-08,WS-UNDEDUCTED-Aug2025,,,311.52,Wholesale inventory catch-up for Aug 2025: automated deduction mechanism only posted $28.32 of the $339.84 expected ($7.08 x 48 units) this month - $311.52 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2025.
+Line,2025-08,WS-UNDEDUCTED-Aug2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,311.52,Wholesale: shortfall vs $7.08 baseline = $311.52
+Line,2025-08,WS-UNDEDUCTED-Aug2025,13100 Inventory (Credit),,311.52,Relieves inventory for Aug 2025 Wholesale catch-up
+JE Header,2025-09,WS-UNDEDUCTED-Sep2025,,,8835.84,"Wholesale inventory catch-up for Sep 2025: automated deduction mechanism only posted $594.72 of the $9,430.56 expected ($7.08 x 1332 units) this month - $8,835.84 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Sep2025."
+Line,2025-09,WS-UNDEDUCTED-Sep2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,8835.84,"Wholesale: shortfall vs $7.08 baseline = $8,835.84"
+Line,2025-09,WS-UNDEDUCTED-Sep2025,13100 Inventory (Credit),,8835.84,Relieves inventory for Sep 2025 Wholesale catch-up
+JE Header,2025-10,WS-UNDEDUCTED-Oct2025,,,835.44,Wholesale inventory catch-up for Oct 2025: automated deduction mechanism only posted $14.16 of the $849.60 expected ($7.08 x 120 units) this month - $835.44 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Oct2025.
+Line,2025-10,WS-UNDEDUCTED-Oct2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,835.44,Wholesale: shortfall vs $7.08 baseline = $835.44
+Line,2025-10,WS-UNDEDUCTED-Oct2025,13100 Inventory (Credit),,835.44,Relieves inventory for Oct 2025 Wholesale catch-up
+JE Header,2025-11,TI-UNDEDUCTED-Nov2025,,,35.40,"TikTok inventory catch-up for Nov 2025: automated deduction mechanism only posted $2,690.40 of the $2,725.80 expected ($7.08 x 385 units) this month - $35.40 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Nov2025."
+Line,2025-11,TI-UNDEDUCTED-Nov2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,35.40,TikTok: shortfall vs $7.08 baseline = $35.40
+Line,2025-11,TI-UNDEDUCTED-Nov2025,13100 Inventory (Credit),,35.40,Relieves inventory for Nov 2025 TikTok catch-up
+JE Header,2025-11,WS-UNDEDUCTED-Nov2025,,,254.88,Wholesale inventory catch-up for Nov 2025: automated deduction mechanism only posted $169.92 of the $424.80 expected ($7.08 x 60 units) this month - $254.88 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Nov2025.
+Line,2025-11,WS-UNDEDUCTED-Nov2025,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,254.88,Wholesale: shortfall vs $7.08 baseline = $254.88
+Line,2025-11,WS-UNDEDUCTED-Nov2025,13100 Inventory (Credit),,254.88,Relieves inventory for Nov 2025 Wholesale catch-up
+JE Header,2026-01,DT-UNDEDUCTED-Jan2026,,,56.64,"DTC inventory catch-up for Jan 2026: automated deduction mechanism only posted $1,231.92 of the $1,288.56 expected ($7.08 x 182 units) this month - $56.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jan2026."
+Line,2026-01,DT-UNDEDUCTED-Jan2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
+Line,2026-01,DT-UNDEDUCTED-Jan2026,13100 Inventory (Credit),,56.64,Relieves inventory for Jan 2026 DTC catch-up
+JE Header,2026-01,TI-UNDEDUCTED-Jan2026,,,106.20,"TikTok inventory catch-up for Jan 2026: automated deduction mechanism only posted $2,492.16 of the $2,598.36 expected ($7.08 x 367 units) this month - $106.20 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jan2026."
+Line,2026-01,TI-UNDEDUCTED-Jan2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,106.20,TikTok: shortfall vs $7.08 baseline = $106.20
+Line,2026-01,TI-UNDEDUCTED-Jan2026,13100 Inventory (Credit),,106.20,Relieves inventory for Jan 2026 TikTok catch-up
+JE Header,2026-02,DT-UNDEDUCTED-Feb2026,,,56.64,"DTC inventory catch-up for Feb 2026: automated deduction mechanism only posted $1,175.28 of the $1,231.92 expected ($7.08 x 174 units) this month - $56.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Feb2026."
+Line,2026-02,DT-UNDEDUCTED-Feb2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
+Line,2026-02,DT-UNDEDUCTED-Feb2026,13100 Inventory (Credit),,56.64,Relieves inventory for Feb 2026 DTC catch-up
+JE Header,2026-03,DT-UNDEDUCTED-Mar2026,,,7.08,"DTC inventory catch-up for Mar 2026: automated deduction mechanism only posted $1,288.56 of the $1,295.64 expected ($7.08 x 183 units) this month - $7.08 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Mar2026."
+Line,2026-03,DT-UNDEDUCTED-Mar2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),DTC,7.08,DTC: shortfall vs $7.08 baseline = $7.08
+Line,2026-03,DT-UNDEDUCTED-Mar2026,13100 Inventory (Credit),,7.08,Relieves inventory for Mar 2026 DTC catch-up
+JE Header,2026-04,WS-UNDEDUCTED-Apr2026,,,1854.96,"Wholesale inventory catch-up for Apr 2026: automated deduction mechanism only posted $14.16 of the $1,869.12 expected ($7.08 x 264 units) this month - $1,854.96 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Apr2026."
+Line,2026-04,WS-UNDEDUCTED-Apr2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,1854.96,"Wholesale: shortfall vs $7.08 baseline = $1,854.96"
+Line,2026-04,WS-UNDEDUCTED-Apr2026,13100 Inventory (Credit),,1854.96,Relieves inventory for Apr 2026 Wholesale catch-up
+JE Header,2026-07,TI-UNDEDUCTED-Jul2026,,,290.28,"TikTok inventory catch-up for Jul 2026: automated deduction mechanism only posted $1,267.32 of the $1,557.60 expected ($7.08 x 220 units) this month - $290.28 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026."
+Line,2026-07,TI-UNDEDUCTED-Jul2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,290.28,TikTok: shortfall vs $7.08 baseline = $290.28
+Line,2026-07,TI-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,290.28,Relieves inventory for Jul 2026 TikTok catch-up
+JE Header,2026-07,AM-UNDEDUCTED-Jul2026,,,63.72,"Amazon inventory catch-up for Jul 2026: automated deduction mechanism only posted $2,697.48 of the $2,761.20 expected ($7.08 x 390 units) this month - $63.72 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026."
+Line,2026-07,AM-UNDEDUCTED-Jul2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Amazon,63.72,Amazon: shortfall vs $7.08 baseline = $63.72
+Line,2026-07,AM-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,63.72,Relieves inventory for Jul 2026 Amazon catch-up
+JE Header,2026-07,WS-UNDEDUCTED-Jul2026,,,84.96,Wholesale inventory catch-up for Jul 2026: automated deduction mechanism only posted $0.00 of the $84.96 expected ($7.08 x 12 units) this month - $84.96 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026.
+Line,2026-07,WS-UNDEDUCTED-Jul2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Wholesale,84.96,Wholesale: shortfall vs $7.08 baseline = $84.96
 Line,2026-07,WS-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,84.96,Relieves inventory for Jul 2026 Wholesale catch-up
-JE Header,2026-07,TI-UNDEDUCTED-Jul2026,,,1557.60,TikTok inventory catch-up for Jul 2026: automated Inventory Deduction mechanism stopped posting for TikTok after June 2026 (verified via Class-tagged JE history) - 220 units sold this month never hit COGS at all. Separate from the rate-only correction in COGS-CORR entries.
-Line,2026-07,TI-UNDEDUCTED-Jul2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,1557.60,TikTok: 220 units x $7.08 never-deducted rate = $1557.60
-Line,2026-07,TI-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,1557.60,Relieves inventory for Jul 2026 TikTok catch-up
-JE Header,2026-08,TI-UNDEDUCTED-Aug2026,,,169.92,TikTok inventory catch-up for Aug 2026: automated Inventory Deduction mechanism stopped posting for TikTok after June 2026 (verified via Class-tagged JE history) - 24 units sold this month never hit COGS at all. Separate from the rate-only correction in COGS-CORR entries.
-Line,2026-08,TI-UNDEDUCTED-Aug2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,169.92,TikTok: 24 units x $7.08 never-deducted rate = $169.92
+JE Header,2026-08,TI-UNDEDUCTED-Aug2026,,,169.92,TikTok inventory catch-up for Aug 2026: automated deduction mechanism only posted $0.00 of the $169.92 expected ($7.08 x 24 units) this month - $169.92 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2026.
+Line,2026-08,TI-UNDEDUCTED-Aug2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),TikTok,169.92,TikTok: shortfall vs $7.08 baseline = $169.92
 Line,2026-08,TI-UNDEDUCTED-Aug2026,13100 Inventory (Credit),,169.92,Relieves inventory for Aug 2026 TikTok catch-up
-JE Header,2026-08,AM-UNDEDUCTED-Aug2026,,,637.20,Amazon inventory catch-up for Aug 2026: automated Inventory Deduction mechanism stopped posting for Amazon after July 2026 (verified via Class-tagged JE history) - 90 units sold this month never hit COGS at all. Separate from the rate-only correction in COGS-CORR entries.
-Line,2026-08,AM-UNDEDUCTED-Aug2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Amazon,637.20,Amazon: 90 units x $7.08 never-deducted rate = $637.20
+JE Header,2026-08,AM-UNDEDUCTED-Aug2026,,,637.20,Amazon inventory catch-up for Aug 2026: automated deduction mechanism only posted $0.00 of the $637.20 expected ($7.08 x 90 units) this month - $637.20 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2026.
+Line,2026-08,AM-UNDEDUCTED-Aug2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Amazon,637.20,Amazon: shortfall vs $7.08 baseline = $637.20
 Line,2026-08,AM-UNDEDUCTED-Aug2026,13100 Inventory (Credit),,637.20,Relieves inventory for Aug 2026 Amazon catch-up
-JE Header,2025-04,RESID-CORR-Apr2025,,,1670.94,"Residual allocation for Apr 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,896.42,DTC: 831 units x $1.0787/unit residual allocation = $896.42
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,102.48,TikTok: 95 units x $1.0787/unit residual allocation = $102.48
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,672.04,Wholesale: 623 units x $1.0787/unit residual allocation = $672.04
-Line,2025-04,RESID-CORR-Apr2025,13100 Inventory (Credit),,1670.94,Relieves inventory for Apr 2025 residual allocation
-JE Header,2025-05,RESID-CORR-May2025,,,742.16,"Residual allocation for May 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,212.51,DTC: 197 units x $1.0787/unit residual allocation = $212.51
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,25.89,TikTok: 24 units x $1.0787/unit residual allocation = $25.89
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,503.76,Wholesale: 467 units x $1.0787/unit residual allocation = $503.76
-Line,2025-05,RESID-CORR-May2025,13100 Inventory (Credit),,742.16,Relieves inventory for May 2025 residual allocation
-JE Header,2025-06,RESID-CORR-Jun2025,,,372.17,"Residual allocation for Jun 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,188.78,DTC: 175 units x $1.0787/unit residual allocation = $188.78
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,79.83,TikTok: 74 units x $1.0787/unit residual allocation = $79.83
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,103.56,Wholesale: 96 units x $1.0787/unit residual allocation = $103.56
-Line,2025-06,RESID-CORR-Jun2025,13100 Inventory (Credit),,372.17,Relieves inventory for Jun 2025 residual allocation
-JE Header,2025-07,RESID-CORR-Jul2025,,,774.52,"Residual allocation for Jul 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,265.36,DTC: 246 units x $1.0787/unit residual allocation = $265.36
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,314.99,TikTok: 292 units x $1.0787/unit residual allocation = $314.99
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,194.17,Wholesale: 180 units x $1.0787/unit residual allocation = $194.17
-Line,2025-07,RESID-CORR-Jul2025,13100 Inventory (Credit),,774.52,Relieves inventory for Jul 2025 residual allocation
-JE Header,2025-08,RESID-CORR-Aug2025,,,690.39,"Residual allocation for Aug 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,281.55,DTC: 261 units x $1.0787/unit residual allocation = $281.55
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,357.06,TikTok: 331 units x $1.0787/unit residual allocation = $357.06
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,51.78,Wholesale: 48 units x $1.0787/unit residual allocation = $51.78
-Line,2025-08,RESID-CORR-Aug2025,13100 Inventory (Credit),,690.39,Relieves inventory for Aug 2025 residual allocation
-JE Header,2025-09,RESID-CORR-Sep2025,,,2182.25,"Residual allocation for Sep 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,458.46,DTC: 425 units x $1.0787/unit residual allocation = $458.46
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,286.94,TikTok: 266 units x $1.0787/unit residual allocation = $286.94
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1436.85,"Wholesale: 1332 units x $1.0787/unit residual allocation = $1,436.85"
-Line,2025-09,RESID-CORR-Sep2025,13100 Inventory (Credit),,2182.25,Relieves inventory for Sep 2025 residual allocation
-JE Header,2025-10,RESID-CORR-Oct2025,,,814.44,"Residual allocation for Oct 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,297.73,DTC: 276 units x $1.0787/unit residual allocation = $297.73
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,387.26,TikTok: 359 units x $1.0787/unit residual allocation = $387.26
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,129.45,Wholesale: 120 units x $1.0787/unit residual allocation = $129.45
-Line,2025-10,RESID-CORR-Oct2025,13100 Inventory (Credit),,814.44,Relieves inventory for Oct 2025 residual allocation
-JE Header,2025-11,RESID-CORR-Nov2025,,,766.97,"Residual allocation for Nov 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,286.94,DTC: 266 units x $1.0787/unit residual allocation = $286.94
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,415.31,TikTok: 385 units x $1.0787/unit residual allocation = $415.31
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,64.72,Wholesale: 60 units x $1.0787/unit residual allocation = $64.72
-Line,2025-11,RESID-CORR-Nov2025,13100 Inventory (Credit),,766.97,Relieves inventory for Nov 2025 residual allocation
-JE Header,2025-12,RESID-CORR-Dec2025,,,584.67,"Residual allocation for Dec 2025: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,195.25,DTC: 181 units x $1.0787/unit residual allocation = $195.25
-Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,389.42,TikTok: 361 units x $1.0787/unit residual allocation = $389.42
-Line,2025-12,RESID-CORR-Dec2025,13100 Inventory (Credit),,584.67,Relieves inventory for Dec 2025 residual allocation
-JE Header,2026-01,RESID-CORR-Jan2026,,,592.22,"Residual allocation for Jan 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,196.33,DTC: 182 units x $1.0787/unit residual allocation = $196.33
-Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,395.89,TikTok: 367 units x $1.0787/unit residual allocation = $395.89
-Line,2026-01,RESID-CORR-Jan2026,13100 Inventory (Credit),,592.22,Relieves inventory for Jan 2026 residual allocation
-JE Header,2026-02,RESID-CORR-Feb2026,,,500.53,"Residual allocation for Feb 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,187.70,DTC: 174 units x $1.0787/unit residual allocation = $187.70
-Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,312.83,TikTok: 290 units x $1.0787/unit residual allocation = $312.83
-Line,2026-02,RESID-CORR-Feb2026,13100 Inventory (Credit),,500.53,Relieves inventory for Feb 2026 residual allocation
-JE Header,2026-03,RESID-CORR-Mar2026,,,597.62,"Residual allocation for Mar 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,197.41,DTC: 183 units x $1.0787/unit residual allocation = $197.41
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,374.32,TikTok: 347 units x $1.0787/unit residual allocation = $374.32
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,25.89,Wholesale: 24 units x $1.0787/unit residual allocation = $25.89
-Line,2026-03,RESID-CORR-Mar2026,13100 Inventory (Credit),,597.62,Relieves inventory for Mar 2026 residual allocation
-JE Header,2026-04,RESID-CORR-Apr2026,,,1449.79,"Residual allocation for Apr 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,226.53,DTC: 210 units x $1.0787/unit residual allocation = $226.53
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,807.96,TikTok: 749 units x $1.0787/unit residual allocation = $807.96
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,130.52,Amazon: 121 units x $1.0787/unit residual allocation = $130.52
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,284.78,Wholesale: 264 units x $1.0787/unit residual allocation = $284.78
-Line,2026-04,RESID-CORR-Apr2026,13100 Inventory (Credit),,1449.79,Relieves inventory for Apr 2026 residual allocation
-JE Header,2026-05,RESID-CORR-May2026,,,989.18,"Residual allocation for May 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,186.62,DTC: 173 units x $1.0787/unit residual allocation = $186.62
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,459.53,TikTok: 426 units x $1.0787/unit residual allocation = $459.53
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,343.03,Amazon: 318 units x $1.0787/unit residual allocation = $343.03
-Line,2026-05,RESID-CORR-May2026,13100 Inventory (Credit),,989.18,Relieves inventory for May 2026 residual allocation
-JE Header,2026-06,RESID-CORR-Jun2026,,,800.40,"Residual allocation for Jun 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,224.37,DTC: 208 units x $1.0787/unit residual allocation = $224.37
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,251.34,TikTok: 233 units x $1.0787/unit residual allocation = $251.34
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,324.69,Amazon: 301 units x $1.0787/unit residual allocation = $324.69
-Line,2026-06,RESID-CORR-Jun2026,13100 Inventory (Credit),,800.40,Relieves inventory for Jun 2026 residual allocation
-JE Header,2026-07,RESID-CORR-Jul2026,,,923.38,"Residual allocation for Jul 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,252.42,DTC: 234 units x $1.0787/unit residual allocation = $252.42
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,237.32,TikTok: 220 units x $1.0787/unit residual allocation = $237.32
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,420.70,Amazon: 390 units x $1.0787/unit residual allocation = $420.70
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,12.94,Wholesale: 12 units x $1.0787/unit residual allocation = $12.94
-Line,2026-07,RESID-CORR-Jul2026,13100 Inventory (Credit),,923.38,Relieves inventory for Jul 2026 residual allocation
-JE Header,2026-08,RESID-CORR-Aug2026,,,182.30,"Residual allocation for Aug 2026: after all rate-correction and never-deducted catch-up entries, 13,566 total units (Apr 2025-Aug 2026) still left a $14,633.90 gap between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold this period at $1.0787/unit, channel-tagged by this month's share of units sold."
-Line,2026-08,RESID-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,59.33,DTC: 55 units x $1.0787/unit residual allocation = $59.33
-Line,2026-08,RESID-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,25.89,TikTok: 24 units x $1.0787/unit residual allocation = $25.89
-Line,2026-08,RESID-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,97.08,Amazon: 90 units x $1.0787/unit residual allocation = $97.08
-Line,2026-08,RESID-CORR-Aug2026,13100 Inventory (Credit),,182.30,Relieves inventory for Aug 2026 residual allocation
+JE Header,2025-04,RESID-CORR-Apr2025,,,1765.45,"Residual allocation for Apr 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,460.00,DTC: 253 units x $1.8182/unit residual allocation = $460.00
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,172.73,TikTok: 95 units x $1.8182/unit residual allocation = $172.73
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1132.72,"Wholesale: 623 units x $1.8182/unit residual allocation = $1,132.72"
+Line,2025-04,RESID-CORR-Apr2025,13100 Inventory (Credit),,1765.45,Relieves inventory for Apr 2025 residual allocation
+JE Header,2025-05,RESID-CORR-May2025,,,1250.90,"Residual allocation for May 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,358.18,DTC: 197 units x $1.8182/unit residual allocation = $358.18
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,43.64,TikTok: 24 units x $1.8182/unit residual allocation = $43.64
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,849.08,Wholesale: 467 units x $1.8182/unit residual allocation = $849.08
+Line,2025-05,RESID-CORR-May2025,13100 Inventory (Credit),,1250.90,Relieves inventory for May 2025 residual allocation
+JE Header,2025-06,RESID-CORR-Jun2025,,,627.26,"Residual allocation for Jun 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,318.18,DTC: 175 units x $1.8182/unit residual allocation = $318.18
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,134.54,TikTok: 74 units x $1.8182/unit residual allocation = $134.54
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,174.54,Wholesale: 96 units x $1.8182/unit residual allocation = $174.54
+Line,2025-06,RESID-CORR-Jun2025,13100 Inventory (Credit),,627.26,Relieves inventory for Jun 2025 residual allocation
+JE Header,2025-07,RESID-CORR-Jul2025,,,1305.44,"Residual allocation for Jul 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,447.27,DTC: 246 units x $1.8182/unit residual allocation = $447.27
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,530.90,TikTok: 292 units x $1.8182/unit residual allocation = $530.90
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,327.27,Wholesale: 180 units x $1.8182/unit residual allocation = $327.27
+Line,2025-07,RESID-CORR-Jul2025,13100 Inventory (Credit),,1305.44,Relieves inventory for Jul 2025 residual allocation
+JE Header,2025-08,RESID-CORR-Aug2025,,,1163.62,"Residual allocation for Aug 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,474.54,DTC: 261 units x $1.8182/unit residual allocation = $474.54
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,601.81,TikTok: 331 units x $1.8182/unit residual allocation = $601.81
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,87.27,Wholesale: 48 units x $1.8182/unit residual allocation = $87.27
+Line,2025-08,RESID-CORR-Aug2025,13100 Inventory (Credit),,1163.62,Relieves inventory for Aug 2025 residual allocation
+JE Header,2025-09,RESID-CORR-Sep2025,,,3678.15,"Residual allocation for Sep 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.72,DTC: 425 units x $1.8182/unit residual allocation = $772.72
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,483.63,TikTok: 266 units x $1.8182/unit residual allocation = $483.63
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2421.80,"Wholesale: 1332 units x $1.8182/unit residual allocation = $2,421.80"
+Line,2025-09,RESID-CORR-Sep2025,13100 Inventory (Credit),,3678.15,Relieves inventory for Sep 2025 residual allocation
+JE Header,2025-10,RESID-CORR-Oct2025,,,1372.71,"Residual allocation for Oct 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,501.81,DTC: 276 units x $1.8182/unit residual allocation = $501.81
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,652.72,TikTok: 359 units x $1.8182/unit residual allocation = $652.72
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,218.18,Wholesale: 120 units x $1.8182/unit residual allocation = $218.18
+Line,2025-10,RESID-CORR-Oct2025,13100 Inventory (Credit),,1372.71,Relieves inventory for Oct 2025 residual allocation
+JE Header,2025-11,RESID-CORR-Nov2025,,,1292.71,"Residual allocation for Nov 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,483.63,DTC: 266 units x $1.8182/unit residual allocation = $483.63
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,699.99,TikTok: 385 units x $1.8182/unit residual allocation = $699.99
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,109.09,Wholesale: 60 units x $1.8182/unit residual allocation = $109.09
+Line,2025-11,RESID-CORR-Nov2025,13100 Inventory (Credit),,1292.71,Relieves inventory for Nov 2025 residual allocation
+JE Header,2025-12,RESID-CORR-Dec2025,,,985.45,"Residual allocation for Dec 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,329.09,DTC: 181 units x $1.8182/unit residual allocation = $329.09
+Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,656.36,TikTok: 361 units x $1.8182/unit residual allocation = $656.36
+Line,2025-12,RESID-CORR-Dec2025,13100 Inventory (Credit),,985.45,Relieves inventory for Dec 2025 residual allocation
+JE Header,2026-01,RESID-CORR-Jan2026,,,998.18,"Residual allocation for Jan 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,330.91,DTC: 182 units x $1.8182/unit residual allocation = $330.91
+Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,667.27,TikTok: 367 units x $1.8182/unit residual allocation = $667.27
+Line,2026-01,RESID-CORR-Jan2026,13100 Inventory (Credit),,998.18,Relieves inventory for Jan 2026 residual allocation
+JE Header,2026-02,RESID-CORR-Feb2026,,,843.63,"Residual allocation for Feb 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,316.36,DTC: 174 units x $1.8182/unit residual allocation = $316.36
+Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,527.27,TikTok: 290 units x $1.8182/unit residual allocation = $527.27
+Line,2026-02,RESID-CORR-Feb2026,13100 Inventory (Credit),,843.63,Relieves inventory for Feb 2026 residual allocation
+JE Header,2026-03,RESID-CORR-Mar2026,,,1007.26,"Residual allocation for Mar 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,332.72,DTC: 183 units x $1.8182/unit residual allocation = $332.72
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,630.90,TikTok: 347 units x $1.8182/unit residual allocation = $630.90
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,43.64,Wholesale: 24 units x $1.8182/unit residual allocation = $43.64
+Line,2026-03,RESID-CORR-Mar2026,13100 Inventory (Credit),,1007.26,Relieves inventory for Mar 2026 residual allocation
+JE Header,2026-04,RESID-CORR-Apr2026,,,2443.62,"Residual allocation for Apr 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,381.81,DTC: 210 units x $1.8182/unit residual allocation = $381.81
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1361.81,"TikTok: 749 units x $1.8182/unit residual allocation = $1,361.81"
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,220.00,Amazon: 121 units x $1.8182/unit residual allocation = $220.00
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,480.00,Wholesale: 264 units x $1.8182/unit residual allocation = $480.00
+Line,2026-04,RESID-CORR-Apr2026,13100 Inventory (Credit),,2443.62,Relieves inventory for Apr 2026 residual allocation
+JE Header,2026-05,RESID-CORR-May2026,,,1667.26,"Residual allocation for May 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,314.54,DTC: 173 units x $1.8182/unit residual allocation = $314.54
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,774.54,TikTok: 426 units x $1.8182/unit residual allocation = $774.54
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,578.18,Amazon: 318 units x $1.8182/unit residual allocation = $578.18
+Line,2026-05,RESID-CORR-May2026,13100 Inventory (Credit),,1667.26,Relieves inventory for May 2026 residual allocation
+JE Header,2026-06,RESID-CORR-Jun2026,,,1349.08,"Residual allocation for Jun 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,378.18,DTC: 208 units x $1.8182/unit residual allocation = $378.18
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,423.63,TikTok: 233 units x $1.8182/unit residual allocation = $423.63
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,547.27,Amazon: 301 units x $1.8182/unit residual allocation = $547.27
+Line,2026-06,RESID-CORR-Jun2026,13100 Inventory (Credit),,1349.08,Relieves inventory for Jun 2026 residual allocation
+JE Header,2026-07,RESID-CORR-Jul2026,,,1556.35,"Residual allocation for Jul 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,425.45,DTC: 234 units x $1.8182/unit residual allocation = $425.45
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,400.00,TikTok: 220 units x $1.8182/unit residual allocation = $400.00
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,709.08,Amazon: 390 units x $1.8182/unit residual allocation = $709.08
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,21.82,Wholesale: 12 units x $1.8182/unit residual allocation = $21.82
+Line,2026-07,RESID-CORR-Jul2026,13100 Inventory (Credit),,1556.35,Relieves inventory for Jul 2026 residual allocation
