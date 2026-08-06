@@ -8,3 +8,7 @@ build/
 dist/
 orders_export*.csv
 *.csv
+!channel_units_by_month.csv
+*.pdf
+Oil Invoices/
+Amazon Orders/
