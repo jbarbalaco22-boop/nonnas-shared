@@ -58,7 +58,7 @@ COGS-CORR-Jun2026,,51100 Bulk Olive Oil - Raw,661.72,,TikTok: 233 units x ($9.92
 COGS-CORR-Jun2026,,51100 Bulk Olive Oil - Raw,854.84,,Amazon: 301 units x ($9.92 true - $7.08 posted) = $854.84 understatement,,USD,,Amazon
 COGS-CORR-Jun2026,,13100 Inventory,,2107.28,Relieves inventory for Jun 2026 COGS correction,,USD,,
 COGS-CORR-Jul2026,7/31/26,51100 Bulk Olive Oil - Raw,273.78,,DTC: 234 units x ($8.25 true - $7.08 posted) = $273.78 understatement,,USD,,DTC
-COGS-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,257.40,,TikTok: 220 units x ($8.25 true - $7.08 posted) = $257.40 understatement,,USD,,TikTok
+COGS-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,257.40,,"TikTok: 220 units x $8.25 true FIFO cost. NOTE: unlike other channels this month, TikTok had $0 actually posted (not $7.08) - the automated deduction mechanism had already stopped for TikTok by Jul 2026. This line captures the portion of true cost above the $7.08 baseline ($257.40); the remaining $7.08/unit that was never posted at all is captured separately in TI-UNDEDUCTED-Jul2026.",,USD,,TikTok
 COGS-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,456.30,,Amazon: 390 units x ($8.25 true - $7.08 posted) = $456.30 understatement,,USD,,Amazon
 COGS-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,14.04,,Wholesale: 12 units x ($8.25 true - $7.08 posted) = $14.04 understatement,,USD,,Wholesale
 COGS-CORR-Jul2026,,13100 Inventory,,1001.52,Relieves inventory for Jul 2026 COGS correction,,USD,,
