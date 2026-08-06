@@ -79,67 +79,67 @@ Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil – Raw (Debit),Amazon,456.3
 Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil – Raw (Debit),Wholesale,14.04,Wholesale: 12 units x ($8.25 true - $7.08 posted) = $14.04 understatement
 Line,2026-07,COGS-CORR-Jul2026,13100 Inventory (Credit),,1001.52,Relieves inventory for Jul 2026 COGS correction
 JE Header,2025-05,DT-UNDEDUCTED-May2025,,,92.04,"DTC inventory catch-up for May 2025: automated deduction mechanism only posted $1,302.72 of the $1,394.76 expected ($7.08 x 197 units) this month - $92.04 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-May2025."
-Line,2025-05,DT-UNDEDUCTED-May2025,52500 Inventory Adjustments / Shrink (Debit),DTC,92.04,DTC: shortfall vs $7.08 baseline = $92.04
+Line,2025-05,DT-UNDEDUCTED-May2025,51100 Bulk Olive Oil – Raw (Debit),DTC,92.04,DTC: shortfall vs $7.08 baseline = $92.04
 Line,2025-05,DT-UNDEDUCTED-May2025,13100 Inventory (Credit),,92.04,Relieves inventory for May 2025 DTC catch-up
 JE Header,2025-05,WS-UNDEDUCTED-May2025,,,3016.08,"Wholesale inventory catch-up for May 2025: automated deduction mechanism only posted $290.28 of the $3,306.36 expected ($7.08 x 467 units) this month - $3,016.08 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-May2025."
-Line,2025-05,WS-UNDEDUCTED-May2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,3016.08,"Wholesale: shortfall vs $7.08 baseline = $3,016.08"
+Line,2025-05,WS-UNDEDUCTED-May2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,3016.08,"Wholesale: shortfall vs $7.08 baseline = $3,016.08"
 Line,2025-05,WS-UNDEDUCTED-May2025,13100 Inventory (Credit),,3016.08,Relieves inventory for May 2025 Wholesale catch-up
 JE Header,2025-06,DT-UNDEDUCTED-Jun2025,,,346.92,"DTC inventory catch-up for Jun 2025: automated deduction mechanism only posted $892.08 of the $1,239.00 expected ($7.08 x 175 units) this month - $346.92 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jun2025."
-Line,2025-06,DT-UNDEDUCTED-Jun2025,52500 Inventory Adjustments / Shrink (Debit),DTC,346.92,DTC: shortfall vs $7.08 baseline = $346.92
+Line,2025-06,DT-UNDEDUCTED-Jun2025,51100 Bulk Olive Oil – Raw (Debit),DTC,346.92,DTC: shortfall vs $7.08 baseline = $346.92
 Line,2025-06,DT-UNDEDUCTED-Jun2025,13100 Inventory (Credit),,346.92,Relieves inventory for Jun 2025 DTC catch-up
 JE Header,2025-06,WS-UNDEDUCTED-Jun2025,,,233.64,Wholesale inventory catch-up for Jun 2025: automated deduction mechanism only posted $446.04 of the $679.68 expected ($7.08 x 96 units) this month - $233.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jun2025.
-Line,2025-06,WS-UNDEDUCTED-Jun2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,233.64,Wholesale: shortfall vs $7.08 baseline = $233.64
+Line,2025-06,WS-UNDEDUCTED-Jun2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,233.64,Wholesale: shortfall vs $7.08 baseline = $233.64
 Line,2025-06,WS-UNDEDUCTED-Jun2025,13100 Inventory (Credit),,233.64,Relieves inventory for Jun 2025 Wholesale catch-up
 JE Header,2025-07,DT-UNDEDUCTED-Jul2025,,,169.92,"DTC inventory catch-up for Jul 2025: automated deduction mechanism only posted $1,571.76 of the $1,741.68 expected ($7.08 x 246 units) this month - $169.92 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
-Line,2025-07,DT-UNDEDUCTED-Jul2025,52500 Inventory Adjustments / Shrink (Debit),DTC,169.92,DTC: shortfall vs $7.08 baseline = $169.92
+Line,2025-07,DT-UNDEDUCTED-Jul2025,51100 Bulk Olive Oil – Raw (Debit),DTC,169.92,DTC: shortfall vs $7.08 baseline = $169.92
 Line,2025-07,DT-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,169.92,Relieves inventory for Jul 2025 DTC catch-up
 JE Header,2025-07,TI-UNDEDUCTED-Jul2025,,,155.76,"TikTok inventory catch-up for Jul 2025: automated deduction mechanism only posted $1,911.60 of the $2,067.36 expected ($7.08 x 292 units) this month - $155.76 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
-Line,2025-07,TI-UNDEDUCTED-Jul2025,52500 Inventory Adjustments / Shrink (Debit),TikTok,155.76,TikTok: shortfall vs $7.08 baseline = $155.76
+Line,2025-07,TI-UNDEDUCTED-Jul2025,51100 Bulk Olive Oil – Raw (Debit),TikTok,155.76,TikTok: shortfall vs $7.08 baseline = $155.76
 Line,2025-07,TI-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,155.76,Relieves inventory for Jul 2025 TikTok catch-up
 JE Header,2025-07,WS-UNDEDUCTED-Jul2025,,,1104.48,"Wholesale inventory catch-up for Jul 2025: automated deduction mechanism only posted $169.92 of the $1,274.40 expected ($7.08 x 180 units) this month - $1,104.48 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2025."
-Line,2025-07,WS-UNDEDUCTED-Jul2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,1104.48,"Wholesale: shortfall vs $7.08 baseline = $1,104.48"
+Line,2025-07,WS-UNDEDUCTED-Jul2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,1104.48,"Wholesale: shortfall vs $7.08 baseline = $1,104.48"
 Line,2025-07,WS-UNDEDUCTED-Jul2025,13100 Inventory (Credit),,1104.48,Relieves inventory for Jul 2025 Wholesale catch-up
 JE Header,2025-08,DT-UNDEDUCTED-Aug2025,,,14.16,"DTC inventory catch-up for Aug 2025: automated deduction mechanism only posted $1,833.72 of the $1,847.88 expected ($7.08 x 261 units) this month - $14.16 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2025."
-Line,2025-08,DT-UNDEDUCTED-Aug2025,52500 Inventory Adjustments / Shrink (Debit),DTC,14.16,DTC: shortfall vs $7.08 baseline = $14.16
+Line,2025-08,DT-UNDEDUCTED-Aug2025,51100 Bulk Olive Oil – Raw (Debit),DTC,14.16,DTC: shortfall vs $7.08 baseline = $14.16
 Line,2025-08,DT-UNDEDUCTED-Aug2025,13100 Inventory (Credit),,14.16,Relieves inventory for Aug 2025 DTC catch-up
 JE Header,2025-08,WS-UNDEDUCTED-Aug2025,,,311.52,Wholesale inventory catch-up for Aug 2025: automated deduction mechanism only posted $28.32 of the $339.84 expected ($7.08 x 48 units) this month - $311.52 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2025.
-Line,2025-08,WS-UNDEDUCTED-Aug2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,311.52,Wholesale: shortfall vs $7.08 baseline = $311.52
+Line,2025-08,WS-UNDEDUCTED-Aug2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,311.52,Wholesale: shortfall vs $7.08 baseline = $311.52
 Line,2025-08,WS-UNDEDUCTED-Aug2025,13100 Inventory (Credit),,311.52,Relieves inventory for Aug 2025 Wholesale catch-up
 JE Header,2025-09,WS-UNDEDUCTED-Sep2025,,,8835.84,"Wholesale inventory catch-up for Sep 2025: automated deduction mechanism only posted $594.72 of the $9,430.56 expected ($7.08 x 1332 units) this month - $8,835.84 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Sep2025."
-Line,2025-09,WS-UNDEDUCTED-Sep2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,8835.84,"Wholesale: shortfall vs $7.08 baseline = $8,835.84"
+Line,2025-09,WS-UNDEDUCTED-Sep2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,8835.84,"Wholesale: shortfall vs $7.08 baseline = $8,835.84"
 Line,2025-09,WS-UNDEDUCTED-Sep2025,13100 Inventory (Credit),,8835.84,Relieves inventory for Sep 2025 Wholesale catch-up
 JE Header,2025-10,WS-UNDEDUCTED-Oct2025,,,835.44,Wholesale inventory catch-up for Oct 2025: automated deduction mechanism only posted $14.16 of the $849.60 expected ($7.08 x 120 units) this month - $835.44 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Oct2025.
-Line,2025-10,WS-UNDEDUCTED-Oct2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,835.44,Wholesale: shortfall vs $7.08 baseline = $835.44
+Line,2025-10,WS-UNDEDUCTED-Oct2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,835.44,Wholesale: shortfall vs $7.08 baseline = $835.44
 Line,2025-10,WS-UNDEDUCTED-Oct2025,13100 Inventory (Credit),,835.44,Relieves inventory for Oct 2025 Wholesale catch-up
 JE Header,2025-11,TI-UNDEDUCTED-Nov2025,,,35.40,"TikTok inventory catch-up for Nov 2025: automated deduction mechanism only posted $2,690.40 of the $2,725.80 expected ($7.08 x 385 units) this month - $35.40 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Nov2025."
-Line,2025-11,TI-UNDEDUCTED-Nov2025,52500 Inventory Adjustments / Shrink (Debit),TikTok,35.40,TikTok: shortfall vs $7.08 baseline = $35.40
+Line,2025-11,TI-UNDEDUCTED-Nov2025,51100 Bulk Olive Oil – Raw (Debit),TikTok,35.40,TikTok: shortfall vs $7.08 baseline = $35.40
 Line,2025-11,TI-UNDEDUCTED-Nov2025,13100 Inventory (Credit),,35.40,Relieves inventory for Nov 2025 TikTok catch-up
 JE Header,2025-11,WS-UNDEDUCTED-Nov2025,,,254.88,Wholesale inventory catch-up for Nov 2025: automated deduction mechanism only posted $169.92 of the $424.80 expected ($7.08 x 60 units) this month - $254.88 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Nov2025.
-Line,2025-11,WS-UNDEDUCTED-Nov2025,52500 Inventory Adjustments / Shrink (Debit),Wholesale,254.88,Wholesale: shortfall vs $7.08 baseline = $254.88
+Line,2025-11,WS-UNDEDUCTED-Nov2025,51100 Bulk Olive Oil – Raw (Debit),Wholesale,254.88,Wholesale: shortfall vs $7.08 baseline = $254.88
 Line,2025-11,WS-UNDEDUCTED-Nov2025,13100 Inventory (Credit),,254.88,Relieves inventory for Nov 2025 Wholesale catch-up
 JE Header,2026-01,DT-UNDEDUCTED-Jan2026,,,56.64,"DTC inventory catch-up for Jan 2026: automated deduction mechanism only posted $1,231.92 of the $1,288.56 expected ($7.08 x 182 units) this month - $56.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jan2026."
-Line,2026-01,DT-UNDEDUCTED-Jan2026,52500 Inventory Adjustments / Shrink (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
+Line,2026-01,DT-UNDEDUCTED-Jan2026,51100 Bulk Olive Oil – Raw (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
 Line,2026-01,DT-UNDEDUCTED-Jan2026,13100 Inventory (Credit),,56.64,Relieves inventory for Jan 2026 DTC catch-up
 JE Header,2026-01,TI-UNDEDUCTED-Jan2026,,,106.20,"TikTok inventory catch-up for Jan 2026: automated deduction mechanism only posted $2,492.16 of the $2,598.36 expected ($7.08 x 367 units) this month - $106.20 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jan2026."
-Line,2026-01,TI-UNDEDUCTED-Jan2026,52500 Inventory Adjustments / Shrink (Debit),TikTok,106.20,TikTok: shortfall vs $7.08 baseline = $106.20
+Line,2026-01,TI-UNDEDUCTED-Jan2026,51100 Bulk Olive Oil – Raw (Debit),TikTok,106.20,TikTok: shortfall vs $7.08 baseline = $106.20
 Line,2026-01,TI-UNDEDUCTED-Jan2026,13100 Inventory (Credit),,106.20,Relieves inventory for Jan 2026 TikTok catch-up
 JE Header,2026-02,DT-UNDEDUCTED-Feb2026,,,56.64,"DTC inventory catch-up for Feb 2026: automated deduction mechanism only posted $1,175.28 of the $1,231.92 expected ($7.08 x 174 units) this month - $56.64 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Feb2026."
-Line,2026-02,DT-UNDEDUCTED-Feb2026,52500 Inventory Adjustments / Shrink (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
+Line,2026-02,DT-UNDEDUCTED-Feb2026,51100 Bulk Olive Oil – Raw (Debit),DTC,56.64,DTC: shortfall vs $7.08 baseline = $56.64
 Line,2026-02,DT-UNDEDUCTED-Feb2026,13100 Inventory (Credit),,56.64,Relieves inventory for Feb 2026 DTC catch-up
 JE Header,2026-03,DT-UNDEDUCTED-Mar2026,,,7.08,"DTC inventory catch-up for Mar 2026: automated deduction mechanism only posted $1,288.56 of the $1,295.64 expected ($7.08 x 183 units) this month - $7.08 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Mar2026."
-Line,2026-03,DT-UNDEDUCTED-Mar2026,52500 Inventory Adjustments / Shrink (Debit),DTC,7.08,DTC: shortfall vs $7.08 baseline = $7.08
+Line,2026-03,DT-UNDEDUCTED-Mar2026,51100 Bulk Olive Oil – Raw (Debit),DTC,7.08,DTC: shortfall vs $7.08 baseline = $7.08
 Line,2026-03,DT-UNDEDUCTED-Mar2026,13100 Inventory (Credit),,7.08,Relieves inventory for Mar 2026 DTC catch-up
 JE Header,2026-04,WS-UNDEDUCTED-Apr2026,,,1854.96,"Wholesale inventory catch-up for Apr 2026: automated deduction mechanism only posted $14.16 of the $1,869.12 expected ($7.08 x 264 units) this month - $1,854.96 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Apr2026."
-Line,2026-04,WS-UNDEDUCTED-Apr2026,52500 Inventory Adjustments / Shrink (Debit),Wholesale,1854.96,"Wholesale: shortfall vs $7.08 baseline = $1,854.96"
+Line,2026-04,WS-UNDEDUCTED-Apr2026,51100 Bulk Olive Oil – Raw (Debit),Wholesale,1854.96,"Wholesale: shortfall vs $7.08 baseline = $1,854.96"
 Line,2026-04,WS-UNDEDUCTED-Apr2026,13100 Inventory (Credit),,1854.96,Relieves inventory for Apr 2026 Wholesale catch-up
 JE Header,2026-07,TI-UNDEDUCTED-Jul2026,,,290.28,"TikTok inventory catch-up for Jul 2026: automated deduction mechanism only posted $1,267.32 of the $1,557.60 expected ($7.08 x 220 units) this month - $290.28 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026."
-Line,2026-07,TI-UNDEDUCTED-Jul2026,52500 Inventory Adjustments / Shrink (Debit),TikTok,290.28,TikTok: shortfall vs $7.08 baseline = $290.28
+Line,2026-07,TI-UNDEDUCTED-Jul2026,51100 Bulk Olive Oil – Raw (Debit),TikTok,290.28,TikTok: shortfall vs $7.08 baseline = $290.28
 Line,2026-07,TI-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,290.28,Relieves inventory for Jul 2026 TikTok catch-up
 JE Header,2026-07,AM-UNDEDUCTED-Jul2026,,,63.72,"Amazon inventory catch-up for Jul 2026: automated deduction mechanism only posted $2,697.48 of the $2,761.20 expected ($7.08 x 390 units) this month - $63.72 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026."
-Line,2026-07,AM-UNDEDUCTED-Jul2026,52500 Inventory Adjustments / Shrink (Debit),Amazon,63.72,Amazon: shortfall vs $7.08 baseline = $63.72
+Line,2026-07,AM-UNDEDUCTED-Jul2026,51100 Bulk Olive Oil – Raw (Debit),Amazon,63.72,Amazon: shortfall vs $7.08 baseline = $63.72
 Line,2026-07,AM-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,63.72,Relieves inventory for Jul 2026 Amazon catch-up
 JE Header,2026-07,WS-UNDEDUCTED-Jul2026,,,84.96,Wholesale inventory catch-up for Jul 2026: automated deduction mechanism only posted $0.00 of the $84.96 expected ($7.08 x 12 units) this month - $84.96 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Jul2026.
-Line,2026-07,WS-UNDEDUCTED-Jul2026,52500 Inventory Adjustments / Shrink (Debit),Wholesale,84.96,Wholesale: shortfall vs $7.08 baseline = $84.96
+Line,2026-07,WS-UNDEDUCTED-Jul2026,51100 Bulk Olive Oil – Raw (Debit),Wholesale,84.96,Wholesale: shortfall vs $7.08 baseline = $84.96
 Line,2026-07,WS-UNDEDUCTED-Jul2026,13100 Inventory (Credit),,84.96,Relieves inventory for Jul 2026 Wholesale catch-up
 JE Header,2024-09,RESID-CORR-Sep2024,,,1223.97,"Residual allocation for Sep 2024: after rate-correction and never-deducted catch-up entries, a $24,114.18 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 (Aug 2026 excluded as an incomplete, in-progress month) at $1.7816/unit, channel-tagged by this months share of units sold. NOTE: this month has no channel breakdown in the source data and was already confirmed posted by the bookkeeper separately - all units tagged DTC as the only channel active then; this entry is a pure proportional smoothing allocation, not a finding of any specific error in this months original postings."
 Line,2024-09,RESID-CORR-Sep2024,51100 Bulk Olive Oil – Raw (Debit),DTC,1223.97,"DTC: 687 units x $1.7816/unit residual allocation = $1,223.97"

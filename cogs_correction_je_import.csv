@@ -62,47 +62,47 @@ COGS-CORR-Jul2026,,51100 Bulk Olive Oil – Raw,257.40,,TikTok: 220 units x ($8.
 COGS-CORR-Jul2026,,51100 Bulk Olive Oil – Raw,456.30,,Amazon: 390 units x ($8.25 true - $7.08 posted) = $456.30 understatement,,USD,,Amazon
 COGS-CORR-Jul2026,,51100 Bulk Olive Oil – Raw,14.04,,Wholesale: 12 units x ($8.25 true - $7.08 posted) = $14.04 understatement,,USD,,Wholesale
 COGS-CORR-Jul2026,,13100 Inventory,,1001.52,Relieves inventory for Jul 2026 COGS correction,,USD,,
-DT-UNDEDUCTED-May2025,5/31/25,52500 Inventory Adjustments / Shrink,92.04,,DTC: shortfall vs $7.08 baseline = $92.04,,USD,,DTC
+DT-UNDEDUCTED-May2025,5/31/25,51100 Bulk Olive Oil – Raw,92.04,,DTC: shortfall vs $7.08 baseline = $92.04,,USD,,DTC
 DT-UNDEDUCTED-May2025,,13100 Inventory,,92.04,Relieves inventory for May 2025 DTC catch-up,,USD,,
-WS-UNDEDUCTED-May2025,5/31/25,52500 Inventory Adjustments / Shrink,3016.08,,"Wholesale: shortfall vs $7.08 baseline = $3,016.08",,USD,,Wholesale
+WS-UNDEDUCTED-May2025,5/31/25,51100 Bulk Olive Oil – Raw,3016.08,,"Wholesale: shortfall vs $7.08 baseline = $3,016.08",,USD,,Wholesale
 WS-UNDEDUCTED-May2025,,13100 Inventory,,3016.08,Relieves inventory for May 2025 Wholesale catch-up,,USD,,
-DT-UNDEDUCTED-Jun2025,6/30/25,52500 Inventory Adjustments / Shrink,346.92,,DTC: shortfall vs $7.08 baseline = $346.92,,USD,,DTC
+DT-UNDEDUCTED-Jun2025,6/30/25,51100 Bulk Olive Oil – Raw,346.92,,DTC: shortfall vs $7.08 baseline = $346.92,,USD,,DTC
 DT-UNDEDUCTED-Jun2025,,13100 Inventory,,346.92,Relieves inventory for Jun 2025 DTC catch-up,,USD,,
-WS-UNDEDUCTED-Jun2025,6/30/25,52500 Inventory Adjustments / Shrink,233.64,,Wholesale: shortfall vs $7.08 baseline = $233.64,,USD,,Wholesale
+WS-UNDEDUCTED-Jun2025,6/30/25,51100 Bulk Olive Oil – Raw,233.64,,Wholesale: shortfall vs $7.08 baseline = $233.64,,USD,,Wholesale
 WS-UNDEDUCTED-Jun2025,,13100 Inventory,,233.64,Relieves inventory for Jun 2025 Wholesale catch-up,,USD,,
-DT-UNDEDUCTED-Jul2025,7/31/25,52500 Inventory Adjustments / Shrink,169.92,,DTC: shortfall vs $7.08 baseline = $169.92,,USD,,DTC
+DT-UNDEDUCTED-Jul2025,7/31/25,51100 Bulk Olive Oil – Raw,169.92,,DTC: shortfall vs $7.08 baseline = $169.92,,USD,,DTC
 DT-UNDEDUCTED-Jul2025,,13100 Inventory,,169.92,Relieves inventory for Jul 2025 DTC catch-up,,USD,,
-TI-UNDEDUCTED-Jul2025,7/31/25,52500 Inventory Adjustments / Shrink,155.76,,TikTok: shortfall vs $7.08 baseline = $155.76,,USD,,TikTok
+TI-UNDEDUCTED-Jul2025,7/31/25,51100 Bulk Olive Oil – Raw,155.76,,TikTok: shortfall vs $7.08 baseline = $155.76,,USD,,TikTok
 TI-UNDEDUCTED-Jul2025,,13100 Inventory,,155.76,Relieves inventory for Jul 2025 TikTok catch-up,,USD,,
-WS-UNDEDUCTED-Jul2025,7/31/25,52500 Inventory Adjustments / Shrink,1104.48,,"Wholesale: shortfall vs $7.08 baseline = $1,104.48",,USD,,Wholesale
+WS-UNDEDUCTED-Jul2025,7/31/25,51100 Bulk Olive Oil – Raw,1104.48,,"Wholesale: shortfall vs $7.08 baseline = $1,104.48",,USD,,Wholesale
 WS-UNDEDUCTED-Jul2025,,13100 Inventory,,1104.48,Relieves inventory for Jul 2025 Wholesale catch-up,,USD,,
-DT-UNDEDUCTED-Aug2025,8/31/25,52500 Inventory Adjustments / Shrink,14.16,,DTC: shortfall vs $7.08 baseline = $14.16,,USD,,DTC
+DT-UNDEDUCTED-Aug2025,8/31/25,51100 Bulk Olive Oil – Raw,14.16,,DTC: shortfall vs $7.08 baseline = $14.16,,USD,,DTC
 DT-UNDEDUCTED-Aug2025,,13100 Inventory,,14.16,Relieves inventory for Aug 2025 DTC catch-up,,USD,,
-WS-UNDEDUCTED-Aug2025,8/31/25,52500 Inventory Adjustments / Shrink,311.52,,Wholesale: shortfall vs $7.08 baseline = $311.52,,USD,,Wholesale
+WS-UNDEDUCTED-Aug2025,8/31/25,51100 Bulk Olive Oil – Raw,311.52,,Wholesale: shortfall vs $7.08 baseline = $311.52,,USD,,Wholesale
 WS-UNDEDUCTED-Aug2025,,13100 Inventory,,311.52,Relieves inventory for Aug 2025 Wholesale catch-up,,USD,,
-WS-UNDEDUCTED-Sep2025,9/30/25,52500 Inventory Adjustments / Shrink,8835.84,,"Wholesale: shortfall vs $7.08 baseline = $8,835.84",,USD,,Wholesale
+WS-UNDEDUCTED-Sep2025,9/30/25,51100 Bulk Olive Oil – Raw,8835.84,,"Wholesale: shortfall vs $7.08 baseline = $8,835.84",,USD,,Wholesale
 WS-UNDEDUCTED-Sep2025,,13100 Inventory,,8835.84,Relieves inventory for Sep 2025 Wholesale catch-up,,USD,,
-WS-UNDEDUCTED-Oct2025,10/31/25,52500 Inventory Adjustments / Shrink,835.44,,Wholesale: shortfall vs $7.08 baseline = $835.44,,USD,,Wholesale
+WS-UNDEDUCTED-Oct2025,10/31/25,51100 Bulk Olive Oil – Raw,835.44,,Wholesale: shortfall vs $7.08 baseline = $835.44,,USD,,Wholesale
 WS-UNDEDUCTED-Oct2025,,13100 Inventory,,835.44,Relieves inventory for Oct 2025 Wholesale catch-up,,USD,,
-TI-UNDEDUCTED-Nov2025,11/30/25,52500 Inventory Adjustments / Shrink,35.40,,TikTok: shortfall vs $7.08 baseline = $35.40,,USD,,TikTok
+TI-UNDEDUCTED-Nov2025,11/30/25,51100 Bulk Olive Oil – Raw,35.40,,TikTok: shortfall vs $7.08 baseline = $35.40,,USD,,TikTok
 TI-UNDEDUCTED-Nov2025,,13100 Inventory,,35.40,Relieves inventory for Nov 2025 TikTok catch-up,,USD,,
-WS-UNDEDUCTED-Nov2025,11/30/25,52500 Inventory Adjustments / Shrink,254.88,,Wholesale: shortfall vs $7.08 baseline = $254.88,,USD,,Wholesale
+WS-UNDEDUCTED-Nov2025,11/30/25,51100 Bulk Olive Oil – Raw,254.88,,Wholesale: shortfall vs $7.08 baseline = $254.88,,USD,,Wholesale
 WS-UNDEDUCTED-Nov2025,,13100 Inventory,,254.88,Relieves inventory for Nov 2025 Wholesale catch-up,,USD,,
-DT-UNDEDUCTED-Jan2026,1/31/26,52500 Inventory Adjustments / Shrink,56.64,,DTC: shortfall vs $7.08 baseline = $56.64,,USD,,DTC
+DT-UNDEDUCTED-Jan2026,1/31/26,51100 Bulk Olive Oil – Raw,56.64,,DTC: shortfall vs $7.08 baseline = $56.64,,USD,,DTC
 DT-UNDEDUCTED-Jan2026,,13100 Inventory,,56.64,Relieves inventory for Jan 2026 DTC catch-up,,USD,,
-TI-UNDEDUCTED-Jan2026,1/31/26,52500 Inventory Adjustments / Shrink,106.20,,TikTok: shortfall vs $7.08 baseline = $106.20,,USD,,TikTok
+TI-UNDEDUCTED-Jan2026,1/31/26,51100 Bulk Olive Oil – Raw,106.20,,TikTok: shortfall vs $7.08 baseline = $106.20,,USD,,TikTok
 TI-UNDEDUCTED-Jan2026,,13100 Inventory,,106.20,Relieves inventory for Jan 2026 TikTok catch-up,,USD,,
-DT-UNDEDUCTED-Feb2026,2/28/26,52500 Inventory Adjustments / Shrink,56.64,,DTC: shortfall vs $7.08 baseline = $56.64,,USD,,DTC
+DT-UNDEDUCTED-Feb2026,2/28/26,51100 Bulk Olive Oil – Raw,56.64,,DTC: shortfall vs $7.08 baseline = $56.64,,USD,,DTC
 DT-UNDEDUCTED-Feb2026,,13100 Inventory,,56.64,Relieves inventory for Feb 2026 DTC catch-up,,USD,,
-DT-UNDEDUCTED-Mar2026,3/31/26,52500 Inventory Adjustments / Shrink,7.08,,DTC: shortfall vs $7.08 baseline = $7.08,,USD,,DTC
+DT-UNDEDUCTED-Mar2026,3/31/26,51100 Bulk Olive Oil – Raw,7.08,,DTC: shortfall vs $7.08 baseline = $7.08,,USD,,DTC
 DT-UNDEDUCTED-Mar2026,,13100 Inventory,,7.08,Relieves inventory for Mar 2026 DTC catch-up,,USD,,
-WS-UNDEDUCTED-Apr2026,4/30/26,52500 Inventory Adjustments / Shrink,1854.96,,"Wholesale: shortfall vs $7.08 baseline = $1,854.96",,USD,,Wholesale
+WS-UNDEDUCTED-Apr2026,4/30/26,51100 Bulk Olive Oil – Raw,1854.96,,"Wholesale: shortfall vs $7.08 baseline = $1,854.96",,USD,,Wholesale
 WS-UNDEDUCTED-Apr2026,,13100 Inventory,,1854.96,Relieves inventory for Apr 2026 Wholesale catch-up,,USD,,
-TI-UNDEDUCTED-Jul2026,7/31/26,52500 Inventory Adjustments / Shrink,290.28,,TikTok: shortfall vs $7.08 baseline = $290.28,,USD,,TikTok
+TI-UNDEDUCTED-Jul2026,7/31/26,51100 Bulk Olive Oil – Raw,290.28,,TikTok: shortfall vs $7.08 baseline = $290.28,,USD,,TikTok
 TI-UNDEDUCTED-Jul2026,,13100 Inventory,,290.28,Relieves inventory for Jul 2026 TikTok catch-up,,USD,,
-AM-UNDEDUCTED-Jul2026,7/31/26,52500 Inventory Adjustments / Shrink,63.72,,Amazon: shortfall vs $7.08 baseline = $63.72,,USD,,Amazon
+AM-UNDEDUCTED-Jul2026,7/31/26,51100 Bulk Olive Oil – Raw,63.72,,Amazon: shortfall vs $7.08 baseline = $63.72,,USD,,Amazon
 AM-UNDEDUCTED-Jul2026,,13100 Inventory,,63.72,Relieves inventory for Jul 2026 Amazon catch-up,,USD,,
-WS-UNDEDUCTED-Jul2026,7/31/26,52500 Inventory Adjustments / Shrink,84.96,,Wholesale: shortfall vs $7.08 baseline = $84.96,,USD,,Wholesale
+WS-UNDEDUCTED-Jul2026,7/31/26,51100 Bulk Olive Oil – Raw,84.96,,Wholesale: shortfall vs $7.08 baseline = $84.96,,USD,,Wholesale
 WS-UNDEDUCTED-Jul2026,,13100 Inventory,,84.96,Relieves inventory for Jul 2026 Wholesale catch-up,,USD,,
 RESID-CORR-Sep2024,9/30/24,51100 Bulk Olive Oil – Raw,1223.97,,"DTC: 687 units x $1.7816/unit residual allocation = $1,223.97",,USD,,DTC
 RESID-CORR-Sep2024,,13100 Inventory,,1223.97,Relieves inventory for Sep 2024 residual allocation,,USD,,
