@@ -1,0 +1,85 @@
+RowType,Month,DocNumber,Account,Class,Amount
+JE Header,2025-04,COGS-CORR-Apr2025,,,6072.08
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,3257.52
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,372.40
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2442.16
+Line,2025-04,COGS-CORR-Apr2025,48 Inventory (Credit),,6072.08
+JE Header,2025-05,COGS-CORR-May2025,,,2696.96
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.24
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,94.08
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1830.64
+Line,2025-05,COGS-CORR-May2025,48 Inventory (Credit),,2696.96
+JE Header,2025-06,COGS-CORR-Jun2025,,,1352.40
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,686.00
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,290.08
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,376.32
+Line,2025-06,COGS-CORR-Jun2025,48 Inventory (Credit),,1352.40
+JE Header,2025-07,COGS-CORR-Jul2025,,,2814.56
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,964.32
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1144.64
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,705.60
+Line,2025-07,COGS-CORR-Jul2025,48 Inventory (Credit),,2814.56
+JE Header,2025-08,COGS-CORR-Aug2025,,,2508.80
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1023.12
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1297.52
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,188.16
+Line,2025-08,COGS-CORR-Aug2025,48 Inventory (Credit),,2508.80
+JE Header,2025-09,COGS-CORR-Sep2025,,,7930.16
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1666.00
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1042.72
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,5221.44
+Line,2025-09,COGS-CORR-Sep2025,48 Inventory (Credit),,7930.16
+JE Header,2025-10,COGS-CORR-Oct2025,,,2959.60
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1081.92
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1407.28
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,470.40
+Line,2025-10,COGS-CORR-Oct2025,48 Inventory (Credit),,2959.60
+JE Header,2025-11,COGS-CORR-Nov2025,,,2787.12
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1042.72
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1509.20
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,235.20
+Line,2025-11,COGS-CORR-Nov2025,48 Inventory (Credit),,2787.12
+JE Header,2025-12,COGS-CORR-Dec2025,,,2124.64
+Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,709.52
+Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1415.12
+Line,2025-12,COGS-CORR-Dec2025,48 Inventory (Credit),,2124.64
+JE Header,2026-01,COGS-CORR-Jan2026,,,2152.08
+Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,713.44
+Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1438.64
+Line,2026-01,COGS-CORR-Jan2026,48 Inventory (Credit),,2152.08
+JE Header,2026-02,COGS-CORR-Feb2026,,,1818.88
+Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,682.08
+Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1136.80
+Line,2026-02,COGS-CORR-Feb2026,48 Inventory (Credit),,1818.88
+JE Header,2026-03,COGS-CORR-Mar2026,,,1717.40
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,567.30
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1075.70
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,74.40
+Line,2026-03,COGS-CORR-Mar2026,48 Inventory (Credit),,1717.40
+JE Header,2026-04,COGS-CORR-Apr2026,,,3937.92
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,615.30
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,2194.57
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,354.53
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,773.52
+Line,2026-04,COGS-CORR-Apr2026,48 Inventory (Credit),,3937.92
+JE Header,2026-05,COGS-CORR-May2026,,,2686.81
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,506.89
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,931.74
+Line,2026-05,COGS-CORR-May2026,48 Inventory (Credit),,2686.81
+JE Header,2026-06,COGS-CORR-Jun2026,,,5802.44
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1626.56
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1822.06
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,2353.82
+Line,2026-06,COGS-CORR-Jun2026,48 Inventory (Credit),,5802.44
+JE Header,2026-07,COGS-CORR-Jul2026,,,6788.08
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1855.62
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1744.60
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,3092.70
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,95.16
+Line,2026-07,COGS-CORR-Jul2026,48 Inventory (Credit),,6788.08
+JE Header,2026-08,COGS-CORR-Aug2026,,,1340.17
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,436.15
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,190.32
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,713.70
+Line,2026-08,COGS-CORR-Aug2026,48 Inventory (Credit),,1340.17

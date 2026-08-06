@@ -9,6 +9,7 @@ dist/
 orders_export*.csv
 *.csv
 !channel_units_by_month.csv
+!cogs_correction_monthly_entries.csv
 *.pdf
 Oil Invoices/
 Amazon Orders/
