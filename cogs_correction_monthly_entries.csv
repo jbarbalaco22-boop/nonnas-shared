@@ -67,19 +67,15 @@ Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,506.89,DTC
 Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18,TikTok: 426 units x ($10.01 true - $7.08 posted) = $1248.18 understatement
 Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,931.74,Amazon: 318 units x ($10.01 true - $7.08 posted) = $931.74 understatement
 Line,2026-05,COGS-CORR-May2026,48 Inventory (Credit),,2686.81,Relieves inventory for May 2026 COGS correction
-JE Header,2026-06,COGS-CORR-Jun2026,,,5802.44,"COGS correction for Jun 2026: true FIFO inventory cost was $14.90/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1626.56,DTC: 208 units x ($14.90 true - $7.08 posted) = $1626.56 understatement
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1822.06,TikTok: 233 units x ($14.90 true - $7.08 posted) = $1822.06 understatement
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,2353.82,Amazon: 301 units x ($14.90 true - $7.08 posted) = $2353.82 understatement
-Line,2026-06,COGS-CORR-Jun2026,48 Inventory (Credit),,5802.44,Relieves inventory for Jun 2026 COGS correction
-JE Header,2026-07,COGS-CORR-Jul2026,,,6788.08,"COGS correction for Jul 2026: true FIFO inventory cost was $15.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1855.62,DTC: 234 units x ($15.01 true - $7.08 posted) = $1855.62 understatement
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1744.60,TikTok: 220 units x ($15.01 true - $7.08 posted) = $1744.60 understatement
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,3092.70,Amazon: 390 units x ($15.01 true - $7.08 posted) = $3092.70 understatement
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,95.16,Wholesale: 12 units x ($15.01 true - $7.08 posted) = $95.16 understatement
-Line,2026-07,COGS-CORR-Jul2026,48 Inventory (Credit),,6788.08,Relieves inventory for Jul 2026 COGS correction
-JE Header,2026-08,COGS-CORR-Aug2026,,,1340.17,"COGS correction for Aug 2026: true FIFO inventory cost was $15.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,436.15,DTC: 55 units x ($15.01 true - $7.08 posted) = $436.15 understatement
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,190.32,TikTok: 24 units x ($15.01 true - $7.08 posted) = $190.32 understatement
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,713.70,Amazon: 90 units x ($15.01 true - $7.08 posted) = $713.70 understatement
-Line,2026-08,COGS-CORR-Aug2026,48 Inventory (Credit),,1340.17,Relieves inventory for Aug 2026 COGS correction
+JE Header,2026-06,COGS-CORR-Jun2026,,,2107.28,"COGS correction for Jun 2026: true FIFO inventory cost was $9.92/unit (confirmed $7.08/unit rate reached the front of the FIFO queue this month), vs. $7.08 posted. Restates COGS by channel for units sold this month."
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,590.72,DTC: 208 units x ($9.92 true - $7.08 posted) = $590.72 understatement
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,661.72,TikTok: 233 units x ($9.92 true - $7.08 posted) = $661.72 understatement
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,854.84,Amazon: 301 units x ($9.92 true - $7.08 posted) = $854.84 understatement
+Line,2026-06,COGS-CORR-Jun2026,48 Inventory (Credit),,2107.28,Relieves inventory for Jun 2026 COGS correction
+JE Header,2026-07,COGS-CORR-Jul2026,,,1001.52,"COGS correction for Jul 2026: true FIFO inventory cost was $8.25/unit (confirmed $7.08/unit rate reached the front of the FIFO queue this month), vs. $7.08 posted. Restates COGS by channel for units sold this month."
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,273.78,DTC: 234 units x ($8.25 true - $7.08 posted) = $273.78 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,257.40,TikTok: 220 units x ($8.25 true - $7.08 posted) = $257.40 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,456.30,Amazon: 390 units x ($8.25 true - $7.08 posted) = $456.30 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,14.04,Wholesale: 12 units x ($8.25 true - $7.08 posted) = $14.04 understatement
+Line,2026-07,COGS-CORR-Jul2026,48 Inventory (Credit),,1001.52,Relieves inventory for Jul 2026 COGS correction
+JE Header,2026-08,COGS-CORR-Aug2026,,,0.00,No correction needed for Aug 2026: true FIFO cost ($7.08/unit) matches the $7.08/unit already posted this month.
