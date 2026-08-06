@@ -11,6 +11,7 @@ orders_export*.csv
 !channel_units_by_month.csv
 !cogs_correction_monthly_entries.csv
 !cogs_correction_je_import.csv
+!cogs_correction_je_import_TEST_SINGLE.csv
 *.pdf
 Oil Invoices/
 Amazon Orders/

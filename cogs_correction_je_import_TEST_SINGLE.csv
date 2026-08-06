@@ -1,0 +1,5 @@
+Journal No,Journal Date,Account Name,Debits,Credits,Description,Name,Currency,Location,Class,Memo
+COGS-CORR-Apr2025,4/30/25,51100 Bulk Olive Oil – Raw,991.76,,DTC rate correction,,USD,,DTC,"COGS correction for Apr 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit posted rate baseline. Restates COGS by channel for units sold this month."
+COGS-CORR-Apr2025,,51100 Bulk Olive Oil – Raw,372.40,,TikTok rate correction,,USD,,TikTok,
+COGS-CORR-Apr2025,,51100 Bulk Olive Oil – Raw,2442.16,,Wholesale rate correction,,USD,,Wholesale,
+COGS-CORR-Apr2025,,13100 Inventory,,3806.32,Relieves inventory,,USD,,,
