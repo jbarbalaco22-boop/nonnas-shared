@@ -15,3 +15,4 @@ orders_export*.csv
 *.pdf
 Oil Invoices/
 Amazon Orders/
+!cogs_correction_je_import_REMAINDER.csv
