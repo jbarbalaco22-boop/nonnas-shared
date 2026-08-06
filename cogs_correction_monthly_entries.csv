@@ -1,85 +1,85 @@
-RowType,Month,DocNumber,Account,Class,Amount
-JE Header,2025-04,COGS-CORR-Apr2025,,,6072.08
-Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,3257.52
-Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,372.40
-Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2442.16
-Line,2025-04,COGS-CORR-Apr2025,48 Inventory (Credit),,6072.08
-JE Header,2025-05,COGS-CORR-May2025,,,2696.96
-Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.24
-Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,94.08
-Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1830.64
-Line,2025-05,COGS-CORR-May2025,48 Inventory (Credit),,2696.96
-JE Header,2025-06,COGS-CORR-Jun2025,,,1352.40
-Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,686.00
-Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,290.08
-Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,376.32
-Line,2025-06,COGS-CORR-Jun2025,48 Inventory (Credit),,1352.40
-JE Header,2025-07,COGS-CORR-Jul2025,,,2814.56
-Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,964.32
-Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1144.64
-Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,705.60
-Line,2025-07,COGS-CORR-Jul2025,48 Inventory (Credit),,2814.56
-JE Header,2025-08,COGS-CORR-Aug2025,,,2508.80
-Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1023.12
-Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1297.52
-Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,188.16
-Line,2025-08,COGS-CORR-Aug2025,48 Inventory (Credit),,2508.80
-JE Header,2025-09,COGS-CORR-Sep2025,,,7930.16
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1666.00
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1042.72
-Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,5221.44
-Line,2025-09,COGS-CORR-Sep2025,48 Inventory (Credit),,7930.16
-JE Header,2025-10,COGS-CORR-Oct2025,,,2959.60
-Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1081.92
-Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1407.28
-Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,470.40
-Line,2025-10,COGS-CORR-Oct2025,48 Inventory (Credit),,2959.60
-JE Header,2025-11,COGS-CORR-Nov2025,,,2787.12
-Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1042.72
-Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1509.20
-Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,235.20
-Line,2025-11,COGS-CORR-Nov2025,48 Inventory (Credit),,2787.12
-JE Header,2025-12,COGS-CORR-Dec2025,,,2124.64
-Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,709.52
-Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1415.12
-Line,2025-12,COGS-CORR-Dec2025,48 Inventory (Credit),,2124.64
-JE Header,2026-01,COGS-CORR-Jan2026,,,2152.08
-Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,713.44
-Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1438.64
-Line,2026-01,COGS-CORR-Jan2026,48 Inventory (Credit),,2152.08
-JE Header,2026-02,COGS-CORR-Feb2026,,,1818.88
-Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,682.08
-Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1136.80
-Line,2026-02,COGS-CORR-Feb2026,48 Inventory (Credit),,1818.88
-JE Header,2026-03,COGS-CORR-Mar2026,,,1717.40
-Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,567.30
-Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1075.70
-Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,74.40
-Line,2026-03,COGS-CORR-Mar2026,48 Inventory (Credit),,1717.40
-JE Header,2026-04,COGS-CORR-Apr2026,,,3937.92
-Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,615.30
-Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,2194.57
-Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,354.53
-Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,773.52
-Line,2026-04,COGS-CORR-Apr2026,48 Inventory (Credit),,3937.92
-JE Header,2026-05,COGS-CORR-May2026,,,2686.81
-Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,506.89
-Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18
-Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,931.74
-Line,2026-05,COGS-CORR-May2026,48 Inventory (Credit),,2686.81
-JE Header,2026-06,COGS-CORR-Jun2026,,,5802.44
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1626.56
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1822.06
-Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,2353.82
-Line,2026-06,COGS-CORR-Jun2026,48 Inventory (Credit),,5802.44
-JE Header,2026-07,COGS-CORR-Jul2026,,,6788.08
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1855.62
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1744.60
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,3092.70
-Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,95.16
-Line,2026-07,COGS-CORR-Jul2026,48 Inventory (Credit),,6788.08
-JE Header,2026-08,COGS-CORR-Aug2026,,,1340.17
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,436.15
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,190.32
-Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,713.70
-Line,2026-08,COGS-CORR-Aug2026,48 Inventory (Credit),,1340.17
+RowType,Month,DocNumber,Account,Class,Amount,Memo
+JE Header,2025-04,COGS-CORR-Apr2025,,,6072.08,"COGS correction for Apr 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,3257.52,DTC: 831 units x ($11.00 true - $7.08 posted) = $3257.52 understatement
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,372.40,TikTok: 95 units x ($11.00 true - $7.08 posted) = $372.40 understatement
+Line,2025-04,COGS-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2442.16,Wholesale: 623 units x ($11.00 true - $7.08 posted) = $2442.16 understatement
+Line,2025-04,COGS-CORR-Apr2025,48 Inventory (Credit),,6072.08,Relieves inventory for Apr 2025 COGS correction
+JE Header,2025-05,COGS-CORR-May2025,,,2696.96,"COGS correction for May 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.24,DTC: 197 units x ($11.00 true - $7.08 posted) = $772.24 understatement
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,94.08,TikTok: 24 units x ($11.00 true - $7.08 posted) = $94.08 understatement
+Line,2025-05,COGS-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1830.64,Wholesale: 467 units x ($11.00 true - $7.08 posted) = $1830.64 understatement
+Line,2025-05,COGS-CORR-May2025,48 Inventory (Credit),,2696.96,Relieves inventory for May 2025 COGS correction
+JE Header,2025-06,COGS-CORR-Jun2025,,,1352.40,"COGS correction for Jun 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,686.00,DTC: 175 units x ($11.00 true - $7.08 posted) = $686.00 understatement
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,290.08,TikTok: 74 units x ($11.00 true - $7.08 posted) = $290.08 understatement
+Line,2025-06,COGS-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,376.32,Wholesale: 96 units x ($11.00 true - $7.08 posted) = $376.32 understatement
+Line,2025-06,COGS-CORR-Jun2025,48 Inventory (Credit),,1352.40,Relieves inventory for Jun 2025 COGS correction
+JE Header,2025-07,COGS-CORR-Jul2025,,,2814.56,"COGS correction for Jul 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,964.32,DTC: 246 units x ($11.00 true - $7.08 posted) = $964.32 understatement
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1144.64,TikTok: 292 units x ($11.00 true - $7.08 posted) = $1144.64 understatement
+Line,2025-07,COGS-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,705.60,Wholesale: 180 units x ($11.00 true - $7.08 posted) = $705.60 understatement
+Line,2025-07,COGS-CORR-Jul2025,48 Inventory (Credit),,2814.56,Relieves inventory for Jul 2025 COGS correction
+JE Header,2025-08,COGS-CORR-Aug2025,,,2508.80,"COGS correction for Aug 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1023.12,DTC: 261 units x ($11.00 true - $7.08 posted) = $1023.12 understatement
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1297.52,TikTok: 331 units x ($11.00 true - $7.08 posted) = $1297.52 understatement
+Line,2025-08,COGS-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,188.16,Wholesale: 48 units x ($11.00 true - $7.08 posted) = $188.16 understatement
+Line,2025-08,COGS-CORR-Aug2025,48 Inventory (Credit),,2508.80,Relieves inventory for Aug 2025 COGS correction
+JE Header,2025-09,COGS-CORR-Sep2025,,,7930.16,"COGS correction for Sep 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1666.00,DTC: 425 units x ($11.00 true - $7.08 posted) = $1666.00 understatement
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1042.72,TikTok: 266 units x ($11.00 true - $7.08 posted) = $1042.72 understatement
+Line,2025-09,COGS-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,5221.44,Wholesale: 1332 units x ($11.00 true - $7.08 posted) = $5221.44 understatement
+Line,2025-09,COGS-CORR-Sep2025,48 Inventory (Credit),,7930.16,Relieves inventory for Sep 2025 COGS correction
+JE Header,2025-10,COGS-CORR-Oct2025,,,2959.60,"COGS correction for Oct 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1081.92,DTC: 276 units x ($11.00 true - $7.08 posted) = $1081.92 understatement
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1407.28,TikTok: 359 units x ($11.00 true - $7.08 posted) = $1407.28 understatement
+Line,2025-10,COGS-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,470.40,Wholesale: 120 units x ($11.00 true - $7.08 posted) = $470.40 understatement
+Line,2025-10,COGS-CORR-Oct2025,48 Inventory (Credit),,2959.60,Relieves inventory for Oct 2025 COGS correction
+JE Header,2025-11,COGS-CORR-Nov2025,,,2787.12,"COGS correction for Nov 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,1042.72,DTC: 266 units x ($11.00 true - $7.08 posted) = $1042.72 understatement
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1509.20,TikTok: 385 units x ($11.00 true - $7.08 posted) = $1509.20 understatement
+Line,2025-11,COGS-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,235.20,Wholesale: 60 units x ($11.00 true - $7.08 posted) = $235.20 understatement
+Line,2025-11,COGS-CORR-Nov2025,48 Inventory (Credit),,2787.12,Relieves inventory for Nov 2025 COGS correction
+JE Header,2025-12,COGS-CORR-Dec2025,,,2124.64,"COGS correction for Dec 2025: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,709.52,DTC: 181 units x ($11.00 true - $7.08 posted) = $709.52 understatement
+Line,2025-12,COGS-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,1415.12,TikTok: 361 units x ($11.00 true - $7.08 posted) = $1415.12 understatement
+Line,2025-12,COGS-CORR-Dec2025,48 Inventory (Credit),,2124.64,Relieves inventory for Dec 2025 COGS correction
+JE Header,2026-01,COGS-CORR-Jan2026,,,2152.08,"COGS correction for Jan 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,713.44,DTC: 182 units x ($11.00 true - $7.08 posted) = $713.44 understatement
+Line,2026-01,COGS-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1438.64,TikTok: 367 units x ($11.00 true - $7.08 posted) = $1438.64 understatement
+Line,2026-01,COGS-CORR-Jan2026,48 Inventory (Credit),,2152.08,Relieves inventory for Jan 2026 COGS correction
+JE Header,2026-02,COGS-CORR-Feb2026,,,1818.88,"COGS correction for Feb 2026: true FIFO inventory cost was $11.00/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,682.08,DTC: 174 units x ($11.00 true - $7.08 posted) = $682.08 understatement
+Line,2026-02,COGS-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1136.80,TikTok: 290 units x ($11.00 true - $7.08 posted) = $1136.80 understatement
+Line,2026-02,COGS-CORR-Feb2026,48 Inventory (Credit),,1818.88,Relieves inventory for Feb 2026 COGS correction
+JE Header,2026-03,COGS-CORR-Mar2026,,,1717.40,"COGS correction for Mar 2026: true FIFO inventory cost was $10.18/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,567.30,DTC: 183 units x ($10.18 true - $7.08 posted) = $567.30 understatement
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1075.70,TikTok: 347 units x ($10.18 true - $7.08 posted) = $1075.70 understatement
+Line,2026-03,COGS-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,74.40,Wholesale: 24 units x ($10.18 true - $7.08 posted) = $74.40 understatement
+Line,2026-03,COGS-CORR-Mar2026,48 Inventory (Credit),,1717.40,Relieves inventory for Mar 2026 COGS correction
+JE Header,2026-04,COGS-CORR-Apr2026,,,3937.92,"COGS correction for Apr 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,615.30,DTC: 210 units x ($10.01 true - $7.08 posted) = $615.30 understatement
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,2194.57,TikTok: 749 units x ($10.01 true - $7.08 posted) = $2194.57 understatement
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,354.53,Amazon: 121 units x ($10.01 true - $7.08 posted) = $354.53 understatement
+Line,2026-04,COGS-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,773.52,Wholesale: 264 units x ($10.01 true - $7.08 posted) = $773.52 understatement
+Line,2026-04,COGS-CORR-Apr2026,48 Inventory (Credit),,3937.92,Relieves inventory for Apr 2026 COGS correction
+JE Header,2026-05,COGS-CORR-May2026,,,2686.81,"COGS correction for May 2026: true FIFO inventory cost was $10.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,506.89,DTC: 173 units x ($10.01 true - $7.08 posted) = $506.89 understatement
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1248.18,TikTok: 426 units x ($10.01 true - $7.08 posted) = $1248.18 understatement
+Line,2026-05,COGS-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,931.74,Amazon: 318 units x ($10.01 true - $7.08 posted) = $931.74 understatement
+Line,2026-05,COGS-CORR-May2026,48 Inventory (Credit),,2686.81,Relieves inventory for May 2026 COGS correction
+JE Header,2026-06,COGS-CORR-Jun2026,,,5802.44,"COGS correction for Jun 2026: true FIFO inventory cost was $14.90/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1626.56,DTC: 208 units x ($14.90 true - $7.08 posted) = $1626.56 understatement
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1822.06,TikTok: 233 units x ($14.90 true - $7.08 posted) = $1822.06 understatement
+Line,2026-06,COGS-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,2353.82,Amazon: 301 units x ($14.90 true - $7.08 posted) = $2353.82 understatement
+Line,2026-06,COGS-CORR-Jun2026,48 Inventory (Credit),,5802.44,Relieves inventory for Jun 2026 COGS correction
+JE Header,2026-07,COGS-CORR-Jul2026,,,6788.08,"COGS correction for Jul 2026: true FIFO inventory cost was $15.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,1855.62,DTC: 234 units x ($15.01 true - $7.08 posted) = $1855.62 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1744.60,TikTok: 220 units x ($15.01 true - $7.08 posted) = $1744.60 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,3092.70,Amazon: 390 units x ($15.01 true - $7.08 posted) = $3092.70 understatement
+Line,2026-07,COGS-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,95.16,Wholesale: 12 units x ($15.01 true - $7.08 posted) = $95.16 understatement
+Line,2026-07,COGS-CORR-Jul2026,48 Inventory (Credit),,6788.08,Relieves inventory for Jul 2026 COGS correction
+JE Header,2026-08,COGS-CORR-Aug2026,,,1340.17,"COGS correction for Aug 2026: true FIFO inventory cost was $15.01/unit (validated against 8/3/2026 physical count of 2,267 units), vs. $7.08/unit actually posted via A2X automated deduction. Restates COGS by channel for units sold this month."
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),DTC,436.15,DTC: 55 units x ($15.01 true - $7.08 posted) = $436.15 understatement
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,190.32,TikTok: 24 units x ($15.01 true - $7.08 posted) = $190.32 understatement
+Line,2026-08,COGS-CORR-Aug2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,713.70,Amazon: 90 units x ($15.01 true - $7.08 posted) = $713.70 understatement
+Line,2026-08,COGS-CORR-Aug2026,48 Inventory (Credit),,1340.17,Relieves inventory for Aug 2026 COGS correction
