@@ -152,82 +152,93 @@ Line,2026-08,TI-UNDEDUCTED-Aug2026,13100 Inventory (Credit),,169.92,Relieves inv
 JE Header,2026-08,AM-UNDEDUCTED-Aug2026,,,637.20,Amazon inventory catch-up for Aug 2026: automated deduction mechanism only posted $0.00 of the $637.20 expected ($7.08 x 90 units) this month - $637.20 never hit COGS at all. Separate from the rate-only correction in COGS-CORR-Aug2026.
 Line,2026-08,AM-UNDEDUCTED-Aug2026,52100 Inventory Adjustment - Unrecorded Deductions (Debit),Amazon,637.20,Amazon: shortfall vs $7.08 baseline = $637.20
 Line,2026-08,AM-UNDEDUCTED-Aug2026,13100 Inventory (Credit),,637.20,Relieves inventory for Aug 2026 Amazon catch-up
-JE Header,2025-04,RESID-CORR-Apr2025,,,1765.45,"Residual allocation for Apr 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,460.00,DTC: 253 units x $1.8182/unit residual allocation = $460.00
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,172.73,TikTok: 95 units x $1.8182/unit residual allocation = $172.73
-Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1132.72,"Wholesale: 623 units x $1.8182/unit residual allocation = $1,132.72"
-Line,2025-04,RESID-CORR-Apr2025,13100 Inventory (Credit),,1765.45,Relieves inventory for Apr 2025 residual allocation
-JE Header,2025-05,RESID-CORR-May2025,,,1250.90,"Residual allocation for May 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,358.18,DTC: 197 units x $1.8182/unit residual allocation = $358.18
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,43.64,TikTok: 24 units x $1.8182/unit residual allocation = $43.64
-Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,849.08,Wholesale: 467 units x $1.8182/unit residual allocation = $849.08
-Line,2025-05,RESID-CORR-May2025,13100 Inventory (Credit),,1250.90,Relieves inventory for May 2025 residual allocation
-JE Header,2025-06,RESID-CORR-Jun2025,,,627.26,"Residual allocation for Jun 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,318.18,DTC: 175 units x $1.8182/unit residual allocation = $318.18
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,134.54,TikTok: 74 units x $1.8182/unit residual allocation = $134.54
-Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,174.54,Wholesale: 96 units x $1.8182/unit residual allocation = $174.54
-Line,2025-06,RESID-CORR-Jun2025,13100 Inventory (Credit),,627.26,Relieves inventory for Jun 2025 residual allocation
-JE Header,2025-07,RESID-CORR-Jul2025,,,1305.44,"Residual allocation for Jul 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,447.27,DTC: 246 units x $1.8182/unit residual allocation = $447.27
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,530.90,TikTok: 292 units x $1.8182/unit residual allocation = $530.90
-Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,327.27,Wholesale: 180 units x $1.8182/unit residual allocation = $327.27
-Line,2025-07,RESID-CORR-Jul2025,13100 Inventory (Credit),,1305.44,Relieves inventory for Jul 2025 residual allocation
-JE Header,2025-08,RESID-CORR-Aug2025,,,1163.62,"Residual allocation for Aug 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,474.54,DTC: 261 units x $1.8182/unit residual allocation = $474.54
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,601.81,TikTok: 331 units x $1.8182/unit residual allocation = $601.81
-Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,87.27,Wholesale: 48 units x $1.8182/unit residual allocation = $87.27
-Line,2025-08,RESID-CORR-Aug2025,13100 Inventory (Credit),,1163.62,Relieves inventory for Aug 2025 residual allocation
-JE Header,2025-09,RESID-CORR-Sep2025,,,3678.15,"Residual allocation for Sep 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,772.72,DTC: 425 units x $1.8182/unit residual allocation = $772.72
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,483.63,TikTok: 266 units x $1.8182/unit residual allocation = $483.63
-Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2421.80,"Wholesale: 1332 units x $1.8182/unit residual allocation = $2,421.80"
-Line,2025-09,RESID-CORR-Sep2025,13100 Inventory (Credit),,3678.15,Relieves inventory for Sep 2025 residual allocation
-JE Header,2025-10,RESID-CORR-Oct2025,,,1372.71,"Residual allocation for Oct 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,501.81,DTC: 276 units x $1.8182/unit residual allocation = $501.81
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,652.72,TikTok: 359 units x $1.8182/unit residual allocation = $652.72
-Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,218.18,Wholesale: 120 units x $1.8182/unit residual allocation = $218.18
-Line,2025-10,RESID-CORR-Oct2025,13100 Inventory (Credit),,1372.71,Relieves inventory for Oct 2025 residual allocation
-JE Header,2025-11,RESID-CORR-Nov2025,,,1292.71,"Residual allocation for Nov 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,483.63,DTC: 266 units x $1.8182/unit residual allocation = $483.63
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,699.99,TikTok: 385 units x $1.8182/unit residual allocation = $699.99
-Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,109.09,Wholesale: 60 units x $1.8182/unit residual allocation = $109.09
-Line,2025-11,RESID-CORR-Nov2025,13100 Inventory (Credit),,1292.71,Relieves inventory for Nov 2025 residual allocation
-JE Header,2025-12,RESID-CORR-Dec2025,,,985.45,"Residual allocation for Dec 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,329.09,DTC: 181 units x $1.8182/unit residual allocation = $329.09
-Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,656.36,TikTok: 361 units x $1.8182/unit residual allocation = $656.36
-Line,2025-12,RESID-CORR-Dec2025,13100 Inventory (Credit),,985.45,Relieves inventory for Dec 2025 residual allocation
-JE Header,2026-01,RESID-CORR-Jan2026,,,998.18,"Residual allocation for Jan 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,330.91,DTC: 182 units x $1.8182/unit residual allocation = $330.91
-Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,667.27,TikTok: 367 units x $1.8182/unit residual allocation = $667.27
-Line,2026-01,RESID-CORR-Jan2026,13100 Inventory (Credit),,998.18,Relieves inventory for Jan 2026 residual allocation
-JE Header,2026-02,RESID-CORR-Feb2026,,,843.63,"Residual allocation for Feb 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,316.36,DTC: 174 units x $1.8182/unit residual allocation = $316.36
-Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,527.27,TikTok: 290 units x $1.8182/unit residual allocation = $527.27
-Line,2026-02,RESID-CORR-Feb2026,13100 Inventory (Credit),,843.63,Relieves inventory for Feb 2026 residual allocation
-JE Header,2026-03,RESID-CORR-Mar2026,,,1007.26,"Residual allocation for Mar 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,332.72,DTC: 183 units x $1.8182/unit residual allocation = $332.72
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,630.90,TikTok: 347 units x $1.8182/unit residual allocation = $630.90
-Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,43.64,Wholesale: 24 units x $1.8182/unit residual allocation = $43.64
-Line,2026-03,RESID-CORR-Mar2026,13100 Inventory (Credit),,1007.26,Relieves inventory for Mar 2026 residual allocation
-JE Header,2026-04,RESID-CORR-Apr2026,,,2443.62,"Residual allocation for Apr 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,381.81,DTC: 210 units x $1.8182/unit residual allocation = $381.81
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1361.81,"TikTok: 749 units x $1.8182/unit residual allocation = $1,361.81"
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,220.00,Amazon: 121 units x $1.8182/unit residual allocation = $220.00
-Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,480.00,Wholesale: 264 units x $1.8182/unit residual allocation = $480.00
-Line,2026-04,RESID-CORR-Apr2026,13100 Inventory (Credit),,2443.62,Relieves inventory for Apr 2026 residual allocation
-JE Header,2026-05,RESID-CORR-May2026,,,1667.26,"Residual allocation for May 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,314.54,DTC: 173 units x $1.8182/unit residual allocation = $314.54
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,774.54,TikTok: 426 units x $1.8182/unit residual allocation = $774.54
-Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,578.18,Amazon: 318 units x $1.8182/unit residual allocation = $578.18
-Line,2026-05,RESID-CORR-May2026,13100 Inventory (Credit),,1667.26,Relieves inventory for May 2026 residual allocation
-JE Header,2026-06,RESID-CORR-Jun2026,,,1349.08,"Residual allocation for Jun 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,378.18,DTC: 208 units x $1.8182/unit residual allocation = $378.18
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,423.63,TikTok: 233 units x $1.8182/unit residual allocation = $423.63
-Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,547.27,Amazon: 301 units x $1.8182/unit residual allocation = $547.27
-Line,2026-06,RESID-CORR-Jun2026,13100 Inventory (Credit),,1349.08,Relieves inventory for Jun 2026 residual allocation
-JE Header,2026-07,RESID-CORR-Jul2026,,,1556.35,"Residual allocation for Jul 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Apr 2025-Jul 2026 at $1.8182/unit, channel-tagged by this months share of units sold."
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,425.45,DTC: 234 units x $1.8182/unit residual allocation = $425.45
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,400.00,TikTok: 220 units x $1.8182/unit residual allocation = $400.00
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,709.08,Amazon: 390 units x $1.8182/unit residual allocation = $709.08
-Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,21.82,Wholesale: 12 units x $1.8182/unit residual allocation = $21.82
-Line,2026-07,RESID-CORR-Jul2026,13100 Inventory (Credit),,1556.35,Relieves inventory for Jul 2026 residual allocation
+JE Header,2024-09,RESID-CORR-Sep2024,,,1183.00,"Residual allocation for Sep 2024: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold. NOTE: this month has no channel breakdown in the source data and was already confirmed posted by the bookkeeper separately - all units tagged DTC as the only channel active then; this entry is a pure proportional smoothing allocation, not a finding of any specific error in this months original postings."
+Line,2024-09,RESID-CORR-Sep2024,51100 Bulk Olive Oil - Raw (Debit),DTC,1183.00,"DTC: 687 units x $1.7220/unit residual allocation = $1,183.00"
+Line,2024-09,RESID-CORR-Sep2024,13100 Inventory (Credit),,1183.00,Relieves inventory for Sep 2024 residual allocation
+JE Header,2024-10,RESID-CORR-Oct2024,,,48.22,"Residual allocation for Oct 2024: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold. NOTE: this month has no channel breakdown in the source data and was already confirmed posted by the bookkeeper separately - all units tagged DTC as the only channel active then; this entry is a pure proportional smoothing allocation, not a finding of any specific error in this months original postings."
+Line,2024-10,RESID-CORR-Oct2024,51100 Bulk Olive Oil - Raw (Debit),DTC,48.22,DTC: 28 units x $1.7220/unit residual allocation = $48.22
+Line,2024-10,RESID-CORR-Oct2024,13100 Inventory (Credit),,48.22,Relieves inventory for Oct 2024 residual allocation
+JE Header,2024-11,RESID-CORR-Nov2024,,,0.00,"Residual allocation for Nov 2024: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold. NOTE: this month has no channel breakdown in the source data and was already confirmed posted by the bookkeeper separately - all units tagged DTC as the only channel active then; this entry is a pure proportional smoothing allocation, not a finding of any specific error in this months original postings."
+Line,2024-11,RESID-CORR-Nov2024,13100 Inventory (Credit),,0.00,Relieves inventory for Nov 2024 residual allocation
+JE Header,2024-12,RESID-CORR-Dec2024,,,1.72,"Residual allocation for Dec 2024: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold. NOTE: this month has no channel breakdown in the source data and was already confirmed posted by the bookkeeper separately - all units tagged DTC as the only channel active then; this entry is a pure proportional smoothing allocation, not a finding of any specific error in this months original postings."
+Line,2024-12,RESID-CORR-Dec2024,51100 Bulk Olive Oil - Raw (Debit),DTC,1.72,DTC: 1 units x $1.7220/unit residual allocation = $1.72
+Line,2024-12,RESID-CORR-Dec2024,13100 Inventory (Credit),,1.72,Relieves inventory for Dec 2024 residual allocation
+JE Header,2025-04,RESID-CORR-Apr2025,,,1672.05,"Residual allocation for Apr 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),DTC,435.66,DTC: 253 units x $1.7220/unit residual allocation = $435.66
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,163.59,TikTok: 95 units x $1.7220/unit residual allocation = $163.59
+Line,2025-04,RESID-CORR-Apr2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,1072.80,"Wholesale: 623 units x $1.7220/unit residual allocation = $1,072.80"
+Line,2025-04,RESID-CORR-Apr2025,13100 Inventory (Credit),,1672.05,Relieves inventory for Apr 2025 residual allocation
+JE Header,2025-05,RESID-CORR-May2025,,,1184.73,"Residual allocation for May 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),DTC,339.23,DTC: 197 units x $1.7220/unit residual allocation = $339.23
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,41.33,TikTok: 24 units x $1.7220/unit residual allocation = $41.33
+Line,2025-05,RESID-CORR-May2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,804.17,Wholesale: 467 units x $1.7220/unit residual allocation = $804.17
+Line,2025-05,RESID-CORR-May2025,13100 Inventory (Credit),,1184.73,Relieves inventory for May 2025 residual allocation
+JE Header,2025-06,RESID-CORR-Jun2025,,,594.09,"Residual allocation for Jun 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),DTC,301.35,DTC: 175 units x $1.7220/unit residual allocation = $301.35
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,127.43,TikTok: 74 units x $1.7220/unit residual allocation = $127.43
+Line,2025-06,RESID-CORR-Jun2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,165.31,Wholesale: 96 units x $1.7220/unit residual allocation = $165.31
+Line,2025-06,RESID-CORR-Jun2025,13100 Inventory (Credit),,594.09,Relieves inventory for Jun 2025 residual allocation
+JE Header,2025-07,RESID-CORR-Jul2025,,,1236.39,"Residual allocation for Jul 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),DTC,423.61,DTC: 246 units x $1.7220/unit residual allocation = $423.61
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,502.82,TikTok: 292 units x $1.7220/unit residual allocation = $502.82
+Line,2025-07,RESID-CORR-Jul2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,309.96,Wholesale: 180 units x $1.7220/unit residual allocation = $309.96
+Line,2025-07,RESID-CORR-Jul2025,13100 Inventory (Credit),,1236.39,Relieves inventory for Jul 2025 residual allocation
+JE Header,2025-08,RESID-CORR-Aug2025,,,1102.08,"Residual allocation for Aug 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),DTC,449.44,DTC: 261 units x $1.7220/unit residual allocation = $449.44
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,569.98,TikTok: 331 units x $1.7220/unit residual allocation = $569.98
+Line,2025-08,RESID-CORR-Aug2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,82.66,Wholesale: 48 units x $1.7220/unit residual allocation = $82.66
+Line,2025-08,RESID-CORR-Aug2025,13100 Inventory (Credit),,1102.08,Relieves inventory for Aug 2025 residual allocation
+JE Header,2025-09,RESID-CORR-Sep2025,,,3483.57,"Residual allocation for Sep 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),DTC,731.84,DTC: 425 units x $1.7220/unit residual allocation = $731.84
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,458.05,TikTok: 266 units x $1.7220/unit residual allocation = $458.05
+Line,2025-09,RESID-CORR-Sep2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,2293.68,"Wholesale: 1332 units x $1.7220/unit residual allocation = $2,293.68"
+Line,2025-09,RESID-CORR-Sep2025,13100 Inventory (Credit),,3483.57,Relieves inventory for Sep 2025 residual allocation
+JE Header,2025-10,RESID-CORR-Oct2025,,,1300.10,"Residual allocation for Oct 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),DTC,475.27,DTC: 276 units x $1.7220/unit residual allocation = $475.27
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,618.19,TikTok: 359 units x $1.7220/unit residual allocation = $618.19
+Line,2025-10,RESID-CORR-Oct2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,206.64,Wholesale: 120 units x $1.7220/unit residual allocation = $206.64
+Line,2025-10,RESID-CORR-Oct2025,13100 Inventory (Credit),,1300.10,Relieves inventory for Oct 2025 residual allocation
+JE Header,2025-11,RESID-CORR-Nov2025,,,1224.33,"Residual allocation for Nov 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),DTC,458.05,DTC: 266 units x $1.7220/unit residual allocation = $458.05
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,662.96,TikTok: 385 units x $1.7220/unit residual allocation = $662.96
+Line,2025-11,RESID-CORR-Nov2025,51100 Bulk Olive Oil - Raw (Debit),Wholesale,103.32,Wholesale: 60 units x $1.7220/unit residual allocation = $103.32
+Line,2025-11,RESID-CORR-Nov2025,13100 Inventory (Credit),,1224.33,Relieves inventory for Nov 2025 residual allocation
+JE Header,2025-12,RESID-CORR-Dec2025,,,933.32,"Residual allocation for Dec 2025: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),DTC,311.68,DTC: 181 units x $1.7220/unit residual allocation = $311.68
+Line,2025-12,RESID-CORR-Dec2025,51100 Bulk Olive Oil - Raw (Debit),TikTok,621.64,TikTok: 361 units x $1.7220/unit residual allocation = $621.64
+Line,2025-12,RESID-CORR-Dec2025,13100 Inventory (Credit),,933.32,Relieves inventory for Dec 2025 residual allocation
+JE Header,2026-01,RESID-CORR-Jan2026,,,945.37,"Residual allocation for Jan 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),DTC,313.40,DTC: 182 units x $1.7220/unit residual allocation = $313.40
+Line,2026-01,RESID-CORR-Jan2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,631.97,TikTok: 367 units x $1.7220/unit residual allocation = $631.97
+Line,2026-01,RESID-CORR-Jan2026,13100 Inventory (Credit),,945.37,Relieves inventory for Jan 2026 residual allocation
+JE Header,2026-02,RESID-CORR-Feb2026,,,799.01,"Residual allocation for Feb 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),DTC,299.63,DTC: 174 units x $1.7220/unit residual allocation = $299.63
+Line,2026-02,RESID-CORR-Feb2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,499.38,TikTok: 290 units x $1.7220/unit residual allocation = $499.38
+Line,2026-02,RESID-CORR-Feb2026,13100 Inventory (Credit),,799.01,Relieves inventory for Feb 2026 residual allocation
+JE Header,2026-03,RESID-CORR-Mar2026,,,953.98,"Residual allocation for Mar 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),DTC,315.12,DTC: 183 units x $1.7220/unit residual allocation = $315.12
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,597.53,TikTok: 347 units x $1.7220/unit residual allocation = $597.53
+Line,2026-03,RESID-CORR-Mar2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,41.33,Wholesale: 24 units x $1.7220/unit residual allocation = $41.33
+Line,2026-03,RESID-CORR-Mar2026,13100 Inventory (Credit),,953.98,Relieves inventory for Mar 2026 residual allocation
+JE Header,2026-04,RESID-CORR-Apr2026,,,2314.35,"Residual allocation for Apr 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),DTC,361.62,DTC: 210 units x $1.7220/unit residual allocation = $361.62
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,1289.77,"TikTok: 749 units x $1.7220/unit residual allocation = $1,289.77"
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,208.36,Amazon: 121 units x $1.7220/unit residual allocation = $208.36
+Line,2026-04,RESID-CORR-Apr2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,454.60,Wholesale: 264 units x $1.7220/unit residual allocation = $454.60
+Line,2026-04,RESID-CORR-Apr2026,13100 Inventory (Credit),,2314.35,Relieves inventory for Apr 2026 residual allocation
+JE Header,2026-05,RESID-CORR-May2026,,,1579.06,"Residual allocation for May 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),DTC,297.90,DTC: 173 units x $1.7220/unit residual allocation = $297.90
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,733.57,TikTok: 426 units x $1.7220/unit residual allocation = $733.57
+Line,2026-05,RESID-CORR-May2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,547.59,Amazon: 318 units x $1.7220/unit residual allocation = $547.59
+Line,2026-05,RESID-CORR-May2026,13100 Inventory (Credit),,1579.06,Relieves inventory for May 2026 residual allocation
+JE Header,2026-06,RESID-CORR-Jun2026,,,1277.71,"Residual allocation for Jun 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),DTC,358.17,DTC: 208 units x $1.7220/unit residual allocation = $358.17
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,401.22,TikTok: 233 units x $1.7220/unit residual allocation = $401.22
+Line,2026-06,RESID-CORR-Jun2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,518.32,Amazon: 301 units x $1.7220/unit residual allocation = $518.32
+Line,2026-06,RESID-CORR-Jun2026,13100 Inventory (Credit),,1277.71,Relieves inventory for Jun 2026 residual allocation
+JE Header,2026-07,RESID-CORR-Jul2026,,,1474.01,"Residual allocation for Jul 2026: after rate-correction and never-deducted catch-up entries, a $23,307.06 gap remained between corrected Inventory balance and the 8/3/2026 physical count target (2,267 units x $7.08). Spread proportionally across all units sold Sep 2024-Jul 2026 at $1.7220/unit, channel-tagged by this months share of units sold."
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),DTC,402.94,DTC: 234 units x $1.7220/unit residual allocation = $402.94
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),TikTok,378.84,TikTok: 220 units x $1.7220/unit residual allocation = $378.84
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Amazon,671.57,Amazon: 390 units x $1.7220/unit residual allocation = $671.57
+Line,2026-07,RESID-CORR-Jul2026,51100 Bulk Olive Oil - Raw (Debit),Wholesale,20.66,Wholesale: 12 units x $1.7220/unit residual allocation = $20.66
+Line,2026-07,RESID-CORR-Jul2026,13100 Inventory (Credit),,1474.01,Relieves inventory for Jul 2026 residual allocation
