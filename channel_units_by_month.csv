@@ -3,11 +3,11 @@ Month,DTC,TikTok,Amazon,Wholesale,Total Units,Note
 2024-10,,,,,28,"JE already posted, confirmed by bookkeeper"
 2024-11,,,,,0,No sales / already posted period
 2024-12,,,,,1,"JE already posted, confirmed by bookkeeper"
-2025-04,831,95,0,107,1033,
-2025-05,196,24,0,467,687,
-2025-06,150,74,0,72,296,
-2025-07,222,292,0,180,694,
-2025-08,259,331,0,48,638,
+2025-04,831,95,0,623,1549,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
+2025-05,197,24,0,467,688,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
+2025-06,175,74,0,96,345,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
+2025-07,246,292,0,180,718,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
+2025-08,261,331,0,48,640,Includes units from Shopify draft orders found 2026-08-05 (previously excluded by draft-order filter)
 2025-09,425,266,0,1332,2023,
 2025-10,276,359,0,120,755,
 2025-11,266,385,0,60,711,
@@ -20,3 +20,20 @@ Month,DTC,TikTok,Amazon,Wholesale,Total Units,Note
 2026-06,208,233,301,0,742,
 2026-07,234,220,390,12,856,
 2026-08,55,24,90,0,169,
+
+--- WHOLESALE DETAIL BY VENDOR BY MONTH (units) ---
+Customer,2025-04,2025-05,2025-06,2025-07,2025-08,2025-09,2025-10,2025-11,2026-03,2026-04,2026-07,Total
+(unnamed),12,84,60,72,12,1200,96,24,0,0,0,1560
+Ace Endico,0,0,0,0,0,0,0,0,0,264,0,264
+Battaglia Brothers,24,0,0,0,0,0,0,0,0,0,0,24
+Cheese Louise,0,0,0,0,0,12,0,0,0,0,0,12
+Coastal Rancher,0,12,12,0,0,0,0,0,0,0,0,24
+DeCicco & Sons,360,360,0,96,36,48,24,36,0,0,0,960
+Double Cup LLC,0,0,0,12,0,0,0,0,24,0,12,48
+Foxtrot Market,107,11,0,0,0,0,0,0,0,0,0,118
+Khalil,96,0,0,0,0,0,0,0,0,0,0,96
+Livoti's Old World Market,0,0,0,0,0,60,0,0,0,0,0,60
+Matt Gresia,24,0,0,0,0,0,0,0,0,0,0,24
+Pop Up Grocer,0,0,24,0,0,0,0,0,0,0,0,24
+Windy Brow Farms,0,0,0,0,0,12,0,0,0,0,0,12
+TOTAL,623,467,96,180,48,1332,120,60,24,264,12,3226
