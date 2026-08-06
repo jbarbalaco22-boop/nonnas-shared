@@ -1,4 +1,4 @@
-*JournalNo,*JournalDate,*AccountName,*Debits,*Credits,Description,Name,Currency,Location,Class
+Journal No,Journal Date,Account Name,Debits,Credits,Description,Name,Currency,Location,Class
 COGS-CORR-Apr2025,4/30/25,51100 Bulk Olive Oil - Raw,991.76,,DTC: 253 units x ($11.00 true - $7.08 posted) = $991.76 understatement,,USD,,DTC
 COGS-CORR-Apr2025,,51100 Bulk Olive Oil - Raw,372.40,,TikTok: 95 units x ($11.00 true - $7.08 posted) = $372.40 understatement,,USD,,TikTok
 COGS-CORR-Apr2025,,51100 Bulk Olive Oil - Raw,2442.16,,"Wholesale: 623 units x ($11.00 true - $7.08 posted) = $2,442.16 understatement",,USD,,Wholesale
