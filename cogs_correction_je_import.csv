@@ -90,3 +90,70 @@ TI-UNDEDUCTED-Aug2026,8/31/26,52100 Inventory Adjustment - Unrecorded Deductions
 TI-UNDEDUCTED-Aug2026,,13100 Inventory,,169.92,Relieves inventory for Aug 2026 TikTok catch-up,,USD,,
 AM-UNDEDUCTED-Aug2026,8/31/26,52100 Inventory Adjustment - Unrecorded Deductions,637.20,,Amazon: 90 units x $7.08 never-deducted rate = $637.20,,USD,,Amazon
 AM-UNDEDUCTED-Aug2026,,13100 Inventory,,637.20,Relieves inventory for Aug 2026 Amazon catch-up,,USD,,
+RESID-CORR-Apr2025,4/30/25,51100 Bulk Olive Oil - Raw,896.42,,DTC: 831 units x $1.0787/unit residual allocation = $896.42,,USD,,DTC
+RESID-CORR-Apr2025,,51100 Bulk Olive Oil - Raw,102.48,,TikTok: 95 units x $1.0787/unit residual allocation = $102.48,,USD,,TikTok
+RESID-CORR-Apr2025,,51100 Bulk Olive Oil - Raw,672.04,,Wholesale: 623 units x $1.0787/unit residual allocation = $672.04,,USD,,Wholesale
+RESID-CORR-Apr2025,,13100 Inventory,,1670.94,Relieves inventory for Apr 2025 residual allocation,,USD,,
+RESID-CORR-May2025,5/31/25,51100 Bulk Olive Oil - Raw,212.51,,DTC: 197 units x $1.0787/unit residual allocation = $212.51,,USD,,DTC
+RESID-CORR-May2025,,51100 Bulk Olive Oil - Raw,25.89,,TikTok: 24 units x $1.0787/unit residual allocation = $25.89,,USD,,TikTok
+RESID-CORR-May2025,,51100 Bulk Olive Oil - Raw,503.76,,Wholesale: 467 units x $1.0787/unit residual allocation = $503.76,,USD,,Wholesale
+RESID-CORR-May2025,,13100 Inventory,,742.16,Relieves inventory for May 2025 residual allocation,,USD,,
+RESID-CORR-Jun2025,6/30/25,51100 Bulk Olive Oil - Raw,188.78,,DTC: 175 units x $1.0787/unit residual allocation = $188.78,,USD,,DTC
+RESID-CORR-Jun2025,,51100 Bulk Olive Oil - Raw,79.83,,TikTok: 74 units x $1.0787/unit residual allocation = $79.83,,USD,,TikTok
+RESID-CORR-Jun2025,,51100 Bulk Olive Oil - Raw,103.56,,Wholesale: 96 units x $1.0787/unit residual allocation = $103.56,,USD,,Wholesale
+RESID-CORR-Jun2025,,13100 Inventory,,372.17,Relieves inventory for Jun 2025 residual allocation,,USD,,
+RESID-CORR-Jul2025,7/31/25,51100 Bulk Olive Oil - Raw,265.36,,DTC: 246 units x $1.0787/unit residual allocation = $265.36,,USD,,DTC
+RESID-CORR-Jul2025,,51100 Bulk Olive Oil - Raw,314.99,,TikTok: 292 units x $1.0787/unit residual allocation = $314.99,,USD,,TikTok
+RESID-CORR-Jul2025,,51100 Bulk Olive Oil - Raw,194.17,,Wholesale: 180 units x $1.0787/unit residual allocation = $194.17,,USD,,Wholesale
+RESID-CORR-Jul2025,,13100 Inventory,,774.52,Relieves inventory for Jul 2025 residual allocation,,USD,,
+RESID-CORR-Aug2025,8/31/25,51100 Bulk Olive Oil - Raw,281.55,,DTC: 261 units x $1.0787/unit residual allocation = $281.55,,USD,,DTC
+RESID-CORR-Aug2025,,51100 Bulk Olive Oil - Raw,357.06,,TikTok: 331 units x $1.0787/unit residual allocation = $357.06,,USD,,TikTok
+RESID-CORR-Aug2025,,51100 Bulk Olive Oil - Raw,51.78,,Wholesale: 48 units x $1.0787/unit residual allocation = $51.78,,USD,,Wholesale
+RESID-CORR-Aug2025,,13100 Inventory,,690.39,Relieves inventory for Aug 2025 residual allocation,,USD,,
+RESID-CORR-Sep2025,9/30/25,51100 Bulk Olive Oil - Raw,458.46,,DTC: 425 units x $1.0787/unit residual allocation = $458.46,,USD,,DTC
+RESID-CORR-Sep2025,,51100 Bulk Olive Oil - Raw,286.94,,TikTok: 266 units x $1.0787/unit residual allocation = $286.94,,USD,,TikTok
+RESID-CORR-Sep2025,,51100 Bulk Olive Oil - Raw,1436.85,,"Wholesale: 1332 units x $1.0787/unit residual allocation = $1,436.85",,USD,,Wholesale
+RESID-CORR-Sep2025,,13100 Inventory,,2182.25,Relieves inventory for Sep 2025 residual allocation,,USD,,
+RESID-CORR-Oct2025,10/31/25,51100 Bulk Olive Oil - Raw,297.73,,DTC: 276 units x $1.0787/unit residual allocation = $297.73,,USD,,DTC
+RESID-CORR-Oct2025,,51100 Bulk Olive Oil - Raw,387.26,,TikTok: 359 units x $1.0787/unit residual allocation = $387.26,,USD,,TikTok
+RESID-CORR-Oct2025,,51100 Bulk Olive Oil - Raw,129.45,,Wholesale: 120 units x $1.0787/unit residual allocation = $129.45,,USD,,Wholesale
+RESID-CORR-Oct2025,,13100 Inventory,,814.44,Relieves inventory for Oct 2025 residual allocation,,USD,,
+RESID-CORR-Nov2025,11/30/25,51100 Bulk Olive Oil - Raw,286.94,,DTC: 266 units x $1.0787/unit residual allocation = $286.94,,USD,,DTC
+RESID-CORR-Nov2025,,51100 Bulk Olive Oil - Raw,415.31,,TikTok: 385 units x $1.0787/unit residual allocation = $415.31,,USD,,TikTok
+RESID-CORR-Nov2025,,51100 Bulk Olive Oil - Raw,64.72,,Wholesale: 60 units x $1.0787/unit residual allocation = $64.72,,USD,,Wholesale
+RESID-CORR-Nov2025,,13100 Inventory,,766.97,Relieves inventory for Nov 2025 residual allocation,,USD,,
+RESID-CORR-Dec2025,12/31/25,51100 Bulk Olive Oil - Raw,195.25,,DTC: 181 units x $1.0787/unit residual allocation = $195.25,,USD,,DTC
+RESID-CORR-Dec2025,,51100 Bulk Olive Oil - Raw,389.42,,TikTok: 361 units x $1.0787/unit residual allocation = $389.42,,USD,,TikTok
+RESID-CORR-Dec2025,,13100 Inventory,,584.67,Relieves inventory for Dec 2025 residual allocation,,USD,,
+RESID-CORR-Jan2026,1/31/26,51100 Bulk Olive Oil - Raw,196.33,,DTC: 182 units x $1.0787/unit residual allocation = $196.33,,USD,,DTC
+RESID-CORR-Jan2026,,51100 Bulk Olive Oil - Raw,395.89,,TikTok: 367 units x $1.0787/unit residual allocation = $395.89,,USD,,TikTok
+RESID-CORR-Jan2026,,13100 Inventory,,592.22,Relieves inventory for Jan 2026 residual allocation,,USD,,
+RESID-CORR-Feb2026,2/28/26,51100 Bulk Olive Oil - Raw,187.70,,DTC: 174 units x $1.0787/unit residual allocation = $187.70,,USD,,DTC
+RESID-CORR-Feb2026,,51100 Bulk Olive Oil - Raw,312.83,,TikTok: 290 units x $1.0787/unit residual allocation = $312.83,,USD,,TikTok
+RESID-CORR-Feb2026,,13100 Inventory,,500.53,Relieves inventory for Feb 2026 residual allocation,,USD,,
+RESID-CORR-Mar2026,3/31/26,51100 Bulk Olive Oil - Raw,197.41,,DTC: 183 units x $1.0787/unit residual allocation = $197.41,,USD,,DTC
+RESID-CORR-Mar2026,,51100 Bulk Olive Oil - Raw,374.32,,TikTok: 347 units x $1.0787/unit residual allocation = $374.32,,USD,,TikTok
+RESID-CORR-Mar2026,,51100 Bulk Olive Oil - Raw,25.89,,Wholesale: 24 units x $1.0787/unit residual allocation = $25.89,,USD,,Wholesale
+RESID-CORR-Mar2026,,13100 Inventory,,597.62,Relieves inventory for Mar 2026 residual allocation,,USD,,
+RESID-CORR-Apr2026,4/30/26,51100 Bulk Olive Oil - Raw,226.53,,DTC: 210 units x $1.0787/unit residual allocation = $226.53,,USD,,DTC
+RESID-CORR-Apr2026,,51100 Bulk Olive Oil - Raw,807.96,,TikTok: 749 units x $1.0787/unit residual allocation = $807.96,,USD,,TikTok
+RESID-CORR-Apr2026,,51100 Bulk Olive Oil - Raw,130.52,,Amazon: 121 units x $1.0787/unit residual allocation = $130.52,,USD,,Amazon
+RESID-CORR-Apr2026,,51100 Bulk Olive Oil - Raw,284.78,,Wholesale: 264 units x $1.0787/unit residual allocation = $284.78,,USD,,Wholesale
+RESID-CORR-Apr2026,,13100 Inventory,,1449.79,Relieves inventory for Apr 2026 residual allocation,,USD,,
+RESID-CORR-May2026,5/31/26,51100 Bulk Olive Oil - Raw,186.62,,DTC: 173 units x $1.0787/unit residual allocation = $186.62,,USD,,DTC
+RESID-CORR-May2026,,51100 Bulk Olive Oil - Raw,459.53,,TikTok: 426 units x $1.0787/unit residual allocation = $459.53,,USD,,TikTok
+RESID-CORR-May2026,,51100 Bulk Olive Oil - Raw,343.03,,Amazon: 318 units x $1.0787/unit residual allocation = $343.03,,USD,,Amazon
+RESID-CORR-May2026,,13100 Inventory,,989.18,Relieves inventory for May 2026 residual allocation,,USD,,
+RESID-CORR-Jun2026,6/30/26,51100 Bulk Olive Oil - Raw,224.37,,DTC: 208 units x $1.0787/unit residual allocation = $224.37,,USD,,DTC
+RESID-CORR-Jun2026,,51100 Bulk Olive Oil - Raw,251.34,,TikTok: 233 units x $1.0787/unit residual allocation = $251.34,,USD,,TikTok
+RESID-CORR-Jun2026,,51100 Bulk Olive Oil - Raw,324.69,,Amazon: 301 units x $1.0787/unit residual allocation = $324.69,,USD,,Amazon
+RESID-CORR-Jun2026,,13100 Inventory,,800.40,Relieves inventory for Jun 2026 residual allocation,,USD,,
+RESID-CORR-Jul2026,7/31/26,51100 Bulk Olive Oil - Raw,252.42,,DTC: 234 units x $1.0787/unit residual allocation = $252.42,,USD,,DTC
+RESID-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,237.32,,TikTok: 220 units x $1.0787/unit residual allocation = $237.32,,USD,,TikTok
+RESID-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,420.70,,Amazon: 390 units x $1.0787/unit residual allocation = $420.70,,USD,,Amazon
+RESID-CORR-Jul2026,,51100 Bulk Olive Oil - Raw,12.94,,Wholesale: 12 units x $1.0787/unit residual allocation = $12.94,,USD,,Wholesale
+RESID-CORR-Jul2026,,13100 Inventory,,923.38,Relieves inventory for Jul 2026 residual allocation,,USD,,
+RESID-CORR-Aug2026,8/31/26,51100 Bulk Olive Oil - Raw,59.33,,DTC: 55 units x $1.0787/unit residual allocation = $59.33,,USD,,DTC
+RESID-CORR-Aug2026,,51100 Bulk Olive Oil - Raw,25.89,,TikTok: 24 units x $1.0787/unit residual allocation = $25.89,,USD,,TikTok
+RESID-CORR-Aug2026,,51100 Bulk Olive Oil - Raw,97.08,,Amazon: 90 units x $1.0787/unit residual allocation = $97.08,,USD,,Amazon
+RESID-CORR-Aug2026,,13100 Inventory,,182.30,Relieves inventory for Aug 2026 residual allocation,,USD,,
