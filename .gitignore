@@ -16,3 +16,5 @@ orders_export*.csv
 Oil Invoices/
 Amazon Orders/
 !cogs_correction_je_import_REMAINDER.csv
+!3pl_pickpack_allocation_entries.csv
+!3pl_pickpack_je_import.csv
