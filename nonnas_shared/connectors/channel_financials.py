@@ -147,6 +147,50 @@ def compute_channel_health_metrics(channel_margin: dict, shopify_totals: dict) -
     }
 
 
+def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dict) -> dict:
+    """Returns the company-wide equivalent of one channel card — same shape as
+    compute_channel_margin merged with compute_channel_health_metrics (net_sales, cogs,
+    three_pl, ads, fees, contribution, contribution_pct, orders, units, aov, discount_rate,
+    refund_rate, roas), summed/recomputed across every channel in the given dicts rather than
+    scoped to one. Ratios (aov/discount_rate/refund_rate/roas) are recomputed from the summed
+    numerators/denominators, not averaged per-channel, for the same reason a blended average
+    needs weighting - e.g. AOV is total net revenue over total orders, not the mean of four
+    channel AOVs.
+
+    channel_margins: {channel: compute_channel_margin(...) result}.
+    shopify_totals_by_channel: {channel: handlers.get_channel_units_live(...)["channels"][ch]}.
+    """
+    net_sales = sum(m.get("net_sales", 0.0) for m in channel_margins.values())
+    cogs = sum(m.get("cogs", 0.0) for m in channel_margins.values())
+    three_pl = sum(m.get("three_pl", 0.0) for m in channel_margins.values())
+    ads = sum(m.get("ads", 0.0) for m in channel_margins.values())
+    fees = sum(m.get("fees", 0.0) for m in channel_margins.values())
+    contribution = sum(m.get("contribution", 0.0) for m in channel_margins.values())
+
+    orders = sum(s.get("orders", 0) for s in shopify_totals_by_channel.values())
+    units = sum(s.get("units", 0) for s in shopify_totals_by_channel.values())
+    gross = sum(s.get("gross", 0.0) for s in shopify_totals_by_channel.values())
+    discounts = sum(s.get("discounts", 0.0) for s in shopify_totals_by_channel.values())
+    refunds = sum(s.get("refunds", 0.0) for s in shopify_totals_by_channel.values())
+    net_revenue = sum(s.get("net_revenue", 0.0) for s in shopify_totals_by_channel.values())
+
+    return {
+        "net_sales": net_sales,
+        "cogs": cogs,
+        "three_pl": three_pl,
+        "ads": ads,
+        "fees": fees,
+        "contribution": contribution,
+        "contribution_pct": (contribution / net_sales) if net_sales else None,
+        "orders": orders,
+        "units": units,
+        "aov": (net_revenue / orders) if orders else None,
+        "discount_rate": (discounts / gross) if gross else None,
+        "refund_rate": (refunds / gross) if gross else None,
+        "roas": (net_sales / ads) if ads else None,
+    }
+
+
 def compute_revenue_concentration(all_channel_margins: dict) -> dict:
     """Returns {channel: share_of_total_net_sales} across every channel in the given dict, each
     a fraction (0.42, not 42) so a channel dominating revenue is easy to spot. All zeros if

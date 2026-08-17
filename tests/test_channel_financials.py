@@ -5,6 +5,7 @@ correctly reduce gross revenue down to net sales."""
 from nonnas_shared.connectors.channel_financials import (
     compute_channel_health_metrics,
     compute_channel_margin,
+    compute_company_totals,
     compute_expense_totals,
     compute_net_sales_by_channel,
     compute_revenue_concentration,
@@ -181,3 +182,38 @@ def test_revenue_concentration_no_revenue_gives_all_zeros():
     margins = {"DTC": {"net_sales": 0.0}, "TikTok": {"net_sales": 0.0}}
     result = compute_revenue_concentration(margins)
     assert result == {"DTC": 0.0, "TikTok": 0.0}
+
+
+def test_company_totals_sums_dollars_and_reweights_ratios():
+    """AOV/discount_rate/refund_rate/roas must be recomputed from summed numerator/denominator,
+    not averaged per-channel — this is what catches a naive `mean(channel_aovs)` regression."""
+    margins = {
+        "DTC": {"net_sales": 1000.0, "cogs": 300.0, "three_pl": 50.0, "ads": 100.0, "fees": 20.0, "contribution": 530.0},
+        "TikTok": {"net_sales": 500.0, "cogs": 150.0, "three_pl": 25.0, "ads": 50.0, "fees": 10.0, "contribution": 265.0},
+    }
+    shopify_totals = {
+        "DTC": {"orders": 20, "gross": 1100.0, "discounts": 100.0, "refunds": 50.0, "net_revenue": 950.0, "units": 40},
+        "TikTok": {"orders": 10, "gross": 550.0, "discounts": 30.0, "refunds": 0.0, "net_revenue": 520.0, "units": 20},
+    }
+    result = compute_company_totals(margins, shopify_totals)
+    assert result["net_sales"] == 1500.0
+    assert result["contribution"] == 795.0
+    assert result["contribution_pct"] == 795.0 / 1500.0
+    assert result["orders"] == 30
+    assert result["units"] == 60
+    assert result["aov"] == (950.0 + 520.0) / 30  # not mean(47.5, 52.0)
+    assert result["discount_rate"] == 130.0 / 1650.0
+    assert result["refund_rate"] == 50.0 / 1650.0
+    assert result["roas"] == 1500.0 / 150.0
+
+
+def test_company_totals_zero_denominators_give_none_not_zero():
+    result = compute_company_totals(
+        {"DTC": {"net_sales": 0.0, "ads": 0.0, "contribution": 0.0}},
+        {"DTC": {"orders": 0, "gross": 0.0, "discounts": 0.0, "refunds": 0.0, "net_revenue": 0.0, "units": 0}},
+    )
+    assert result["contribution_pct"] is None
+    assert result["aov"] is None
+    assert result["discount_rate"] is None
+    assert result["refund_rate"] is None
+    assert result["roas"] is None
