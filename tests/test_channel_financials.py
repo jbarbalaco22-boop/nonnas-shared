@@ -3,6 +3,7 @@ that caused a real bug: QBO reports discounts/refunds as negative numbers
 within the Income section, so they must be ADDED (not subtracted again) to
 correctly reduce gross revenue down to net sales."""
 from nonnas_shared.connectors.channel_financials import (
+    compute_channel_margin,
     compute_expense_totals,
     compute_net_sales_by_channel,
 )
@@ -90,3 +91,50 @@ def test_expense_totals_sum_across_classes():
     assert result["cogs"] == 500.0
     assert result["three_pl"] == 150.0
     assert result["ads"] == 0.0
+
+
+def _margin_account_map() -> dict:
+    return {
+        "net_sales": {
+            "dtc": {"include": ["41100 Product Revenue - DTC"], "include_tagged_class": "DTC"},
+        },
+        "cogs": ["51100 Bulk Olive Oil - Raw"],
+        "three_pl": ["52100 3PL Fulfillment Fees"],
+        "ads": {"by_channel": {"DTC": ["61100 Meta Ads"]}, "unallocated": ["61150 Marketplace Advertising"]},
+        "fees": {"dtc": ["55100 Shopify Transaction Fees"]},
+    }
+
+
+def test_channel_margin_computes_contribution():
+    pl_data = {
+        "Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}},
+        "COGS": {"51100 Bulk Olive Oil - Raw": {"DTC": 300.0}},
+        "Expenses": {
+            "52100 3PL Fulfillment Fees": {"DTC": 50.0},
+            "61100 Meta Ads": {"Not Specified": 100.0},
+            "55100 Shopify Transaction Fees": {"Not Specified": 20.0},
+        },
+    }
+    result = compute_channel_margin(pl_data, "DTC", _margin_account_map())
+    assert result["net_sales"] == 1000.0
+    assert result["cogs"] == 300.0
+    assert result["three_pl"] == 50.0
+    assert result["ads"] == 100.0  # not Class-tagged, allocated by account instead
+    assert result["fees"] == 20.0
+    assert result["contribution"] == 530.0  # 1000 - 300 - 50 - 100 - 20
+    assert result["contribution_pct"] == 0.53
+
+
+def test_channel_margin_unallocated_ads_excluded():
+    pl_data = {
+        "Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}},
+        "Expenses": {"61150 Marketplace Advertising": {"Not Specified": 999.0}},
+    }
+    result = compute_channel_margin(pl_data, "DTC", _margin_account_map())
+    assert result["ads"] == 0.0  # Marketplace Advertising is unallocated, not attributed to DTC
+
+
+def test_channel_margin_zero_revenue_gives_none_not_zero_pct():
+    result = compute_channel_margin({}, "DTC", _margin_account_map())
+    assert result["net_sales"] == 0.0
+    assert result["contribution_pct"] is None

@@ -75,6 +75,7 @@ query($cursor: String, $searchQuery: String!) {
       sourceName
       subtotalPriceSet { shopMoney { amount } }
       totalShippingPriceSet { shopMoney { amount } }
+      totalDiscountsSet { shopMoney { amount } }
       totalRefundedSet { shopMoney { amount } }
       lineItems(first: 50) {
         nodes { sku quantity }
@@ -88,9 +89,10 @@ query($cursor: String, $searchQuery: String!) {
 def fetch_orders(myshopify_domain: str, access_token: str, start_date: date, end_date: date) -> list[dict]:
     """Pull orders in [start_date, end_date) via Shopify GraphQL, paginated.
 
-    Channel split is: sourceName == "tiktok" -> TikTok Shop, anything else -> DTC.
-    Confirmed empirically — subscription-renewal orders (Appstle) have no channelInformation
-    but are still DTC, so sourceName is the reliable field, not channelInformation.
+    Channel split: use shopify_channels.classify_source(order["sourceName"]) — a real 4-way
+    split (DTC/TikTok/Amazon/Wholesale), not the binary DTC-vs-TikTok split this docstring used
+    to describe. Amazon and Wholesale orders that land here are known-incomplete mirrors, not a
+    full picture of those channels — see nonnas-finance-audit/CLAUDE.md.
     """
     search_query = f"created_at:>='{start_date.isoformat()}' AND created_at:<'{end_date.isoformat()}'"
     orders: list[dict] = []
@@ -108,3 +110,25 @@ def fetch_orders(myshopify_domain: str, access_token: str, start_date: date, end
             break
         cursor = page["pageInfo"]["endCursor"]
     return orders
+
+
+def order_revenue_breakdown(order: dict) -> dict:
+    """Returns {gross, discounts, refunds, net, shipping} for one order.
+
+    net = subtotal (already after discounts) + shipping - refunds, tax excluded — matches QB's
+    net sales figures, which also exclude sales tax. gross = subtotal + discounts, i.e. the
+    pre-discount line-item total. Do NOT use Shopify's originalTotalPriceSet for "gross": it
+    already has the discount netted out (verified empirically against 300 live orders) and
+    includes tax, so subtracting totalDiscountsSet from it double-counts the discount.
+    """
+    subtotal = float(order["subtotalPriceSet"]["shopMoney"]["amount"])
+    shipping = float(order["totalShippingPriceSet"]["shopMoney"]["amount"])
+    discounts = float(order["totalDiscountsSet"]["shopMoney"]["amount"])
+    refunds = float(order["totalRefundedSet"]["shopMoney"]["amount"])
+    return {
+        "gross": subtotal + discounts,
+        "discounts": discounts,
+        "shipping": shipping,
+        "refunds": refunds,
+        "net": subtotal + shipping - refunds,
+    }
