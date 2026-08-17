@@ -125,8 +125,30 @@ def test_channel_margin_computes_contribution():
     assert result["three_pl"] == 50.0
     assert result["ads"] == 100.0  # not Class-tagged, allocated by account instead
     assert result["fees"] == 20.0
+    assert result["other_marketing"] == 0.0
     assert result["contribution"] == 530.0  # 1000 - 300 - 50 - 100 - 20
     assert result["contribution_pct"] == 0.53
+
+
+def test_channel_margin_other_marketing_reduces_contribution_but_not_ads():
+    """other_marketing (e.g. Email & SMS Marketing tooling) must reduce contribution the same
+    as any other cost, but must NOT be folded into `ads` - that would distort ROAS
+    (net_sales / ads), which is meant to measure working paid-media efficiency specifically."""
+    account_map = {
+        **_margin_account_map(),
+        "other_marketing": {"by_channel": {"DTC": ["63100 Email & SMS Marketing"]}},
+    }
+    pl_data = {
+        "Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}},
+        "Expenses": {
+            "61100 Meta Ads": {"Not Specified": 100.0},
+            "63100 Email & SMS Marketing": {"DTC": 50.0},
+        },
+    }
+    result = compute_channel_margin(pl_data, "DTC", account_map)
+    assert result["ads"] == 100.0  # unchanged by other_marketing
+    assert result["other_marketing"] == 50.0
+    assert result["contribution"] == 850.0  # 1000 - 100 - 50
 
 
 def test_channel_margin_unallocated_ads_excluded():

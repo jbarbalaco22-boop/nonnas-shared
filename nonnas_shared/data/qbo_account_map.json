@@ -82,12 +82,18 @@
     ],
     "note": "Confirmed against a live 30-day P&L pull (2026-08-05): Meta Ads, Google Ads, TikTok Ads, Amazon Ads, and Marketplace Advertising are all tagged Class='Not Specified', not 'DTC' as previously stated here — none of these accounts are currently split by channel via Class. Paid Collaborations and Affiliate Commissions had zero activity in that period so their tagging wasn't directly confirmed, but presumed to follow the same pattern. Any per-channel ad spend allocation needs a different signal than Class (e.g. per-platform account already exists here, so allocate by account instead).",
     "by_channel": {
-      "DTC": ["61100 Meta Ads", "61110 Google Ads"],
+      "DTC": ["61100 Meta Ads", "61110 Google Ads", "61150 Marketplace Advertising"],
       "TikTok": ["61120 TikTok Ads"],
       "Amazon": ["61125 Amazon Ads"]
     },
-    "unallocated": ["61130 Paid Collaborations", "61140 Affiliate Commissions", "61150 Marketplace Advertising"],
-    "unallocated_note": "Not confidently attributable to one channel by platform name alone (unlike Meta/Google/TikTok/Amazon Ads, which map 1:1 to a channel). Excluded from per-channel contribution margin until confirmed with the business; still included in company-wide ad totals via compute_expense_totals."
+    "unallocated": ["61130 Paid Collaborations", "61140 Affiliate Commissions"],
+    "unallocated_note": "Not confidently attributable to one channel by platform name alone (unlike Meta/Google/TikTok/Amazon Ads/Marketplace Advertising, which the business has confirmed map 1:1 to a channel). Excluded from per-channel contribution margin until confirmed with the business; still included in company-wide ad totals via compute_expense_totals."
+  },
+  "other_marketing": {
+    "by_channel": {
+      "DTC": ["63100 Email & SMS Marketing"]
+    },
+    "note": "Real per-channel costs that reduce contribution margin but aren't 'ad spend' in the ROAS sense (working paid media) - kept separate from `ads` so ROAS = net_sales/ads isn't distorted by non-working marketing/retention tooling spend. 62300 Creative Agency Fees and 63110 Attribution Tools were considered for this bucket too but the business decided to leave both outside channel-level math for now (2026-08-17) - see excluded_from_v1."
   },
   "fees": {
     "dtc": ["55100 Shopify Transaction Fees"],
@@ -107,7 +113,12 @@
     "11170 Petty Cash"
   ],
   "excluded_from_v1": {
-    "accounts": ["62100-62400 video/photo/creative/UGC"],
-    "note": "treated as overhead, not ad spend — confirm before go-live if this should change"
+    "accounts": [
+      "62100-62400 video/photo/creative/UGC",
+      "62300 Creative Agency Fees",
+      "63110 Attribution Tools",
+      "72110 Sales Brokers / Wholesale"
+    ],
+    "note": "Deliberately left out of channel-level contribution margin (treated as overhead), confirmed with the business 2026-08-17. 62300 Creative Agency Fees ($25,556.67 YTD as of that date) and 63110 Attribution Tools ($6,502.50) are real marketing-adjacent spend but not attributed to a channel. 72110 Sales Brokers / Wholesale ($15,000) is likely a real Wholesale-specific acquisition cost by name, but the business chose to leave it out of Wholesale's contribution margin for now rather than guess at the allocation — revisit if Wholesale's true profitability needs scrutiny."
   }
 }

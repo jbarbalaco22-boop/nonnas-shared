@@ -78,8 +78,9 @@ def compute_expense_totals(pl_data: dict, account_map: dict | None = None) -> di
 
 
 def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None = None) -> dict:
-    """Returns {net_sales, cogs, three_pl, ads, fees, contribution, contribution_pct} for one
-    channel (channel is a display name — "DTC", "TikTok", "Amazon", or "Wholesale").
+    """Returns {net_sales, cogs, three_pl, ads, fees, other_marketing, contribution,
+    contribution_pct} for one channel (channel is a display name — "DTC", "TikTok", "Amazon",
+    or "Wholesale").
 
     net_sales/cogs/three_pl are computed by filtering on the QBO Class tag: net_sales via the
     existing per-channel rules, cogs/three_pl by checking each account is actually tagged with
@@ -90,6 +91,11 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
     deliberately excluded here rather than guessed at. fees uses the existing per-channel fees
     mapping (already account-based, no Class tag needed since each fee account is
     platform-specific already).
+
+    other_marketing is real per-channel cost (e.g. Email & SMS Marketing tooling) that reduces
+    contribution but is kept separate from ads on purpose — mixing it into `ads` would distort
+    ROAS (net_sales / ads), which is meant to measure working paid-media efficiency, not
+    marketing/retention tooling spend. See other_marketing.note in the account map.
 
     contribution_pct is None (not 0.0) when net_sales is zero, so callers can distinguish
     "no revenue this period" from "revenue exactly offset by costs".
@@ -104,8 +110,10 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
     ads = _sum_accounts(pl_data, ads_accounts, tagged_class=None)
     fees_accounts = account_map.get("fees", {}).get(channel_key, [])
     fees = _sum_accounts(pl_data, fees_accounts, tagged_class=None)
+    other_marketing_accounts = account_map.get("other_marketing", {}).get("by_channel", {}).get(channel, [])
+    other_marketing = _sum_accounts(pl_data, other_marketing_accounts, tagged_class=None)
 
-    contribution = net_sales - cogs - three_pl - ads - fees
+    contribution = net_sales - cogs - three_pl - ads - fees - other_marketing
 
     return {
         "net_sales": net_sales,
@@ -113,6 +121,7 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
         "three_pl": three_pl,
         "ads": ads,
         "fees": fees,
+        "other_marketing": other_marketing,
         "contribution": contribution,
         "contribution_pct": (contribution / net_sales) if net_sales else None,
     }
@@ -150,12 +159,12 @@ def compute_channel_health_metrics(channel_margin: dict, shopify_totals: dict) -
 def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dict) -> dict:
     """Returns the company-wide equivalent of one channel card — same shape as
     compute_channel_margin merged with compute_channel_health_metrics (net_sales, cogs,
-    three_pl, ads, fees, contribution, contribution_pct, orders, units, aov, discount_rate,
-    refund_rate, roas), summed/recomputed across every channel in the given dicts rather than
-    scoped to one. Ratios (aov/discount_rate/refund_rate/roas) are recomputed from the summed
-    numerators/denominators, not averaged per-channel, for the same reason a blended average
-    needs weighting - e.g. AOV is total net revenue over total orders, not the mean of four
-    channel AOVs.
+    three_pl, ads, fees, other_marketing, contribution, contribution_pct, orders, units, aov,
+    discount_rate, refund_rate, roas), summed/recomputed across every channel in the given
+    dicts rather than scoped to one. Ratios (aov/discount_rate/refund_rate/roas) are recomputed
+    from the summed numerators/denominators, not averaged per-channel, for the same reason a
+    blended average needs weighting - e.g. AOV is total net revenue over total orders, not the
+    mean of four channel AOVs.
 
     channel_margins: {channel: compute_channel_margin(...) result}.
     shopify_totals_by_channel: {channel: handlers.get_channel_units_live(...)["channels"][ch]}.
@@ -165,6 +174,7 @@ def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dic
     three_pl = sum(m.get("three_pl", 0.0) for m in channel_margins.values())
     ads = sum(m.get("ads", 0.0) for m in channel_margins.values())
     fees = sum(m.get("fees", 0.0) for m in channel_margins.values())
+    other_marketing = sum(m.get("other_marketing", 0.0) for m in channel_margins.values())
     contribution = sum(m.get("contribution", 0.0) for m in channel_margins.values())
 
     orders = sum(s.get("orders", 0) for s in shopify_totals_by_channel.values())
@@ -180,6 +190,7 @@ def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dic
         "three_pl": three_pl,
         "ads": ads,
         "fees": fees,
+        "other_marketing": other_marketing,
         "contribution": contribution,
         "contribution_pct": (contribution / net_sales) if net_sales else None,
         "orders": orders,

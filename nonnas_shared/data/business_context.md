@@ -27,11 +27,23 @@ Class ID numbers, CSV import formatting — that matter for *writing code agains
 - Wholesale revenue is typically recorded as a bank Deposit with no Item or Quantity attached,
   so Wholesale COGS and units are frequently $0/zero even when real sales happened — that's a
   known process gap, not evidence nothing sold.
-- Ad spend accounts (Meta/Google/TikTok/Amazon Ads) are not tagged by Class in QuickBooks —
-  channel attribution for ads comes from mapping each platform to its channel by account, not
-  from a QuickBooks Class field. Marketplace Advertising, Paid Collaborations, and Affiliate
-  Commissions aren't confidently attributable to a single channel and are excluded from
-  per-channel figures rather than guessed at.
+- Ad spend accounts (Meta/Google/TikTok/Amazon Ads, Marketplace Advertising) are not tagged by
+  Class in QuickBooks — channel attribution for ads comes from mapping each platform to its
+  channel by account, not from a QuickBooks Class field. The business has confirmed Marketplace
+  Advertising is DTC spend, so it's included in DTC's ad spend and ROAS. Paid Collaborations and
+  Affiliate Commissions aren't confidently attributable to a single channel and are excluded from
+  per-channel figures rather than guessed at (still included in company-wide ad totals).
+- Email & SMS Marketing tooling is real DTC-attributed cost — it reduces DTC's contribution
+  margin (as `other_marketing`) but is kept out of DTC's `ads` figure on purpose, since folding it
+  in would distort ROAS (net_sales / ads), which is meant to measure working paid-media
+  efficiency, not marketing/retention tooling spend.
+- Creative Agency Fees (~$25.6K YTD as of 2026-08-17) and Attribution Tools (~$6.5K) are real
+  marketing-adjacent costs the business has chosen to leave out of channel-level contribution
+  margin for now, rather than guess at an allocation — don't imply they're already reflected in
+  any channel's numbers. Same for Sales Brokers / Wholesale (~$15K) — a cost that looks
+  Wholesale-specific by name, but is deliberately excluded from Wholesale's contribution margin
+  today; if asked about Wholesale's true profitability, mention this cost sits outside the
+  reported figure.
 
 ## COGS correction status
 
