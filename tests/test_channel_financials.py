@@ -3,9 +3,11 @@ that caused a real bug: QBO reports discounts/refunds as negative numbers
 within the Income section, so they must be ADDED (not subtracted again) to
 correctly reduce gross revenue down to net sales."""
 from nonnas_shared.connectors.channel_financials import (
+    compute_channel_health_metrics,
     compute_channel_margin,
     compute_expense_totals,
     compute_net_sales_by_channel,
+    compute_revenue_concentration,
 )
 
 
@@ -138,3 +140,44 @@ def test_channel_margin_zero_revenue_gives_none_not_zero_pct():
     result = compute_channel_margin({}, "DTC", _margin_account_map())
     assert result["net_sales"] == 0.0
     assert result["contribution_pct"] is None
+
+
+def test_channel_health_metrics_computes_all_four_ratios():
+    channel_margin = {"net_sales": 1000.0, "ads": 100.0}
+    shopify_totals = {"orders": 20, "gross": 1100.0, "discounts": 100.0, "refunds": 50.0, "net_revenue": 950.0}
+    result = compute_channel_health_metrics(channel_margin, shopify_totals)
+    assert result["aov"] == 47.5  # 950 / 20
+    assert result["discount_rate"] == 100.0 / 1100.0
+    assert result["refund_rate"] == 50.0 / 1100.0
+    assert result["roas"] == 10.0  # 1000 / 100
+
+
+def test_channel_health_metrics_zero_denominators_give_none_not_zero():
+    channel_margin = {"net_sales": 0.0, "ads": 0.0}
+    shopify_totals = {"orders": 0, "gross": 0.0, "discounts": 0.0, "refunds": 0.0, "net_revenue": 0.0}
+    result = compute_channel_health_metrics(channel_margin, shopify_totals)
+    assert result["aov"] is None
+    assert result["discount_rate"] is None
+    assert result["refund_rate"] is None
+    assert result["roas"] is None
+
+
+def test_revenue_concentration_sums_to_one():
+    margins = {
+        "DTC": {"net_sales": 500.0},
+        "TikTok": {"net_sales": 300.0},
+        "Amazon": {"net_sales": 150.0},
+        "Wholesale": {"net_sales": 50.0},
+    }
+    result = compute_revenue_concentration(margins)
+    assert result["DTC"] == 0.5
+    assert result["TikTok"] == 0.3
+    assert result["Amazon"] == 0.15
+    assert result["Wholesale"] == 0.05
+    assert abs(sum(result.values()) - 1.0) < 1e-9
+
+
+def test_revenue_concentration_no_revenue_gives_all_zeros():
+    margins = {"DTC": {"net_sales": 0.0}, "TikTok": {"net_sales": 0.0}}
+    result = compute_revenue_concentration(margins)
+    assert result == {"DTC": 0.0, "TikTok": 0.0}

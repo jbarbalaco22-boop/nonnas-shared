@@ -116,3 +116,42 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
         "contribution": contribution,
         "contribution_pct": (contribution / net_sales) if net_sales else None,
     }
+
+
+def compute_channel_health_metrics(channel_margin: dict, shopify_totals: dict) -> dict:
+    """Returns {aov, discount_rate, refund_rate, roas} for one channel — retail health ratios
+    combining QBO-derived margin data (net_sales, ads) with Shopify-derived order data (orders,
+    gross, discounts, refunds).
+
+    channel_margin: one channel's dict as returned by compute_channel_margin.
+    shopify_totals: one channel's dict as returned by handlers.get_channel_units_live, i.e.
+    {orders, gross, discounts, refunds, net_revenue, ...}.
+
+    Every ratio is None (not 0.0) when its denominator is zero — "no orders this period" and
+    "AOV of exactly $0" are different things, and callers need to be able to tell them apart
+    rather than silently rendering a misleading zero.
+    """
+    orders = shopify_totals.get("orders", 0)
+    gross = shopify_totals.get("gross", 0.0)
+    discounts = shopify_totals.get("discounts", 0.0)
+    refunds = shopify_totals.get("refunds", 0.0)
+    net_revenue = shopify_totals.get("net_revenue", 0.0)
+    ads = channel_margin.get("ads", 0.0)
+    net_sales = channel_margin.get("net_sales", 0.0)
+
+    return {
+        "aov": (net_revenue / orders) if orders else None,
+        "discount_rate": (discounts / gross) if gross else None,
+        "refund_rate": (refunds / gross) if gross else None,
+        "roas": (net_sales / ads) if ads else None,
+    }
+
+
+def compute_revenue_concentration(all_channel_margins: dict) -> dict:
+    """Returns {channel: share_of_total_net_sales} across every channel in the given dict, each
+    a fraction (0.42, not 42) so a channel dominating revenue is easy to spot. All zeros if
+    there's no revenue in the period at all, rather than dividing by zero."""
+    total = sum(m.get("net_sales", 0.0) for m in all_channel_margins.values())
+    if not total:
+        return {ch: 0.0 for ch in all_channel_margins}
+    return {ch: m.get("net_sales", 0.0) / total for ch, m in all_channel_margins.items()}
