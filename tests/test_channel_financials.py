@@ -2,6 +2,7 @@
 that caused a real bug: QBO reports discounts/refunds as negative numbers
 within the Income section, so they must be ADDED (not subtracted again) to
 correctly reduce gross revenue down to net sales."""
+from nonnas_shared.config import load_qbo_account_map
 from nonnas_shared.connectors.channel_financials import (
     compute_channel_health_metrics,
     compute_channel_margin,
@@ -182,6 +183,33 @@ def test_revenue_concentration_no_revenue_gives_all_zeros():
     margins = {"DTC": {"net_sales": 0.0}, "TikTok": {"net_sales": 0.0}}
     result = compute_revenue_concentration(margins)
     assert result == {"DTC": 0.0, "TikTok": 0.0}
+
+
+def test_real_account_map_attributes_shared_shipping_revenue_to_every_channel():
+    """Regression test: 42100 Shipping Revenue is one shared account with a column per
+    Class, not a per-channel dedicated account like the 411x0 product revenue accounts.
+    It was only in dtc's include list for a while, so TikTok/Amazon/Wholesale silently
+    dropped their entire shipping revenue out of net sales - caught by comparing the
+    dashboard against a real QBO P&L-by-Class export (Jan 1-Aug 17 2026), where TikTok
+    was short by exactly its $5,280.00 shipping revenue line and Amazon by its $35.92
+    line. Every channel with net sales rules must pull its own class column from this
+    account, using the real packaged map (not a hand-built fixture) so a future edit to
+    qbo_account_map.json that reintroduces the gap fails this test."""
+    account_map = load_qbo_account_map()
+    pl_data = {
+        "Income": {
+            "41100 Product Revenue – DTC": {"DTC": 100.0},
+            "41110 Product Revenue – Wholesale": {"Wholesale": 100.0},
+            "41120 Product Revenue – TikTok Shop": {"TikTok": 100.0},
+            "41130 Product Revenue – Amazon": {"Amazon": 100.0},
+            "42100 Shipping Revenue": {"DTC": 10.0, "TikTok": 20.0, "Amazon": 30.0, "Wholesale": 40.0},
+        }
+    }
+    result = compute_net_sales_by_channel(pl_data, account_map)
+    assert result["net_sales"]["dtc"] == 110.0
+    assert result["net_sales"]["tiktok"] == 120.0
+    assert result["net_sales"]["amazon"] == 130.0
+    assert result["net_sales"]["wholesale"] == 140.0
 
 
 def test_company_totals_sums_dollars_and_reweights_ratios():

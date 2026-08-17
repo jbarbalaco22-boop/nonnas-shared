@@ -23,8 +23,10 @@
     },
     "tiktok": {
       "include": [
-        "41120 Product Revenue – TikTok Shop"
+        "41120 Product Revenue – TikTok Shop",
+        "42100 Shipping Revenue"
       ],
+      "include_tagged_class": "TikTok",
       "subtract": [
         "43100",
         "43200",
@@ -35,8 +37,10 @@
     },
     "amazon": {
       "include": [
-        "41130 Product Revenue – Amazon"
+        "41130 Product Revenue – Amazon",
+        "42100 Shipping Revenue"
       ],
+      "include_tagged_class": "Amazon",
       "subtract": [
         "43100",
         "43200",
@@ -47,8 +51,10 @@
     },
     "wholesale": {
       "include": [
-        "41110 Product Revenue – Wholesale"
+        "41110 Product Revenue – Wholesale",
+        "42100 Shipping Revenue"
       ],
+      "include_tagged_class": "Wholesale",
       "subtract": [
         "41140 Wholesale Markdown / Allowances"
       ]
