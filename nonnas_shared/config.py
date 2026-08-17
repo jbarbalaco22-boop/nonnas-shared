@@ -23,6 +23,14 @@ def load_qbo_account_map() -> dict:
     return load_json_config("qbo_account_map.json")
 
 
+def load_business_context() -> str:
+    """The institutional knowledge needed to interpret Nonna's financial data correctly
+    (channel attribution gaps, COGS correction status, etc.) — see business_context.md's own
+    header for why this lives here rather than being duplicated by hand in a system prompt."""
+    with open(CONFIG_DIR / "business_context.md", encoding="utf-8") as f:
+        return f.read()
+
+
 def load_channel_units_by_month() -> dict:
     """Returns {month: {"DTC": int|None, "TikTok": int|None, "Amazon": int|None,
     "Wholesale": int|None, "total_units": int|None, "note": str}} — the canonical,

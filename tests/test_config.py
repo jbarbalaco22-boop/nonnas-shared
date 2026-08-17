@@ -1,7 +1,7 @@
-"""Tests for load_channel_units_by_month — parses the real packaged CSV, not a fixture, since
-the whole point is confirming the file actually ships with the installed package and parses
-correctly from wherever it's installed."""
-from nonnas_shared.config import load_channel_units_by_month
+"""Tests for load_channel_units_by_month and load_business_context — both read the real
+packaged files, not a fixture, since the whole point is confirming they actually ship with the
+installed package and load correctly from wherever it's installed."""
+from nonnas_shared.config import load_business_context, load_channel_units_by_month
 
 
 def test_loads_real_packaged_file():
@@ -31,3 +31,10 @@ def test_stops_before_the_unrelated_vendor_detail_table():
     result = load_channel_units_by_month()
     assert "Customer" not in result
     assert "(unnamed)" not in result
+
+
+def test_business_context_loads_and_mentions_known_gaps():
+    context = load_business_context()
+    assert len(context) > 0
+    assert "Wholesale" in context
+    assert "A2X" in context

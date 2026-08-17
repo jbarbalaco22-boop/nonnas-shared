@@ -7,6 +7,8 @@ Shared package used by `nonnas-finance-audit` and `nonnas-daily-operator` for QB
 - `nonnas_shared/connectors/shopify_client.py`, `shopify_channels.py` — Shopify client + DTC/TikTok/Amazon/Wholesale channel classification
 - `nonnas_shared/connectors/channel_financials.py` — per-channel financial rollups
 - `nonnas_shared/data/qbo_account_map.json` — source of truth for which QBO accounts belong to which channel/bucket (net sales, COGS, ads, fees, clearing accounts). Read this file before writing any new channel-allocation logic rather than re-deriving account names by hand.
+- `nonnas_shared/data/channel_units_by_month.csv` — canonical, hand-reconciled units-sold-by-channel reference (loaded via `config.load_channel_units_by_month()`). Lives in the package (not the repo root) specifically so it ships wherever `nonnas_shared` is installed, including a deployed chat assistant.
+- `nonnas_shared/data/business_context.md` — the single source of the "how to interpret these numbers correctly" knowledge (channel attribution gaps, COGS correction status). Loaded directly into `nonnas-assistant`'s system prompt at runtime via `config.load_business_context()`. **Update this file, not a hand-copied version elsewhere** — the whole point is one place instead of two that can drift apart.
 - `tests/` — covers `qbo_client`, account matching, `shopify_channels`
 - `rebuild_entries_v2.py`, `rebuild_entries_v3.py` — one-off scripts that built the COGS correction journal entries (see below). `v3` is the current/authoritative version.
 

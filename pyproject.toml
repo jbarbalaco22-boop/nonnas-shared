@@ -19,4 +19,4 @@ dev = ["pytest>=8.0"]
 include = ["nonnas_shared*"]
 
 [tool.setuptools.package-data]
-"nonnas_shared.data" = ["*.json", "*.csv"]
+"nonnas_shared.data" = ["*.json", "*.csv", "*.md"]
