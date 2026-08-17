@@ -73,8 +73,8 @@ query($cursor: String, $searchQuery: String!) {
       name
       createdAt
       sourceName
-      originalTotalPriceSet { shopMoney { amount } }
-      totalDiscountsSet { shopMoney { amount } }
+      subtotalPriceSet { shopMoney { amount } }
+      totalShippingPriceSet { shopMoney { amount } }
       totalRefundedSet { shopMoney { amount } }
       lineItems(first: 50) {
         nodes { sku quantity }
