@@ -1,7 +1,7 @@
 import csv, json
 
 units = {}
-with open('channel_units_by_month.csv', newline='', encoding='utf-8') as f:
+with open('nonnas_shared/data/channel_units_by_month.csv', newline='', encoding='utf-8') as f:
     reader = csv.reader(f)
     header = next(reader)
     for row in reader:
