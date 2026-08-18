@@ -148,12 +148,12 @@ def test_compute_sku_revenue_ignores_shipping_fees_and_settlement():
 
 
 def test_compute_sku_revenue_sums_across_multiple_journal_entries():
-    je_a = {"Line": [{
+    je_a = {"DocNumber": "A2XSH-01Aug-03Aug-100", "Line": [{
         "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
         "Amount": 10.0,
         "JournalEntryLineDetail": {"PostingType": "Credit"},
     }]}
-    je_b = {"Line": [{
+    je_b = {"DocNumber": "A2XUS-01Aug-03Aug-200", "Line": [{
         "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
         "Amount": 5.0,
         "JournalEntryLineDetail": {"PostingType": "Credit"},
@@ -164,3 +164,24 @@ def test_compute_sku_revenue_sums_across_multiple_journal_entries():
 
 def test_compute_sku_revenue_empty_input_gives_empty_dict():
     assert compute_sku_revenue([], _SKU_REGISTRY) == {}
+
+
+def test_compute_sku_revenue_ignores_non_a2x_journal_entries():
+    """A TikTok/LinkMyBooks (or any non-A2X) entry must never contribute here, even if its
+    Description text happens to match the "TYPE - SKU - suffix" shape by coincidence - only
+    A2XSH-/A2XUS- DocNumber prefixes are trusted as this parser's actual source format."""
+    non_a2x_je = {"DocNumber": "LMB-TT-01Aug-200", "Line": [{
+        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - TikTok Shop",
+        "Amount": 999.0,
+        "JournalEntryLineDetail": {"PostingType": "Credit"},
+    }]}
+    assert compute_sku_revenue([non_a2x_je], _SKU_REGISTRY) == {}
+
+
+def test_compute_sku_revenue_ignores_journal_entry_with_no_docnumber():
+    no_doc_je = {"Line": [{
+        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
+        "Amount": 10.0,
+        "JournalEntryLineDetail": {"PostingType": "Credit"},
+    }]}
+    assert compute_sku_revenue([no_doc_je], _SKU_REGISTRY) == {}

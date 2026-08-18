@@ -12,10 +12,20 @@ full story). A2X embeds the SKU as plain text in each line's Description instead
 
 This is the only place that should parse that description format - if A2X changes it, this is
 the one spot to fix.
+
+IMPORTANT scope limit: this format is specific to A2X (Shopify + native Amazon). TikTok posts
+through a different connector (LinkMyBooks) with its own Description format, which today just
+fails to match and gets silently excluded - safe, but that's incidental, not guaranteed. To make
+that guarantee explicit rather than relying on a regex accidentally not matching, only journal
+entries whose DocNumber carries an A2X prefix (A2XSH- for Shopify, A2XUS- for native Amazon; see
+nonnas-shared/CLAUDE.md's "A2X / Shopify structural gap" section) are considered at all. If a
+non-A2X connector's Description ever happens to match this same "TYPE - SKU - suffix" shape, it
+still won't leak into these totals.
 """
 import re
 
 _DESC_PATTERN = re.compile(r"^(?P<type>\S+)\s*-\s*(?P<rest>.+)$")
+_A2X_DOCNUMBER_PREFIXES = ("A2XSH-", "A2XUS-")
 
 # Only these line types get attributed to a SKU. COGS, shipping, fees, and settlement-balance
 # lines never carry SKU detail in this connector's output (confirmed - COGS posts as separate,
@@ -58,6 +68,9 @@ def compute_sku_revenue(journal_entries: list, sku_registry: dict) -> dict:
     result: dict = {}
 
     for je in journal_entries:
+        doc_number = je.get("DocNumber", "") or ""
+        if not doc_number.startswith(_A2X_DOCNUMBER_PREFIXES):
+            continue
         for line in je.get("Line", []):
             detail = line.get("JournalEntryLineDetail", {})
             parsed = _parse_line_description(line.get("Description", ""), known_skus)
