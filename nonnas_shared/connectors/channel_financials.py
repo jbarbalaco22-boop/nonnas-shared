@@ -146,10 +146,17 @@ def compute_overhead_by_account(pl_data: dict, account_map: dict | None = None) 
     return results
 
 
+# Discounts and refunds/returns post to these two shared accounts for DTC/TikTok/Amazon
+# (tagged by Class - confirmed live against a real March 2026 P&L pull, 2026-08-18), unlike
+# Wholesale which uses its own "41140 Wholesale Markdown / Allowances" account instead.
+_DISCOUNT_ACCOUNT_PREFIX = "43100 Discounts & Promotions"
+_REFUND_ACCOUNT_PREFIX = "43200 Returns & Refunds"
+
+
 def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None = None) -> dict:
     """Returns {net_sales, cogs, three_pl, ads, fees, other_marketing, contribution,
-    contribution_pct} for one channel (channel is a display name — "DTC", "TikTok", "Amazon",
-    or "Wholesale").
+    contribution_pct, discount_rate, refund_rate} for one channel (channel is a display name —
+    "DTC", "TikTok", "Amazon", or "Wholesale").
 
     net_sales/cogs/three_pl are computed by filtering on the QBO Class tag: net_sales via the
     existing per-channel rules, cogs/three_pl by checking each account is actually tagged with
@@ -165,6 +172,16 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
     contribution but is kept separate from ads on purpose — mixing it into `ads` would distort
     ROAS (net_sales / ads), which is meant to measure working paid-media efficiency, not
     marketing/retention tooling spend. See other_marketing.note in the account map.
+
+    discount_rate/refund_rate are computed from the discount/refund accounts directly (gross
+    revenue is the channel's own "include" accounts, before any deduction) - deliberately QBO
+    account-based, not Shopify order-data-based, so these have the same full historical depth as
+    net_sales/ROAS. Real audit finding, 2026-08-18: the previous Shopify-order-based calculation
+    had NO data at all for the earliest ~3 months of a 6-month trend window, since Shopify's own
+    order API can't retrieve orders older than ~55 days - but the underlying QBO accounts have
+    full history, going back as far as net_sales itself does. None (not 0.0) for Wholesale,
+    which doesn't use these shared accounts (see _DISCOUNT_ACCOUNT_PREFIX's comment) - a 0.0%
+    Wholesale discount rate from an account with zero activity would be misleadingly precise.
 
     contribution_pct is None (not 0.0) when net_sales is zero, so callers can distinguish
     "no revenue this period" from "revenue exactly offset by costs".
@@ -184,6 +201,18 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
 
     contribution = net_sales - cogs - three_pl - ads - fees - other_marketing
 
+    gross = discount_amount = refund_amount = 0.0
+    discount_rate = refund_rate = None
+    if channel != "Wholesale":
+        net_sales_rules = account_map.get("net_sales", {}).get(channel_key, {})
+        gross = _sum_accounts(pl_data, net_sales_rules.get("include", []), net_sales_rules.get("include_tagged_class"))
+        if gross:
+            # QBO stores these as negative (contra-revenue) - negate for a positive rate.
+            discount_amount = -_sum_accounts(pl_data, [_DISCOUNT_ACCOUNT_PREFIX], channel)
+            refund_amount = -_sum_accounts(pl_data, [_REFUND_ACCOUNT_PREFIX], channel)
+            discount_rate = discount_amount / gross
+            refund_rate = refund_amount / gross
+
     return {
         "net_sales": net_sales,
         "cogs": cogs,
@@ -193,34 +222,46 @@ def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None
         "other_marketing": other_marketing,
         "contribution": contribution,
         "contribution_pct": (contribution / net_sales) if net_sales else None,
+        "discount_rate": discount_rate,
+        "refund_rate": refund_rate,
+        # Raw dollar figures behind discount_rate/refund_rate, for company_totals to sum and
+        # re-derive a properly weighted company-wide rate from (not an average of per-channel
+        # rates - see compute_company_totals' docstring for why that distinction matters).
+        "gross_revenue": gross,
+        "discount_amount": discount_amount,
+        "refund_amount": refund_amount,
     }
 
 
 def compute_channel_health_metrics(channel_margin: dict, shopify_totals: dict) -> dict:
     """Returns {aov, discount_rate, refund_rate, roas} for one channel — retail health ratios
-    combining QBO-derived margin data (net_sales, ads) with Shopify-derived order data (orders,
-    gross, discounts, refunds).
+    combining QBO-derived margin data (net_sales, ads, discount_rate, refund_rate) with
+    Shopify-derived order data (orders, net_revenue).
 
     channel_margin: one channel's dict as returned by compute_channel_margin.
     shopify_totals: one channel's dict as returned by handlers.get_channel_units_live, i.e.
     {orders, gross, discounts, refunds, net_revenue, ...}.
+
+    discount_rate/refund_rate are pass-through from channel_margin (QBO account-based, full
+    historical depth) rather than recomputed from shopify_totals - real audit finding,
+    2026-08-18: the old Shopify-order-based calculation had no data at all for months outside
+    Shopify's ~55-day live-retrievable order window, even though the underlying QBO discount/
+    refund accounts have full history. AOV still needs Shopify's order count (QBO has no
+    per-order granularity), so it keeps the same limitation.
 
     Every ratio is None (not 0.0) when its denominator is zero — "no orders this period" and
     "AOV of exactly $0" are different things, and callers need to be able to tell them apart
     rather than silently rendering a misleading zero.
     """
     orders = shopify_totals.get("orders", 0)
-    gross = shopify_totals.get("gross", 0.0)
-    discounts = shopify_totals.get("discounts", 0.0)
-    refunds = shopify_totals.get("refunds", 0.0)
     net_revenue = shopify_totals.get("net_revenue", 0.0)
     ads = channel_margin.get("ads", 0.0)
     net_sales = channel_margin.get("net_sales", 0.0)
 
     return {
         "aov": (net_revenue / orders) if orders else None,
-        "discount_rate": (discounts / gross) if gross else None,
-        "refund_rate": (refunds / gross) if gross else None,
+        "discount_rate": channel_margin.get("discount_rate"),
+        "refund_rate": channel_margin.get("refund_rate"),
         "roas": (net_sales / ads) if ads else None,
     }
 
@@ -248,10 +289,13 @@ def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dic
 
     orders = sum(s.get("orders", 0) for s in shopify_totals_by_channel.values())
     units = sum(s.get("units", 0) for s in shopify_totals_by_channel.values())
-    gross = sum(s.get("gross", 0.0) for s in shopify_totals_by_channel.values())
-    discounts = sum(s.get("discounts", 0.0) for s in shopify_totals_by_channel.values())
-    refunds = sum(s.get("refunds", 0.0) for s in shopify_totals_by_channel.values())
     net_revenue = sum(s.get("net_revenue", 0.0) for s in shopify_totals_by_channel.values())
+    # discount_rate/refund_rate: summed dollar amounts from channel_margins (QBO account-based,
+    # full historical depth), not shopify_totals_by_channel's gross/discounts/refunds - see
+    # compute_channel_margin's docstring for why.
+    gross = sum(m.get("gross_revenue", 0.0) for m in channel_margins.values())
+    discount_amount = sum(m.get("discount_amount", 0.0) for m in channel_margins.values())
+    refund_amount = sum(m.get("refund_amount", 0.0) for m in channel_margins.values())
 
     return {
         "net_sales": net_sales,
@@ -265,8 +309,8 @@ def compute_company_totals(channel_margins: dict, shopify_totals_by_channel: dic
         "orders": orders,
         "units": units,
         "aov": (net_revenue / orders) if orders else None,
-        "discount_rate": (discounts / gross) if gross else None,
-        "refund_rate": (refunds / gross) if gross else None,
+        "discount_rate": (discount_amount / gross) if gross else None,
+        "refund_rate": (refund_amount / gross) if gross else None,
         "roas": (net_sales / ads) if ads else None,
     }
 

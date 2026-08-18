@@ -168,9 +168,45 @@ def test_channel_margin_zero_revenue_gives_none_not_zero_pct():
     assert result["contribution_pct"] is None
 
 
+def test_channel_margin_discount_refund_rate_from_qbo_accounts():
+    """Real audit finding, 2026-08-18: discount_rate/refund_rate used to come from Shopify order
+    data, which can't be retrieved for months older than ~55 days - so these must come from the
+    43100/43200 QBO accounts instead, which have the same full history as net_sales itself."""
+    pl_data = {
+        "Income": {
+            "41100 Product Revenue - DTC": {"DTC": 1000.0},
+            "43100 Discounts & Promotions": {"DTC": -150.0},
+            "43200 Returns & Refunds": {"DTC": -25.0},
+        },
+    }
+    result = compute_channel_margin(pl_data, "DTC", _margin_account_map())
+    assert result["gross_revenue"] == 1000.0
+    assert result["discount_amount"] == 150.0
+    assert result["refund_amount"] == 25.0
+    assert result["discount_rate"] == 0.15
+    assert result["refund_rate"] == 0.025
+
+
+def test_channel_margin_wholesale_discount_refund_rate_is_none():
+    """Wholesale doesn't post to the shared 43100/43200 accounts (see
+    _DISCOUNT_ACCOUNT_PREFIX's comment) - None, not a misleadingly precise 0.0%."""
+    pl_data = {"Income": {"41110 Product Revenue - Wholesale": {"Wholesale": 500.0}}}
+    result = compute_channel_margin(pl_data, "Wholesale", _margin_account_map())
+    assert result["discount_rate"] is None
+    assert result["refund_rate"] is None
+
+
+def test_channel_margin_no_gross_gives_none_discount_rate_not_zero_division():
+    result = compute_channel_margin({}, "DTC", _margin_account_map())
+    assert result["discount_rate"] is None
+    assert result["refund_rate"] is None
+
+
 def test_channel_health_metrics_computes_all_four_ratios():
-    channel_margin = {"net_sales": 1000.0, "ads": 100.0}
-    shopify_totals = {"orders": 20, "gross": 1100.0, "discounts": 100.0, "refunds": 50.0, "net_revenue": 950.0}
+    # discount_rate/refund_rate are pass-through from channel_margin (QBO account-based) now,
+    # not recomputed from shopify_totals - see compute_channel_margin's docstring for why.
+    channel_margin = {"net_sales": 1000.0, "ads": 100.0, "discount_rate": 100.0 / 1100.0, "refund_rate": 50.0 / 1100.0}
+    shopify_totals = {"orders": 20, "net_revenue": 950.0}
     result = compute_channel_health_metrics(channel_margin, shopify_totals)
     assert result["aov"] == 47.5  # 950 / 20
     assert result["discount_rate"] == 100.0 / 1100.0
@@ -179,8 +215,8 @@ def test_channel_health_metrics_computes_all_four_ratios():
 
 
 def test_channel_health_metrics_zero_denominators_give_none_not_zero():
-    channel_margin = {"net_sales": 0.0, "ads": 0.0}
-    shopify_totals = {"orders": 0, "gross": 0.0, "discounts": 0.0, "refunds": 0.0, "net_revenue": 0.0}
+    channel_margin = {"net_sales": 0.0, "ads": 0.0, "discount_rate": None, "refund_rate": None}
+    shopify_totals = {"orders": 0, "net_revenue": 0.0}
     result = compute_channel_health_metrics(channel_margin, shopify_totals)
     assert result["aov"] is None
     assert result["discount_rate"] is None
@@ -238,14 +274,16 @@ def test_real_account_map_attributes_shared_shipping_revenue_to_every_channel():
 
 def test_company_totals_sums_dollars_and_reweights_ratios():
     """AOV/discount_rate/refund_rate/roas must be recomputed from summed numerator/denominator,
-    not averaged per-channel — this is what catches a naive `mean(channel_aovs)` regression."""
+    not averaged per-channel — this is what catches a naive `mean(channel_aovs)` regression.
+    discount_rate/refund_rate now sum channel_margins' gross_revenue/discount_amount/
+    refund_amount (QBO account-based), not shopify_totals' gross/discounts/refunds."""
     margins = {
-        "DTC": {"net_sales": 1000.0, "cogs": 300.0, "three_pl": 50.0, "ads": 100.0, "fees": 20.0, "contribution": 530.0},
-        "TikTok": {"net_sales": 500.0, "cogs": 150.0, "three_pl": 25.0, "ads": 50.0, "fees": 10.0, "contribution": 265.0},
+        "DTC": {"net_sales": 1000.0, "cogs": 300.0, "three_pl": 50.0, "ads": 100.0, "fees": 20.0, "contribution": 530.0, "gross_revenue": 1100.0, "discount_amount": 100.0, "refund_amount": 50.0},
+        "TikTok": {"net_sales": 500.0, "cogs": 150.0, "three_pl": 25.0, "ads": 50.0, "fees": 10.0, "contribution": 265.0, "gross_revenue": 550.0, "discount_amount": 30.0, "refund_amount": 0.0},
     }
     shopify_totals = {
-        "DTC": {"orders": 20, "gross": 1100.0, "discounts": 100.0, "refunds": 50.0, "net_revenue": 950.0, "units": 40},
-        "TikTok": {"orders": 10, "gross": 550.0, "discounts": 30.0, "refunds": 0.0, "net_revenue": 520.0, "units": 20},
+        "DTC": {"orders": 20, "net_revenue": 950.0, "units": 40},
+        "TikTok": {"orders": 10, "net_revenue": 520.0, "units": 20},
     }
     result = compute_company_totals(margins, shopify_totals)
     assert result["net_sales"] == 1500.0
