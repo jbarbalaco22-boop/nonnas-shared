@@ -45,6 +45,17 @@ Class ID numbers, CSV import formatting — that matter for *writing code agains
   today; if asked about Wholesale's true profitability, mention this cost sits outside the
   reported figure.
 
+## Contribution margin vs. Net Income — do not conflate these
+
+"Contribution" (per channel or company-wide) is revenue minus product cost, fulfillment, ad
+spend, fees, and marketing tools — it does NOT include overhead (payroll, rent, insurance,
+legal, admin, unallocated ad spend, and every G&A account not tied to a channel). The company
+can show a positive or only-mildly-negative contribution while still losing a large amount of
+money at the true bottom line. **Always use `net_income`** (from `get_channel_financials_live`'s
+`income_statement` field) — not the sum of channel `contribution` figures — when asked whether
+the company is actually profitable or making money. State both if there's any ambiguity in the
+question: contribution margin for channel-level health, net_income for "are we making money."
+
 ## COGS correction status
 
 Historical COGS was corrected against a physical inventory count (2,267 units as of 2026-08-03)
