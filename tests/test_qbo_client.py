@@ -77,3 +77,125 @@ def test_skips_rows_with_no_label():
     sink = {}
     _walk_pl_rows(rows, ["DTC"], "Income", sink)
     assert sink == {}
+
+
+# ---- GeneralLedger balance/transaction walking (for Cash & Runway - combined bank balance) ----
+from nonnas_shared.connectors import qbo_client
+from nonnas_shared.connectors.qbo_client import _walk_gl_balance_rows, _walk_gl_detail_rows
+
+
+def _gl_summary_row(label, balance, nested_rows=None):
+    row = {
+        "Header": {"ColData": [{"value": label}]},
+        "Summary": {"ColData": [
+            {"value": f"Total for {label}"}, {"value": ""}, {"value": ""}, {"value": ""},
+            {"value": ""}, {"value": ""}, {"value": str(balance)}, {"value": ""},
+        ]},
+    }
+    if nested_rows:
+        row["Rows"] = {"Row": nested_rows}
+    return row
+
+
+def test_walk_gl_balance_rows_sums_matching_account_sections():
+    rows = [
+        _gl_summary_row("11100 Chase Operating Bank Account - 9889", 10414.78),
+        _gl_summary_row("11110 Highbeam Checking Account - 9625", 8906.56),
+        _gl_summary_row("11170 Petty Cash", 0.0),
+    ]
+    balances: list = []
+    _walk_gl_balance_rows(rows, ("11100 Chase Operating Bank Account", "11110 Highbeam Checking"), balances)
+    assert balances == [10414.78, 8906.56]  # Petty Cash correctly excluded
+
+
+def test_walk_gl_balance_rows_recurses_into_nested_group_sections():
+    rows = [
+        {
+            "Header": {"ColData": [{"value": "11000 Cash & Bank"}]},
+            "Rows": {"Row": [_gl_summary_row("11100 Chase Operating Bank Account - 9889", 10414.78)]},
+            "Summary": {"ColData": [{"value": "Total for 11000 Cash & Bank"}] + [{"value": ""}] * 5 + [{"value": "10414.78"}, {"value": ""}]},
+        },
+    ]
+    balances: list = []
+    # Only the leaf account prefix matches - the parent group's own Summary is also a candidate
+    # match but has a different label, so this confirms recursion reaches the nested row too.
+    _walk_gl_balance_rows(rows, ("11100 Chase Operating Bank Account",), balances)
+    assert balances == [10414.78]
+
+
+def test_fetch_gl_account_balance_sums_via_mocked_get(monkeypatch):
+    def fake_get(realm_id, access_token, environment, path, params):
+        assert path == "reports/GeneralLedger"
+        assert params["end_date"] == "2026-08-18"
+        return {"Rows": {"Row": [
+            _gl_summary_row("11100 Chase Operating Bank Account - 9889", 10414.78),
+            _gl_summary_row("11110 Highbeam Checking Account - 9625", 8906.56),
+            _gl_summary_row("11120 Highbeam High Yield Savings Account - 9626", 47707.92),
+        ]}}
+
+    monkeypatch.setattr(qbo_client, "_get", fake_get)
+    from datetime import date
+    result = qbo_client.fetch_gl_account_balance(
+        "realm", "token",
+        ["11100 Chase Operating Bank Account", "11110 Highbeam Checking", "11120 Highbeam High Yield Savings"],
+        date(2026, 8, 18),
+    )
+    assert round(result, 2) == 67029.26
+
+
+def _gl_detail_section(label, lines):
+    """lines: [(date, amount, running_balance), ...]"""
+    return {
+        "Header": {"ColData": [{"value": label}]},
+        "Rows": {"Row": [
+            {"ColData": [
+                {"value": d}, {"value": "Expense"}, {"value": ""}, {"value": "Vendor"},
+                {"value": "memo"}, {"value": "some account"}, {"value": str(amt)}, {"value": str(bal)},
+            ]}
+            for d, amt, bal in lines
+        ]},
+    }
+
+
+def test_walk_gl_detail_rows_extracts_transaction_lines():
+    rows = [_gl_detail_section("71100 Founder/Officer Compensation", [
+        ("2026-07-30", 5391.65, 47287.70),
+        ("2026-08-13", 5391.65, 52679.35),
+    ])]
+    sink: list = []
+    _walk_gl_detail_rows(rows, "71100 Founder/Officer Compensation", sink)
+    assert sink == [
+        {"date": "2026-07-30", "amount": 5391.65},
+        {"date": "2026-08-13", "amount": 5391.65},
+    ]
+
+
+def test_walk_gl_detail_rows_ignores_other_accounts():
+    rows = [
+        _gl_detail_section("71100 Founder/Officer Compensation", [("2026-08-13", 5391.65, 52679.35)]),
+        _gl_detail_section("55100 Shopify Transaction Fees", [("2026-08-13", -12.34, 100.0)]),
+    ]
+    sink: list = []
+    _walk_gl_detail_rows(rows, "71100 Founder/Officer Compensation", sink)
+    assert len(sink) == 1
+    assert sink[0]["date"] == "2026-08-13"
+
+
+def test_fetch_gl_account_transactions_via_mocked_get(monkeypatch):
+    def fake_get(realm_id, access_token, environment, path, params):
+        assert path == "reports/GeneralLedger"
+        return {"Rows": {"Row": [_gl_detail_section("71100 Founder/Officer Compensation", [
+            ("2026-07-30", 5391.65, 47287.70),
+            ("2026-08-13", 5391.65, 52679.35),
+        ])]}}
+
+    monkeypatch.setattr(qbo_client, "_get", fake_get)
+    from datetime import date
+    result = qbo_client.fetch_gl_account_transactions(
+        "realm", "token", "71100 Founder/Officer Compensation",
+        date(2026, 5, 1), date(2026, 8, 18),
+    )
+    assert result == [
+        {"date": "2026-07-30", "amount": 5391.65},
+        {"date": "2026-08-13", "amount": 5391.65},
+    ]

@@ -43,6 +43,98 @@ def fetch_profit_and_loss_by_class(
     return sink
 
 
+def _walk_gl_balance_rows(rows: list, account_prefixes: tuple, sink: list) -> None:
+    for row in rows:
+        header = row.get("Header", {}).get("ColData", [])
+        summary = row.get("Summary", {}).get("ColData", [])
+        if header and summary:
+            label = (header[0].get("value") or "").strip()
+            if label.startswith(account_prefixes):
+                raw = summary[-2].get("value", "") if len(summary) >= 2 else ""
+                # GeneralLedger's Summary row is [Total for <label>, ..., ending balance, ""] -
+                # the balance is the second-to-last column, not a fixed index, since column
+                # count varies by report options.
+                try:
+                    sink.append(float(raw) if raw else 0.0)
+                except ValueError:
+                    pass
+        nested_rows = row.get("Rows", {}).get("Row", [])
+        if nested_rows:
+            _walk_gl_balance_rows(nested_rows, account_prefixes, sink)
+
+
+def fetch_gl_account_balance(
+    realm_id: str, access_token: str, account_prefixes: list[str], as_of_date: date,
+    environment: str = "production",
+) -> float:
+    """Sums the ending balance (as of as_of_date) of every account whose GeneralLedger report
+    label starts with one of account_prefixes - e.g. ["11100 Chase Operating Bank Account",
+    "11110 Highbeam Checking", "11120 Highbeam High Yield Savings"] for combined cash on hand.
+
+    Deliberately uses GeneralLedger with an explicit end_date, not BalanceSheet - BalanceSheet's
+    end_date is documented as unreliable for a date-scoped balance (silently returns today's
+    balance regardless of the date passed; see nonnas-shared/CLAUDE.md's QBO gotchas). Confirmed
+    live (2026-08-18) that GeneralLedger's end_date genuinely changes the returned balance -
+    pulling as of today and as of 90 days earlier gave two different, real numbers ($67,029.26 vs
+    $105,758.02), cross-checked against Account.CurrentBalance for the as-of-today case (exact
+    match), same trusted pattern already used for Inventory in channel_financials.py.
+
+    start_date is fixed well before any real company data (2020-01-01) rather than taking one as
+    a parameter - this is always meant to be "since account inception through as_of_date," a
+    running balance, not a period-scoped sum.
+    """
+    report = _get(realm_id, access_token, environment, "reports/GeneralLedger", {
+        "start_date": "2020-01-01",
+        "end_date": as_of_date.isoformat(),
+        "minorversion": 65,
+    })
+    balances: list = []
+    _walk_gl_balance_rows(report.get("Rows", {}).get("Row", []), tuple(account_prefixes), balances)
+    return sum(balances)
+
+
+def _walk_gl_detail_rows(rows: list, account_prefix: str, sink: list) -> None:
+    for row in rows:
+        header = row.get("Header", {}).get("ColData", [])
+        if header and (header[0].get("value") or "").strip().startswith(account_prefix):
+            for line in row.get("Rows", {}).get("Row", []):
+                col_data = line.get("ColData", [])
+                if len(col_data) < 2:
+                    continue
+                txn_date = col_data[0].get("value", "")
+                amount_raw = col_data[-2].get("value", "")
+                if not txn_date or not amount_raw:
+                    continue
+                try:
+                    sink.append({"date": txn_date, "amount": float(amount_raw)})
+                except ValueError:
+                    continue
+            return  # found the target account's own section - no sub-accounts to recurse into
+        nested_rows = row.get("Rows", {}).get("Row", [])
+        if nested_rows:
+            _walk_gl_detail_rows(nested_rows, account_prefix, sink)
+
+
+def fetch_gl_account_transactions(
+    realm_id: str, access_token: str, account_prefix: str, start_date: date, end_date: date,
+    environment: str = "production",
+) -> list[dict]:
+    """Returns [{"date": "YYYY-MM-DD", "amount": float}] - the individual transaction lines
+    posted to the one account whose GeneralLedger label starts with account_prefix, within
+    [start_date, end_date]. Same GeneralLedger endpoint and column layout as
+    fetch_gl_account_balance (amount is the second-to-last ColData column, balance the last),
+    just reading line detail instead of the section's ending-balance Summary row.
+    """
+    report = _get(realm_id, access_token, environment, "reports/GeneralLedger", {
+        "start_date": start_date.isoformat(),
+        "end_date": end_date.isoformat(),
+        "minorversion": 65,
+    })
+    transactions: list = []
+    _walk_gl_detail_rows(report.get("Rows", {}).get("Row", []), account_prefix, transactions)
+    return transactions
+
+
 def _walk_pl_rows(rows: list, class_names: list, current_group: str | None, sink: dict) -> None:
     for row in rows:
         group = row.get("group", current_group)
