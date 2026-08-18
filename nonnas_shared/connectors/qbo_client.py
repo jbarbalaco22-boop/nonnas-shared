@@ -70,6 +70,38 @@ def _walk_pl_rows(rows: list, class_names: list, current_group: str | None, sink
             _walk_pl_rows(nested_rows, class_names, group, sink)
 
 
+def fetch_profit_and_loss_by_product(
+    realm_id: str, access_token: str, start_date: date, end_date: date, environment: str = "production"
+) -> dict:
+    """Return {section: {account_label: {product_name: amount}}} - same shape as
+    fetch_profit_and_loss_by_class, but grouped by Product/Service (i.e. SKU/Item) instead of
+    Class. Same underlying reports/ProfitAndLoss endpoint, just a different
+    summarize_column_by - confirmed working live (2026-08-18) rather than assumed from docs,
+    matching how every other QBO report quirk in this codebase has been verified the hard way.
+
+    As of 2026-08-18 this returns everything bucketed under "Not Specified", because no
+    transaction line currently carries a Product/Service reference (only one SKU has ever
+    existed, and its revenue/COGS post as Class-tagged summary entries with no Item detail).
+    It should start returning real per-SKU columns once the new SKUs launch, since their
+    Shopify-to-QBO connectors are being set up to carry Item-level detail through - but that
+    real per-SKU behavior has NOT been verified yet and needs a check against the first actual
+    SKU-tagged transaction once one exists.
+    """
+    report = _get(realm_id, access_token, environment, "reports/ProfitAndLoss", {
+        "start_date": start_date.isoformat(),
+        "end_date": end_date.isoformat(),
+        "summarize_column_by": "ProductsAndServices",
+        "minorversion": 65,
+    })
+
+    columns = report.get("Columns", {}).get("Column", [])
+    product_names = [c.get("ColTitle", "") for c in columns[1:]]
+
+    sink: dict = {}
+    _walk_pl_rows(report.get("Rows", {}).get("Row", []), product_names, None, sink)
+    return sink
+
+
 def fetch_account_balances(
     realm_id: str, access_token: str, account_names: list[str], environment: str = "production"
 ) -> dict:

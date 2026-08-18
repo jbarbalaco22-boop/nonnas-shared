@@ -23,6 +23,15 @@ def load_qbo_account_map() -> dict:
     return load_json_config("qbo_account_map.json")
 
 
+def load_sku_map() -> dict:
+    """Returns {sku: {"name": str, "status": "active"|"upcoming", "note": str|absent}} — the
+    canonical SKU registry (Nonna's Olive Oil's product lineup), so every SKU-level report/tool
+    uses the same keys and display names instead of each hand-deriving them from raw QBO Item
+    names or Shopify SKU strings. Update this file, not a hand-copied version elsewhere, when
+    a SKU launches, retires, or gets renamed."""
+    return load_json_config("sku_map.json")["skus"]
+
+
 def load_business_context() -> str:
     """The institutional knowledge needed to interpret Nonna's financial data correctly
     (channel attribution gaps, COGS correction status, etc.) — see business_context.md's own

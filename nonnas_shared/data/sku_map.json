@@ -1,0 +1,22 @@
+{
+  "_source": "Founder-provided SKU list, 2026-08-18 - canonical registry so every SKU-level report/tool uses the same keys and display names instead of each hand-deriving them from raw QBO Item names or Shopify SKU strings.",
+  "skus": {
+    "OO-OO-ORG-500": {
+      "name": "Nonna's Olive Oil (500mL Original)",
+      "status": "active",
+      "note": "The only SKU that has sold to date - every unit/revenue figure prior to the new SKUs launching is entirely this one."
+    },
+    "OO-OO-COOK-750ML-SHIP": {
+      "name": "Nonna's Olive Oil 750mL Cooking & Sautéing",
+      "status": "upcoming"
+    },
+    "OO-OO-CHI-250ML-SHIP": {
+      "name": "Nonna's Hot EVOO x Lucali (250mL)",
+      "status": "upcoming"
+    },
+    "OO-OO-ORG-750ML-SHIP": {
+      "name": "Nonna's Olive Oil 750mL Drizzle & Dipping",
+      "status": "upcoming"
+    }
+  }
+}
