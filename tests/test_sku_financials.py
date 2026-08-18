@@ -89,6 +89,18 @@ _REAL_JE_3887 = {
 }
 
 
+def _line(description, amount, posting_type, account, class_name="DTC"):
+    return {
+        "Description": description,
+        "Amount": amount,
+        "JournalEntryLineDetail": {
+            "PostingType": posting_type,
+            "AccountRef": {"name": account},
+            "ClassRef": {"name": class_name},
+        },
+    }
+
+
 def test_parses_product_sales_line_with_known_sku():
     result = _parse_line_description(
         "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store", {"OO-OO-ORG-500"}
@@ -148,28 +160,67 @@ def test_compute_sku_revenue_matches_real_journal_entry():
     assert sku["name"] == "Nonna's Olive Oil (500mL Original)"
     assert sku["revenue"] == 27.0 + 49.14
     assert sku["discounts"] == -3.24  # Debit to a contra-revenue account -> negative
+    assert sku["refunds"] == 0.0
     assert sku["net"] == 27.0 + 49.14 - 3.24
 
 
 def test_compute_sku_revenue_ignores_shipping_fees_and_settlement():
-    """Only ProductSalesNotTaxed and DiscountNotTaxed count - the other five lines in JE 3887
-    (shipping x2, fees x2, settlement balance) must not leak into the SKU total."""
+    """Only the Product Revenue/Discounts & Promotions accounts count - the other five lines in
+    JE 3887 (shipping x2, fees x2, settlement balance) must not leak into the SKU total."""
     result = compute_sku_revenue([_REAL_JE_3887], _SKU_REGISTRY)
     # 27.00 + 49.14 - 3.24 = 72.90, NOT inflated by shipping (15.00) or reduced by fees (3.27)
     assert result["OO-OO-ORG-500"]["net"] == 72.90
 
 
+def test_compute_sku_revenue_includes_taxed_product_sales_type():
+    """A2X posts a second, undocumented type for taxed orders - "ProductSales" (no "NotTaxed"
+    suffix) - to the exact same Product Revenue account. This is real revenue and was silently
+    dropped by an earlier version of this module that matched on the type string instead of the
+    destination account; a real July 2026 pull turned up $177.14 of it. Confirmed real via the
+    live QBO account (Product Revenue - DTC) rather than assumed from the string's shape."""
+    je = {"DocNumber": "A2XSH-14Jul-16Jul-076", "Line": [
+        _line("ProductSales  - subscription_contract_checkout_one", 88.56, "Credit", "Product Revenue – DTC"),
+    ]}
+    result = compute_sku_revenue([je], _SKU_REGISTRY)
+    assert result["OO-OO-ORG-500"]["revenue"] == 88.56
+
+
+def test_compute_sku_revenue_includes_refunds_and_chargebacks():
+    """Returns & Refunds and Chargebacks are real revenue-reducing events tied to a specific
+    SKU's units, not tracked at all by the original revenue/discounts-only version of this
+    module - a real July 2026 pull had $103.85 of exactly this, matching QBO's own Returns &
+    Refunds account total for DTC that period."""
+    je = {"DocNumber": "A2XSH-01Jul-06Jul-984", "Line": [
+        _line("RefundNotTaxed  - Online store", 35.0, "Debit", "Returns & Refunds"),
+        _line("RefundNotTaxed  - subscription_contract_checkout_one", 68.85, "Debit", "Returns & Refunds"),
+        _line("Chargeback  - Online store", 12.0, "Debit", "Chargebacks"),
+    ]}
+    result = compute_sku_revenue([je], _SKU_REGISTRY)
+    assert result["OO-OO-ORG-500"]["refunds"] == -(35.0 + 68.85 + 12.0)
+    assert result["OO-OO-ORG-500"]["net"] == -(35.0 + 68.85 + 12.0)
+
+
+def test_compute_sku_revenue_excludes_amazon_tagged_lines_on_shared_accounts():
+    """Discounts & Promotions / Returns & Refunds are shared account NAMES across channels -
+    native Amazon (A2XUS-) entries post to the same names, just tagged Class=Amazon. Without a
+    Class=DTC check on those two accounts specifically, Amazon's own discounts/refunds would
+    silently blend into what's labeled a DTC-only tool. Product Revenue doesn't need this check
+    since the account name itself already encodes the channel ("Product Revenue - DTC" vs
+    "- Amazon"), but this test uses the shared-name accounts where contamination is possible."""
+    je = {"DocNumber": "A2XUS-07Jul-21Jul-693", "Line": [
+        _line("Discount  - Some Amazon Coupon", 50.0, "Debit", "Discounts & Promotions", class_name="Amazon"),
+        _line("Refund  - Some Amazon Return", 30.0, "Debit", "Returns & Refunds", class_name="Amazon"),
+    ]}
+    assert compute_sku_revenue([je], _SKU_REGISTRY) == {}
+
+
 def test_compute_sku_revenue_sums_across_multiple_journal_entries():
-    je_a = {"DocNumber": "A2XSH-01Aug-03Aug-100", "Line": [{
-        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
-        "Amount": 10.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
-    je_b = {"DocNumber": "A2XUS-01Aug-03Aug-200", "Line": [{
-        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
-        "Amount": 5.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
+    je_a = {"DocNumber": "A2XSH-01Aug-03Aug-100", "Line": [
+        _line("ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store", 10.0, "Credit", "Product Revenue – DTC"),
+    ]}
+    je_b = {"DocNumber": "A2XUS-01Aug-03Aug-200", "Line": [
+        _line("ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store", 5.0, "Credit", "Product Revenue – DTC"),
+    ]}
     result = compute_sku_revenue([je_a, je_b], _SKU_REGISTRY)
     assert result["OO-OO-ORG-500"]["revenue"] == 15.0
 
@@ -184,21 +235,9 @@ def test_compute_sku_revenue_defaults_pre_sku_posting_lines_to_sole_active_sku()
     that period (only one active SKU in the registry), so this must default to it rather than
     getting silently dropped."""
     old_format_je = {"DocNumber": "A2XSH-01Jul-03Jul-050", "Line": [
-        {
-            "Description": "ProductSalesNotTaxed  - Online store",
-            "Amount": 100.0,
-            "JournalEntryLineDetail": {"PostingType": "Credit"},
-        },
-        {
-            "Description": "DiscountNotTaxed  - Online store",
-            "Amount": 10.0,
-            "JournalEntryLineDetail": {"PostingType": "Debit"},
-        },
-        {
-            "Description": "ShippingNotTaxed  - Online store",
-            "Amount": 5.0,
-            "JournalEntryLineDetail": {"PostingType": "Credit"},
-        },
+        _line("ProductSalesNotTaxed  - Online store", 100.0, "Credit", "Product Revenue – DTC"),
+        _line("DiscountNotTaxed  - Online store", 10.0, "Debit", "Discounts & Promotions"),
+        _line("ShippingNotTaxed  - Online store", 5.0, "Credit", "Shipping Revenue"),
     ]}
     result = compute_sku_revenue([old_format_je], _SKU_REGISTRY)
     assert set(result.keys()) == {"OO-OO-ORG-500"}
@@ -214,41 +253,43 @@ def test_compute_sku_revenue_no_default_when_multiple_active_skus():
         "OO-OO-ORG-500": {"name": "Nonna's Olive Oil (500mL Original)", "status": "active"},
         "OO-OO-COOK-750ML-SHIP": {"name": "Nonna's Olive Oil 750mL Cooking & Sautéing", "status": "active"},
     }
-    old_format_je = {"DocNumber": "A2XSH-01Sep-03Sep-060", "Line": [{
-        "Description": "ProductSalesNotTaxed  - Online store",
-        "Amount": 100.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
+    old_format_je = {"DocNumber": "A2XSH-01Sep-03Sep-060", "Line": [
+        _line("ProductSalesNotTaxed  - Online store", 100.0, "Credit", "Product Revenue – DTC"),
+    ]}
     assert compute_sku_revenue([old_format_je], two_active_registry) == {}
 
 
 def test_compute_sku_revenue_does_not_default_an_unrecognized_sku_segment():
     """A line WITH a SKU-shaped segment that just isn't registered must stay excluded, not get
     swept into the sole active SKU's total - it might genuinely be a different product."""
-    je = {"DocNumber": "A2XSH-01Jul-03Jul-070", "Line": [{
-        "Description": "ProductSalesNotTaxed  - OO-OO-NEW-999 - Online store",
-        "Amount": 100.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
+    je = {"DocNumber": "A2XSH-01Jul-03Jul-070", "Line": [
+        _line("ProductSalesNotTaxed  - OO-OO-NEW-999 - Online store", 100.0, "Credit", "Product Revenue – DTC"),
+    ]}
     assert compute_sku_revenue([je], _SKU_REGISTRY) == {}
 
 
 def test_compute_sku_revenue_ignores_non_a2x_journal_entries():
     """A TikTok/LinkMyBooks (or any non-A2X) entry must never contribute here, even if its
-    Description text happens to match the "TYPE - SKU - suffix" shape by coincidence - only
-    A2XSH-/A2XUS- DocNumber prefixes are trusted as this parser's actual source format."""
-    non_a2x_je = {"DocNumber": "LMB-TT-01Aug-200", "Line": [{
-        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - TikTok Shop",
-        "Amount": 999.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
+    Description text happens to match the "TYPE - SKU - suffix" shape by coincidence and even if
+    it were somehow tagged onto the right account/class - only A2XSH-/A2XUS- DocNumber prefixes
+    are trusted as this parser's actual source format."""
+    non_a2x_je = {"DocNumber": "LMB-TT-01Aug-200", "Line": [
+        _line("ProductSalesNotTaxed  - OO-OO-ORG-500 - TikTok Shop", 999.0, "Credit", "Product Revenue – DTC"),
+    ]}
     assert compute_sku_revenue([non_a2x_je], _SKU_REGISTRY) == {}
 
 
 def test_compute_sku_revenue_ignores_journal_entry_with_no_docnumber():
-    no_doc_je = {"Line": [{
-        "Description": "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store",
-        "Amount": 10.0,
-        "JournalEntryLineDetail": {"PostingType": "Credit"},
-    }]}
+    no_doc_je = {"Line": [
+        _line("ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store", 10.0, "Credit", "Product Revenue – DTC"),
+    ]}
     assert compute_sku_revenue([no_doc_je], _SKU_REGISTRY) == {}
+
+
+def test_compute_sku_revenue_ignores_lines_on_unrelated_accounts():
+    """Fees, COGS, and other non-revenue/discount/refund accounts must not count even if they
+    happen to carry an A2X-shaped Description and ClassRef=DTC."""
+    je = {"DocNumber": "A2XSH-01Jul-03Jul-090", "Line": [
+        _line("ShopifyFee  - OO-OO-ORG-500 - Online store", 5.0, "Debit", "Shopify Transaction Fees"),
+    ]}
+    assert compute_sku_revenue([je], _SKU_REGISTRY) == {}
