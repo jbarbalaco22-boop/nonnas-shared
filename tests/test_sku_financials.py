@@ -1,7 +1,11 @@
 """Tests for sku_financials.py, using the real line data from a live test JournalEntry
 (ID 3887, DocNumber A2XSH-10Aug-12Aug-281, 2026-08-18) rather than invented fixtures - the
 whole point of this module is parsing a real, unstructured text format correctly."""
-from nonnas_shared.connectors.sku_financials import _parse_line_description, compute_sku_revenue
+from nonnas_shared.connectors.sku_financials import (
+    _parse_line_description,
+    compute_sku_revenue,
+    sole_active_sku_as_of,
+)
 
 _SKU_REGISTRY = {
     "OO-OO-ORG-500": {"name": "Nonna's Olive Oil (500mL Original)", "status": "active"},
@@ -293,3 +297,49 @@ def test_compute_sku_revenue_ignores_lines_on_unrelated_accounts():
         _line("ShopifyFee  - OO-OO-ORG-500 - Online store", 5.0, "Debit", "Shopify Transaction Fees"),
     ]}
     assert compute_sku_revenue([je], _SKU_REGISTRY) == {}
+
+
+# ---- Per-transaction-date fallback (a second SKU's launch must not retroactively make older,
+# unambiguous transactions ambiguous) - the real scenario: OO-OO-ORG-501 (a 3-pack of the same
+# product) went active 2026-08-14, confirmed against its first real order. ----
+
+_TWO_SKU_REGISTRY = {
+    "OO-OO-ORG-500": {"name": "Nonna's Olive Oil (500mL Original)", "status": "active"},
+    "OO-OO-ORG-501": {"name": "Nonna's Olive Oil (500mL Original, 3-Pack)", "status": "active", "active_since": "2026-08-14"},
+}
+
+
+def test_sole_active_sku_as_of_before_second_sku_launches():
+    assert sole_active_sku_as_of(_TWO_SKU_REGISTRY, "2026-08-13") == "OO-OO-ORG-500"
+
+
+def test_sole_active_sku_as_of_on_and_after_second_sku_launches():
+    assert sole_active_sku_as_of(_TWO_SKU_REGISTRY, "2026-08-14") is None
+    assert sole_active_sku_as_of(_TWO_SKU_REGISTRY, "2026-09-01") is None
+
+
+def test_sole_active_sku_as_of_missing_active_since_means_always_active():
+    registry = {"OO-OO-ORG-500": {"name": "x", "status": "active"}}
+    assert sole_active_sku_as_of(registry, "2020-01-01") == "OO-OO-ORG-500"
+
+
+def test_compute_sku_revenue_still_defaults_for_old_transaction_after_second_sku_registered():
+    """A July JE, dated well before OO-OO-ORG-501's 2026-08-14 launch, must still default to
+    OO-OO-ORG-500 even though the registry now has two active SKUs - the July JE's own TxnDate
+    makes it unambiguous, regardless of what's true today."""
+    je = {
+        "DocNumber": "A2XSH-01Jul-03Jul-050", "TxnDate": "2026-07-02",
+        "Line": [_line("ProductSalesNotTaxed  - Online store", 100.0, "Credit", "Product Revenue – DTC")],
+    }
+    result = compute_sku_revenue([je], _TWO_SKU_REGISTRY)
+    assert result["OO-OO-ORG-500"]["revenue"] == 100.0
+
+
+def test_compute_sku_revenue_no_default_for_transaction_on_or_after_second_sku_launch():
+    """A JE dated on/after OO-OO-ORG-501's launch is genuinely ambiguous - both SKUs were active
+    by then, so a segment-less line must be excluded, not guessed."""
+    je = {
+        "DocNumber": "A2XSH-14Aug-16Aug-200", "TxnDate": "2026-08-15",
+        "Line": [_line("ProductSalesNotTaxed  - Online store", 100.0, "Credit", "Product Revenue – DTC")],
+    }
+    assert compute_sku_revenue([je], _TWO_SKU_REGISTRY) == {}

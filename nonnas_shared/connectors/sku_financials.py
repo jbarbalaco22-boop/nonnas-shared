@@ -29,10 +29,22 @@ revenue posting was turned on in the connector settings (2026-08-ish). Entries f
 have no SKU segment at all - just "ProductSalesNotTaxed  - Online store", two segments instead
 of three. Since OO-OO-ORG-500 was the sole real, active SKU for all of that history (per
 sku_map.json), any revenue/discount/refund line with no SKU segment present defaults to the
-registry's one "active" SKU, if there's exactly one - see _parse_line_description's "no segment
-at all" vs "an unrecognized SKU-shaped segment" distinction below; only the former defaults. Once
-a second SKU goes active, this default turns itself off automatically (ambiguous who a
-segment-less line belongs to) rather than needing a manual date cutoff.
+registry's sole SKU that was active as of that line's own transaction date (JournalEntry
+TxnDate) - see _parse_line_description's "no segment at all" vs "an unrecognized SKU-shaped
+segment" distinction below; only the former defaults.
+
+This is deliberately per-transaction-date, not a single global snapshot of today's registry:
+OO-OO-ORG-501 (a 3-pack of the same product) went active 2026-08-14, confirmed against its first
+real order. A global "how many SKUs are active right now" check would have made every
+segment-less line ever posted - including years of unambiguous 2024/2025 history - suddenly
+excluded the moment that second SKU was registered, which would be wrong: those old transactions
+predate the second SKU's existence entirely and are not actually ambiguous. Each SKU's
+"active_since" field in sku_map.json (a date string, or absent/"" meaning "always has been
+active" for OO-OO-ORG-500, whose exact original launch date isn't independently verified) is
+what makes this comparison possible. A transaction only gets the default when exactly one
+registered SKU's active_since is on or before that transaction's own date - so the default keeps
+working correctly for old data forever, and correctly stops applying only to transactions dated
+on/after a second SKU's real launch.
 
 Known residual gap: a line shaped "TYPE  - Online store - some_reason" (three segments, but the
 middle one is "Online store"/a checkout type rather than a SKU - seen on
@@ -97,8 +109,21 @@ def _parse_line_description(description: str, known_skus: set) -> dict:
     return {"type": txn_type, "sku": None, "suffix": rest, "no_sku_segment": True}
 
 
-def _sole_active_sku(sku_registry: dict) -> str | None:
-    active = [sku for sku, info in sku_registry.items() if info.get("status") == "active"]
+def sole_active_sku_as_of(sku_registry: dict, as_of_date: str) -> str | None:
+    """Returns the one SKU that was active as of as_of_date (an ISO "YYYY-MM-DD" string), or
+    None if zero or more than one were. A SKU with no "active_since" field is treated as always
+    having been active (compares as "" - before any real date). Date comparison is plain string
+    comparison, which works correctly for ISO-format dates.
+
+    This is what makes the pre-SKU-posting fallback (see this module's docstring) safe to use
+    forever, not just until a second SKU launches: each transaction is checked against what was
+    true on ITS OWN date, so a new SKU's later launch never retroactively makes older,
+    unambiguous transactions ambiguous.
+    """
+    active = [
+        sku for sku, info in sku_registry.items()
+        if info.get("status") == "active" and info.get("active_since", "") <= as_of_date
+    ]
     return active[0] if len(active) == 1 else None
 
 
@@ -128,17 +153,18 @@ def compute_sku_revenue(journal_entries: list, sku_registry: dict) -> dict:
     stays correct even if a correction or reversal entry ever posts with the "wrong" direction.
 
     Lines with no SKU segment at all (pre-SKU-posting history - see this module's docstring)
-    default to the registry's sole "active" SKU when there's exactly one. Once a second SKU goes
-    active this stops happening automatically - a segment-less line is then genuinely ambiguous.
+    default to whichever SKU was the registry's sole active one as of that JournalEntry's own
+    TxnDate - not a single global snapshot, so an older, unambiguous transaction never becomes
+    excluded just because a second SKU has since launched.
     """
     known_skus = set(sku_registry.keys())
-    fallback_sku = _sole_active_sku(sku_registry)
     result: dict = {}
 
     for je in journal_entries:
         doc_number = je.get("DocNumber", "") or ""
         if not doc_number.startswith(_A2X_DOCNUMBER_PREFIXES):
             continue
+        fallback_sku = sole_active_sku_as_of(sku_registry, je.get("TxnDate", ""))
         for line in je.get("Line", []):
             detail = line.get("JournalEntryLineDetail", {})
             account_name = detail.get("AccountRef", {}).get("name", "")
