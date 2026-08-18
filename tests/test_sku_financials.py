@@ -93,7 +93,10 @@ def test_parses_product_sales_line_with_known_sku():
     result = _parse_line_description(
         "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store", {"OO-OO-ORG-500"}
     )
-    assert result == {"type": "ProductSalesNotTaxed", "sku": "OO-OO-ORG-500", "suffix": "Online store"}
+    assert result == {
+        "type": "ProductSalesNotTaxed", "sku": "OO-OO-ORG-500", "suffix": "Online store",
+        "no_sku_segment": False,
+    }
 
 
 def test_parses_discount_line_with_known_sku():
@@ -118,6 +121,15 @@ def test_unregistered_sku_not_recognized():
         "ProductSalesNotTaxed  - OO-OO-NEW-999 - Online store", {"OO-OO-ORG-500"}
     )
     assert result["sku"] is None
+    assert result["no_sku_segment"] is False  # a segment IS present, just unrecognized - never
+    # defaulted to the sole active SKU, unlike a genuinely segment-less old-format line.
+
+
+def test_pre_sku_posting_line_has_no_segment_at_all():
+    """Old-format description, from before A2X started embedding SKU in the text at all."""
+    result = _parse_line_description("ProductSalesNotTaxed  - Online store", {"OO-OO-ORG-500"})
+    assert result["sku"] is None
+    assert result["no_sku_segment"] is True
 
 
 def test_settlement_balance_line_has_no_type_match_issue():
@@ -164,6 +176,61 @@ def test_compute_sku_revenue_sums_across_multiple_journal_entries():
 
 def test_compute_sku_revenue_empty_input_gives_empty_dict():
     assert compute_sku_revenue([], _SKU_REGISTRY) == {}
+
+
+def test_compute_sku_revenue_defaults_pre_sku_posting_lines_to_sole_active_sku():
+    """Old-format July JE, from before A2X started embedding SKU in the Description text at
+    all - two segments, not three. OO-OO-ORG-500 is the only real SKU that could have sold in
+    that period (only one active SKU in the registry), so this must default to it rather than
+    getting silently dropped."""
+    old_format_je = {"DocNumber": "A2XSH-01Jul-03Jul-050", "Line": [
+        {
+            "Description": "ProductSalesNotTaxed  - Online store",
+            "Amount": 100.0,
+            "JournalEntryLineDetail": {"PostingType": "Credit"},
+        },
+        {
+            "Description": "DiscountNotTaxed  - Online store",
+            "Amount": 10.0,
+            "JournalEntryLineDetail": {"PostingType": "Debit"},
+        },
+        {
+            "Description": "ShippingNotTaxed  - Online store",
+            "Amount": 5.0,
+            "JournalEntryLineDetail": {"PostingType": "Credit"},
+        },
+    ]}
+    result = compute_sku_revenue([old_format_je], _SKU_REGISTRY)
+    assert set(result.keys()) == {"OO-OO-ORG-500"}
+    assert result["OO-OO-ORG-500"]["revenue"] == 100.0
+    assert result["OO-OO-ORG-500"]["discounts"] == -10.0
+    assert result["OO-OO-ORG-500"]["net"] == 90.0  # shipping still excluded either way
+
+
+def test_compute_sku_revenue_no_default_when_multiple_active_skus():
+    """Once a second SKU goes active, a segment-less line is genuinely ambiguous - don't guess
+    which one it belongs to. The fallback must turn itself off automatically here."""
+    two_active_registry = {
+        "OO-OO-ORG-500": {"name": "Nonna's Olive Oil (500mL Original)", "status": "active"},
+        "OO-OO-COOK-750ML-SHIP": {"name": "Nonna's Olive Oil 750mL Cooking & Sautéing", "status": "active"},
+    }
+    old_format_je = {"DocNumber": "A2XSH-01Sep-03Sep-060", "Line": [{
+        "Description": "ProductSalesNotTaxed  - Online store",
+        "Amount": 100.0,
+        "JournalEntryLineDetail": {"PostingType": "Credit"},
+    }]}
+    assert compute_sku_revenue([old_format_je], two_active_registry) == {}
+
+
+def test_compute_sku_revenue_does_not_default_an_unrecognized_sku_segment():
+    """A line WITH a SKU-shaped segment that just isn't registered must stay excluded, not get
+    swept into the sole active SKU's total - it might genuinely be a different product."""
+    je = {"DocNumber": "A2XSH-01Jul-03Jul-070", "Line": [{
+        "Description": "ProductSalesNotTaxed  - OO-OO-NEW-999 - Online store",
+        "Amount": 100.0,
+        "JournalEntryLineDetail": {"PostingType": "Credit"},
+    }]}
+    assert compute_sku_revenue([je], _SKU_REGISTRY) == {}
 
 
 def test_compute_sku_revenue_ignores_non_a2x_journal_entries():
