@@ -8,6 +8,7 @@ from nonnas_shared.connectors.channel_financials import (
     compute_channel_margin,
     compute_company_totals,
     compute_expense_totals,
+    compute_net_income,
     compute_net_sales_by_channel,
     compute_revenue_concentration,
 )
@@ -267,3 +268,45 @@ def test_company_totals_zero_denominators_give_none_not_zero():
     assert result["discount_rate"] is None
     assert result["refund_rate"] is None
     assert result["roas"] is None
+
+
+def test_net_income_computes_from_section_totals():
+    pl_data = {
+        "Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}},
+        "COGS": {"51100 Bulk Olive Oil - Raw": {"DTC": 300.0}},
+        "Expenses": {
+            "61100 Meta Ads": {"Not Specified": 100.0},
+            "71100 Founder Comp": {"Not Specified": 400.0},
+        },
+        "OtherIncome": {"90900 Interest Income": {"Not Specified": 10.0}},
+    }
+    result = compute_net_income(pl_data)
+    assert result["income"] == 1000.0
+    assert result["cogs"] == 300.0
+    assert result["expenses"] == 500.0
+    assert result["other_income"] == 10.0
+    assert result["net_income"] == 210.0  # 1000 - 300 - 500 + 10
+
+
+def test_net_income_missing_sections_default_to_zero():
+    result = compute_net_income({"Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}}})
+    assert result["cogs"] == 0.0
+    assert result["expenses"] == 0.0
+    assert result["other_income"] == 0.0
+    assert result["net_income"] == 1000.0
+
+
+def test_net_income_captures_costs_not_in_any_channel_bucket():
+    """This is the whole point of computing net_income structurally rather than as
+    contribution minus a hand-maintained overhead account list: a G&A account nobody added to
+    qbo_account_map.json (or ad spend explicitly left unallocated, like Paid Collaborations)
+    must still reduce net_income correctly, without needing its own account_map entry."""
+    pl_data = {
+        "Income": {"41100 Product Revenue - DTC": {"DTC": 1000.0}},
+        "Expenses": {
+            "61130 Paid Collaborations": {"Not Specified": 200.0},  # deliberately unallocated in ads
+            "99999 Some Brand New Overhead Account": {"Not Specified": 50.0},  # not in any list at all
+        },
+    }
+    result = compute_net_income(pl_data)
+    assert result["net_income"] == 750.0  # 1000 - 200 - 50, both captured despite no account_map entry

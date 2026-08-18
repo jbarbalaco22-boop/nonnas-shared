@@ -24,6 +24,39 @@ def _sum_accounts(pl_data: dict, names: list[str], tagged_class: str | None) -> 
     return total
 
 
+def sum_section(pl_data: dict, section: str) -> float:
+    """Sums every account's total (across all Class columns) within one top-level P&L section
+    (e.g. "Income", "COGS", "Expenses", "OtherIncome"). Unlike _sum_accounts, this doesn't take
+    an explicit account name list - it picks up whatever QBO reports under that section, so a
+    new G&A account added in QBO is captured automatically without an account_map update.
+    Returns 0.0 if the section isn't present in this pull (e.g. no Other Income that period).
+    """
+    section_data = pl_data.get(section, {})
+    return sum(sum(class_values.values()) for class_values in section_data.values())
+
+
+def compute_net_income(pl_data: dict) -> dict:
+    """Returns {income, cogs, expenses, other_income, net_income} - the company-wide bottom
+    line, computed structurally from the P&L's own section totals (Income - COGS - Expenses +
+    Other Income) rather than re-derived from channel-level attribution. This is deliberate:
+    it guarantees net_income always reconciles to QBO's own Net Income line regardless of how
+    complete the channel-level ads/fees/other_marketing allocation is (unallocated ad spend,
+    Not-Specified-tagged 3PL, and every G&A account not in the account map all still land here
+    correctly, without needing their own explicit account list).
+    """
+    income = sum_section(pl_data, "Income")
+    cogs = sum_section(pl_data, "COGS")
+    expenses = sum_section(pl_data, "Expenses")
+    other_income = sum_section(pl_data, "OtherIncome") - sum_section(pl_data, "OtherExpenses")
+    return {
+        "income": income,
+        "cogs": cogs,
+        "expenses": expenses,
+        "other_income": other_income,
+        "net_income": income - cogs - expenses + other_income,
+    }
+
+
 def compute_net_sales_by_channel(pl_data: dict, account_map: dict | None = None) -> dict:
     """Returns {'net_sales': {channel: amount}, 'warnings': [str, ...]}.
 
