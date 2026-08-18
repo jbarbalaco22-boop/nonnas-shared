@@ -110,6 +110,42 @@ def compute_expense_totals(pl_data: dict, account_map: dict | None = None) -> di
     }
 
 
+def compute_overhead_by_account(pl_data: dict, account_map: dict | None = None) -> list[dict]:
+    """Returns [{"label": account_name, "amount": total}], sorted by amount descending, for
+    every Expenses-section account NOT already claimed by a channel-level bucket (cogs,
+    three_pl, ads, fees, other_marketing) - i.e. the same set of accounts that make up the
+    residual "Overhead" figure used elsewhere (Net Income = Contribution - Overhead), broken
+    out per account instead of collapsed into one number. This is what "recurring fixed costs"
+    means for this business: payroll, payroll taxes, benefits, software, legal, accounting,
+    bank fees, and the handful of marketing-adjacent accounts the business chose to keep out of
+    channel-level contribution (see qbo_account_map.json's excluded_from_v1).
+
+    Cross-validated against the residual for a live 90-day pull (2026-08-18): this function's
+    sum (60,568.00) landed within ~3% of contribution-minus-net-income (62,472.97) - the gap is
+    Other Income/Expense section activity, which this function deliberately excludes since
+    those aren't Expenses-section line items and don't belong in a "typical monthly cost" read.
+    """
+    account_map = account_map or load_qbo_account_map()
+    claimed: set[str] = set()
+    claimed.update(account_map.get("cogs", []))
+    claimed.update(account_map.get("three_pl", []))
+    claimed.update(account_map.get("ads", {}).get("accounts", []))
+    for accounts in account_map.get("fees", {}).values():
+        claimed.update(accounts if isinstance(accounts, list) else [accounts])
+    for accounts in account_map.get("other_marketing", {}).get("by_channel", {}).values():
+        claimed.update(accounts)
+
+    results = []
+    for label, class_values in pl_data.get("Expenses", {}).items():
+        if any(_matches(label, c) for c in claimed):
+            continue
+        total = sum(class_values.values())
+        if total:
+            results.append({"label": label, "amount": total})
+    results.sort(key=lambda r: r["amount"], reverse=True)
+    return results
+
+
 def compute_channel_margin(pl_data: dict, channel: str, account_map: dict | None = None) -> dict:
     """Returns {net_sales, cogs, three_pl, ads, fees, other_marketing, contribution,
     contribution_pct} for one channel (channel is a display name — "DTC", "TikTok", "Amazon",

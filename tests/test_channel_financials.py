@@ -10,6 +10,7 @@ from nonnas_shared.connectors.channel_financials import (
     compute_expense_totals,
     compute_net_income,
     compute_net_sales_by_channel,
+    compute_overhead_by_account,
     compute_revenue_concentration,
 )
 
@@ -310,3 +311,38 @@ def test_net_income_captures_costs_not_in_any_channel_bucket():
     }
     result = compute_net_income(pl_data)
     assert result["net_income"] == 750.0  # 1000 - 200 - 50, both captured despite no account_map entry
+
+
+def test_overhead_by_account_excludes_channel_allocated_accounts():
+    pl_data = {
+        "Expenses": {
+            "51100 Bulk Olive Oil - Raw": {"Not Specified": 1000.0},  # cogs - excluded
+            "61100 Meta Ads": {"Not Specified": 500.0},  # ads - excluded
+            "55100 Shopify Transaction Fees": {"Not Specified": 50.0},  # fees - excluded
+            "63100 Email & SMS Marketing": {"Not Specified": 75.0},  # other_marketing - excluded
+            "71100 Founder/Officer Compensation": {"Not Specified": 5000.0},  # not claimed - kept
+            "84100 Legal Fees": {"Not Specified": 200.0},  # not claimed - kept
+        }
+    }
+    account_map = {
+        "cogs": ["51100 Bulk Olive Oil - Raw"],
+        "three_pl": [],
+        "ads": {"accounts": ["61100 Meta Ads"]},
+        "fees": {"dtc": ["55100 Shopify Transaction Fees"]},
+        "other_marketing": {"by_channel": {"DTC": ["63100 Email & SMS Marketing"]}},
+    }
+    result = compute_overhead_by_account(pl_data, account_map)
+    labels = {r["label"] for r in result}
+    assert labels == {"71100 Founder/Officer Compensation", "84100 Legal Fees"}
+
+
+def test_overhead_by_account_sorted_descending_and_skips_zero():
+    pl_data = {
+        "Expenses": {
+            "84100 Legal Fees": {"Not Specified": 200.0},
+            "71100 Founder/Officer Compensation": {"Not Specified": 5000.0},
+            "86100 Bank Fees": {"Not Specified": 0.0},
+        }
+    }
+    result = compute_overhead_by_account(pl_data, {})
+    assert [r["label"] for r in result] == ["71100 Founder/Officer Compensation", "84100 Legal Fees"]

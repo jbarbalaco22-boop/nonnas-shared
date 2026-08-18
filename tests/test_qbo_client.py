@@ -81,7 +81,11 @@ def test_skips_rows_with_no_label():
 
 # ---- GeneralLedger balance/transaction walking (for Cash & Runway - combined bank balance) ----
 from nonnas_shared.connectors import qbo_client
-from nonnas_shared.connectors.qbo_client import _walk_gl_balance_rows, _walk_gl_detail_rows
+from nonnas_shared.connectors.qbo_client import (
+    _walk_gl_balance_rows,
+    _walk_gl_detail_rows,
+    _walk_gl_detail_rows_multi,
+)
 
 
 def _gl_summary_row(label, balance, nested_rows=None):
@@ -198,4 +202,51 @@ def test_fetch_gl_account_transactions_via_mocked_get(monkeypatch):
     assert result == [
         {"date": "2026-07-30", "amount": 5391.65},
         {"date": "2026-08-13", "amount": 5391.65},
+    ]
+
+
+def test_walk_gl_detail_rows_multi_collects_all_matching_accounts():
+    """Unlike _walk_gl_detail_rows (single account, early-returns on first match),
+    _walk_gl_detail_rows_multi must keep collecting across every account that matches any of
+    the given prefixes - this is what lets one GeneralLedger pull replace several
+    single-account fetch_gl_account_balance calls."""
+    rows = [
+        _gl_detail_section("11100 Chase Operating Bank Account", [("2026-08-01", 1000.0, 1000.0)]),
+        _gl_detail_section("11110 Highbeam Checking", [("2026-08-02", 500.0, 500.0)]),
+        _gl_detail_section("55100 Shopify Transaction Fees", [("2026-08-03", -12.34, 100.0)]),
+    ]
+    sink: list = []
+    _walk_gl_detail_rows_multi(rows, ("11100 Chase Operating Bank Account", "11110 Highbeam Checking"), sink)
+    assert sink == [
+        {"date": "2026-08-01", "amount": 1000.0},
+        {"date": "2026-08-02", "amount": 500.0},
+    ]
+
+
+def test_walk_gl_detail_rows_multi_recurses_into_nested_group_sections():
+    nested = [_gl_detail_section("11120 Highbeam High Yield Savings", [("2026-08-05", 250.0, 250.0)])]
+    rows = [{"Header": {"ColData": [{"value": "Bank Accounts"}]}, "Rows": {"Row": nested}}]
+    sink: list = []
+    _walk_gl_detail_rows_multi(rows, ("11120 Highbeam High Yield Savings",), sink)
+    assert sink == [{"date": "2026-08-05", "amount": 250.0}]
+
+
+def test_fetch_gl_account_transactions_multi_via_mocked_get(monkeypatch):
+    def fake_get(realm_id, access_token, environment, path, params):
+        assert path == "reports/GeneralLedger"
+        return {"Rows": {"Row": [
+            _gl_detail_section("11100 Chase Operating Bank Account", [("2026-08-01", 1000.0, 1000.0)]),
+            _gl_detail_section("11110 Highbeam Checking", [("2026-08-02", 500.0, 500.0)]),
+        ]}}
+
+    monkeypatch.setattr(qbo_client, "_get", fake_get)
+    from datetime import date
+    result = qbo_client.fetch_gl_account_transactions_multi(
+        "realm", "token",
+        ["11100 Chase Operating Bank Account", "11110 Highbeam Checking"],
+        date(2020, 1, 1), date(2026, 8, 18),
+    )
+    assert result == [
+        {"date": "2026-08-01", "amount": 1000.0},
+        {"date": "2026-08-02", "amount": 500.0},
     ]

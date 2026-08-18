@@ -112,6 +112,16 @@
     "11120 Highbeam High Yield Savings",
     "11170 Petty Cash"
   ],
+  "financing": {
+    "accounts": [
+      "26100 Loans Payable",
+      "26200 Convertible Notes / SAFEs",
+      "33000 Common Stock",
+      "33100 Preferred Stock",
+      "34000 Additional Paid In Capital"
+    ],
+    "note": "Equity/debt financing accounts - excluded from the Cash & Runway tab's operating burn rate. Confirmed live (2026-08-18): two SAFE investments (Harry Lott $25,000 on 2026-07-20, Brad Klontz $25,000 on 2026-08-11) landed in '34000 Additional Paid In Capital' within the trailing 90-day window used for burn/runway, both correctly classified. Left in the raw cash-balance change, this $50,000 of new investment makes operating burn look roughly half what it actually is - it's real cash in the bank, but it's not revenue covering costs, so it shouldn't make runway look longer."
+  },
   "excluded_from_v1": {
     "accounts": [
       "62100-62400 video/photo/creative/UGC",

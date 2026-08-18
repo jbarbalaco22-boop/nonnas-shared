@@ -135,6 +135,54 @@ def fetch_gl_account_transactions(
     return transactions
 
 
+def _walk_gl_detail_rows_multi(rows: list, account_prefixes: tuple, sink: list) -> None:
+    for row in rows:
+        header = row.get("Header", {}).get("ColData", [])
+        if header and (header[0].get("value") or "").strip().startswith(account_prefixes):
+            for line in row.get("Rows", {}).get("Row", []):
+                col_data = line.get("ColData", [])
+                if len(col_data) < 2:
+                    continue
+                txn_date = col_data[0].get("value", "")
+                amount_raw = col_data[-2].get("value", "")
+                if not txn_date or not amount_raw:
+                    continue
+                try:
+                    sink.append({"date": txn_date, "amount": float(amount_raw)})
+                except ValueError:
+                    continue
+            # No early return here (unlike _walk_gl_detail_rows) - multiple sibling sections can
+            # each match one of account_prefixes, and all of them need collecting.
+        nested_rows = row.get("Rows", {}).get("Row", [])
+        if nested_rows:
+            _walk_gl_detail_rows_multi(nested_rows, account_prefixes, sink)
+
+
+def fetch_gl_account_transactions_multi(
+    realm_id: str, access_token: str, account_prefixes: list[str], start_date: date, end_date: date,
+    environment: str = "production",
+) -> list[dict]:
+    """Same shape as fetch_gl_account_transactions, but combines every account whose label
+    matches ANY of account_prefixes into one flat transaction list from a single GeneralLedger
+    pull - built specifically so a caller can reconstruct a combined balance as of any date in
+    [start_date, end_date] locally (cumulative sum of amounts with date <= that checkpoint)
+    instead of making one fetch_gl_account_balance call per checkpoint date.
+
+    Confirmed equivalent to fetch_gl_account_balance for a given end_date (2026-08-18, bank_cash
+    accounts, start_date=2020-01-01): summing this function's amounts with date <= end_date gave
+    the identical balance to the penny - both are the same underlying GL data, one via QBO's own
+    Summary-row total, the other via manual cumulative summation of the same transaction lines.
+    """
+    report = _get(realm_id, access_token, environment, "reports/GeneralLedger", {
+        "start_date": start_date.isoformat(),
+        "end_date": end_date.isoformat(),
+        "minorversion": 65,
+    })
+    transactions: list = []
+    _walk_gl_detail_rows_multi(report.get("Rows", {}).get("Row", []), tuple(account_prefixes), transactions)
+    return transactions
+
+
 def _walk_pl_rows(rows: list, class_names: list, current_group: str | None, sink: dict) -> None:
     for row in rows:
         group = row.get("group", current_group)
