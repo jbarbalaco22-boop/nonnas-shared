@@ -3,30 +3,42 @@
   "skus": {
     "OO-OO-ORG-500": {
       "name": "Nonna's Olive Oil (500mL Original)",
+      "product": "Nonna's Olive Oil (500mL Original)",
+      "pack_size": 1,
       "status": "active",
       "note": "The sole SKU selling from inception through 2026-08-13 - every unit/revenue figure dated before OO-OO-ORG-501's 2026-08-14 launch is entirely this one. No explicit active_since (treated as always-active) since its exact original launch date isn't independently verified."
     },
     "OO-OO-ORG-501": {
-      "name": "Nonna's Olive Oil (500mL Original, 3-Pack)",
+      "name": "Nonna's Olive Oil (500mL Original) - 3-Pack",
+      "product": "Nonna's Olive Oil (500mL Original)",
+      "pack_size": 3,
       "status": "active",
       "active_since": "2026-08-14",
-      "note": "First real order confirmed live 2026-08-14 (Amazon). active_since must stay in sync with reality - see sku_financials.py's sole_active_sku_as_of for why this date matters beyond documentation."
+      "note": "First real order confirmed live 2026-08-14 (Amazon). active_since must stay in sync with reality - see sku_financials.py's sole_active_sku_as_of for why this date matters beyond documentation. pack_size=3 means each Shopify line-item quantity is 3 real bottles, not 1 - see handlers.get_sku_units_live's docstring."
     },
     "OO-OO-ORG-502": {
-      "name": "Nonna's Olive Oil (500mL Original, 6-Pack)",
+      "name": "Nonna's Olive Oil (500mL Original) - 6-Pack",
+      "product": "Nonna's Olive Oil (500mL Original)",
+      "pack_size": 6,
       "status": "upcoming",
       "note": "No confirmed orders yet as of 2026-08-18 - add active_since (its real first-order date) once it starts selling, same as OO-OO-ORG-501."
     },
     "OO-OO-COOK-750ML-SHIP": {
       "name": "Nonna's Olive Oil 750mL Cooking & Sautéing",
+      "product": "Nonna's Olive Oil 750mL Cooking & Sautéing",
+      "pack_size": 1,
       "status": "upcoming"
     },
     "OO-OO-CHI-250ML-SHIP": {
       "name": "Nonna's Hot EVOO x Lucali (250mL)",
+      "product": "Nonna's Hot EVOO x Lucali (250mL)",
+      "pack_size": 1,
       "status": "upcoming"
     },
     "OO-OO-ORG-750ML-SHIP": {
       "name": "Nonna's Olive Oil 750mL Drizzle & Dipping",
+      "product": "Nonna's Olive Oil 750mL Drizzle & Dipping",
+      "pack_size": 1,
       "status": "upcoming"
     }
   }
