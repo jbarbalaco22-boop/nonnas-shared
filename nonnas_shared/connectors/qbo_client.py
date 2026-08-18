@@ -76,16 +76,18 @@ def fetch_profit_and_loss_by_product(
     """Return {section: {account_label: {product_name: amount}}} - same shape as
     fetch_profit_and_loss_by_class, but grouped by Product/Service (i.e. SKU/Item) instead of
     Class. Same underlying reports/ProfitAndLoss endpoint, just a different
-    summarize_column_by - confirmed working live (2026-08-18) rather than assumed from docs,
-    matching how every other QBO report quirk in this codebase has been verified the hard way.
+    summarize_column_by - confirmed the API itself supports this live (2026-08-18).
 
-    As of 2026-08-18 this returns everything bucketed under "Not Specified", because no
-    transaction line currently carries a Product/Service reference (only one SKU has ever
-    existed, and its revenue/COGS post as Class-tagged summary entries with no Item detail).
-    It should start returning real per-SKU columns once the new SKUs launch, since their
-    Shopify-to-QBO connectors are being set up to carry Item-level detail through - but that
-    real per-SKU behavior has NOT been verified yet and needs a check against the first actual
-    SKU-tagged transaction once one exists.
+    UPDATE (2026-08-18, confirmed against a real test JournalEntry, ID 3887): this will NOT
+    start returning real per-SKU columns even with the new SKUs live. A2X posts every
+    transaction as a JournalEntry, and QBO's JournalEntry line schema has no Item/Product-
+    Service field at all - it structurally cannot carry one, regardless of connector
+    configuration. A2X does embed the SKU in each line's free-text Description instead (e.g.
+    "ProductSalesNotTaxed  - OO-OO-ORG-500 - Online store") - see fetch_journal_entries and
+    sku_financials.compute_sku_revenue for how that's actually recovered. This function is
+    left in place since the API grouping itself is real and may become useful if a connector
+    ever posts Sales Receipts/Invoices instead of Journal Entries, but don't rely on it for
+    SKU-level reporting against the current connector setup.
     """
     report = _get(realm_id, access_token, environment, "reports/ProfitAndLoss", {
         "start_date": start_date.isoformat(),
@@ -100,6 +102,34 @@ def fetch_profit_and_loss_by_product(
     sink: dict = {}
     _walk_pl_rows(report.get("Rows", {}).get("Row", []), product_names, None, sink)
     return sink
+
+
+def fetch_journal_entries(
+    realm_id: str, access_token: str, start_date: date, end_date: date, environment: str = "production"
+) -> list[dict]:
+    """Raw JournalEntry transactions (full Line detail included) for a date range - the only
+    way to recover SKU-level revenue/discount detail from this connector's output, since
+    QBO's JournalEntry schema has no Item/Product-Service field at all (see
+    fetch_profit_and_loss_by_product's docstring). A2X embeds the SKU as plain text in each
+    line's Description instead; see sku_financials.compute_sku_revenue for the parser.
+
+    Paginated (QBO caps a single query response) - safe for any date range, not just short ones.
+    """
+    entries: list[dict] = []
+    start_position = 1
+    page_size = 1000
+    while True:
+        query = (
+            f"SELECT * FROM JournalEntry WHERE TxnDate >= '{start_date.isoformat()}' "
+            f"AND TxnDate <= '{end_date.isoformat()}' STARTPOSITION {start_position} MAXRESULTS {page_size}"
+        )
+        data = _get(realm_id, access_token, environment, "query", {"query": query, "minorversion": 65})
+        batch = data.get("QueryResponse", {}).get("JournalEntry", [])
+        entries.extend(batch)
+        if len(batch) < page_size:
+            break
+        start_position += page_size
+    return entries
 
 
 def fetch_account_balances(
