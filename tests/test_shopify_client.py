@@ -1,7 +1,7 @@
 """Regression coverage for order_revenue_breakdown — the calc that used to be duplicated
 (and buggy) in nonnas-finance-audit's audit.py: subtotalPriceSet is already post-discount
 and pre-tax, so gross/net must not double-subtract the discount or include tax."""
-from nonnas_shared.connectors.shopify_client import order_revenue_breakdown
+from nonnas_shared.connectors.shopify_client import is_first_order, order_revenue_breakdown
 
 
 def _order(subtotal, shipping, discounts, refunds):
@@ -32,3 +32,25 @@ def test_no_discount_no_refund():
 def test_full_refund_zeroes_out_net():
     result = order_revenue_breakdown(_order(24.30, 0.0, 8.70, 24.30))
     assert result["net"] == 0.0
+
+
+def test_is_first_order_true_when_this_order_is_the_customers_earliest():
+    order = {"id": "gid://shopify/Order/1", "customer": {"id": "gid://shopify/Customer/1",
+              "orders": {"nodes": [{"id": "gid://shopify/Order/1"}]}}}
+    assert is_first_order(order) is True
+
+
+def test_is_first_order_false_when_an_earlier_order_exists():
+    order = {"id": "gid://shopify/Order/2", "customer": {"id": "gid://shopify/Customer/1",
+              "orders": {"nodes": [{"id": "gid://shopify/Order/1"}]}}}
+    assert is_first_order(order) is False
+
+
+def test_is_first_order_none_when_no_customer_attached():
+    order = {"id": "gid://shopify/Order/3", "customer": None}
+    assert is_first_order(order) is None
+
+
+def test_is_first_order_none_when_customer_has_no_orders_returned():
+    order = {"id": "gid://shopify/Order/4", "customer": {"id": "gid://shopify/Customer/1", "orders": {"nodes": []}}}
+    assert is_first_order(order) is None
