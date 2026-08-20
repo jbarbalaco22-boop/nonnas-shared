@@ -96,6 +96,44 @@ def compute_net_sales_by_channel(pl_data: dict, account_map: dict | None = None)
     return {"net_sales": results, "warnings": warnings}
 
 
+_BLENDED_MARKETING_EXTRA_ACCOUNTS = ["62300 Creative Agency Fees", "63110 Attribution Tools"]
+
+
+def compute_blended_marketing_spend(pl_data: dict, account_map: dict | None = None) -> dict:
+    """Returns {"ads", "other_marketing", "creative_and_attribution", "total"} — company-wide
+    marketing spend for a BLENDED (not per-channel) CAC, built at the business's request
+    (2026-08-19) after per-channel CAC (ads only) was found to silently exclude real spend.
+
+    Creative Agency Fees and Attribution Tools are deliberately kept out of channel-level
+    contribution margin (see qbo_account_map.json's excluded_from_v1) because neither is
+    attributable to one channel - which made them invisible in every channel's CAC, not absent
+    from just one. A blended, company-wide CAC sidesteps that allocation problem entirely by not
+    needing to attribute spend to a channel at all, so both are included here even though
+    compute_channel_margin still (correctly, for its own purpose) leaves them out.
+
+    Includes all 7 ads.accounts (the 2 currently channel-unallocated ones too), every
+    other_marketing account (currently DTC-only), and the two named excluded_from_v1 accounts
+    that are unambiguously marketing spend. Deliberately excludes 72110 Sales Brokers/Wholesale
+    (a channel-specific sales commission, not marketing spend) and the "62100-62400" range note
+    in excluded_from_v1 (a category placeholder, not a real account name - nothing to sum).
+    """
+    account_map = account_map or load_qbo_account_map()
+    other_marketing_accounts = [
+        acct
+        for accts in account_map.get("other_marketing", {}).get("by_channel", {}).values()
+        for acct in accts
+    ]
+    ads = _sum_accounts(pl_data, account_map.get("ads", {}).get("accounts", []), None)
+    other_marketing = _sum_accounts(pl_data, other_marketing_accounts, None)
+    creative_and_attribution = _sum_accounts(pl_data, _BLENDED_MARKETING_EXTRA_ACCOUNTS, None)
+    return {
+        "ads": ads,
+        "other_marketing": other_marketing,
+        "creative_and_attribution": creative_and_attribution,
+        "total": ads + other_marketing + creative_and_attribution,
+    }
+
+
 def compute_expense_totals(pl_data: dict, account_map: dict | None = None) -> dict:
     """Returns {'cogs': amount, 'three_pl': amount, 'ads': amount} — company-wide,
     not split by channel (per the account map, none of the ad accounts are tagged by

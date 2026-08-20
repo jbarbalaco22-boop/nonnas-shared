@@ -4,6 +4,7 @@ within the Income section, so they must be ADDED (not subtracted again) to
 correctly reduce gross revenue down to net sales."""
 from nonnas_shared.config import load_qbo_account_map
 from nonnas_shared.connectors.channel_financials import (
+    compute_blended_marketing_spend,
     compute_channel_health_metrics,
     compute_channel_margin,
     compute_company_totals,
@@ -97,6 +98,32 @@ def test_expense_totals_sum_across_classes():
     assert result["cogs"] == 500.0
     assert result["three_pl"] == 150.0
     assert result["ads"] == 0.0
+
+
+def test_blended_marketing_spend_includes_unallocated_ads_and_creative_fees():
+    """The exact gap this function exists to close: per-channel CAC (ads.by_channel only) missed
+    Creative Agency Fees, Attribution Tools, and the two channel-unallocated ad accounts entirely -
+    a blended figure has no allocation problem to solve, so it can include all of them."""
+    pl_data = {
+        "Expenses": {
+            "61100 Meta Ads": {"Not Specified": 500.0},
+            "61130 Paid Collaborations": {"Not Specified": 100.0},  # unallocated - missed by per-channel ads
+            "61140 Affiliate Commissions": {"Not Specified": 50.0},  # unallocated - missed by per-channel ads
+            "63100 Email & SMS Marketing": {"DTC": 75.0},
+            "62300 Creative Agency Fees": {"Not Specified": 300.0},  # excluded_from_v1 - missed entirely before
+            "63110 Attribution Tools": {"Not Specified": 120.0},  # excluded_from_v1 - missed entirely before
+            "72110 Sales Brokers / Wholesale": {"Wholesale": 1000.0},  # deliberately NOT marketing spend
+        },
+    }
+    account_map = {
+        "ads": {"accounts": ["61100 Meta Ads", "61130 Paid Collaborations", "61140 Affiliate Commissions"]},
+        "other_marketing": {"by_channel": {"DTC": ["63100 Email & SMS Marketing"]}},
+    }
+    result = compute_blended_marketing_spend(pl_data, account_map)
+    assert result["ads"] == 650.0
+    assert result["other_marketing"] == 75.0
+    assert result["creative_and_attribution"] == 420.0
+    assert result["total"] == 1145.0  # 72110 Sales Brokers excluded - not in any bucket summed here
 
 
 def _margin_account_map() -> dict:
